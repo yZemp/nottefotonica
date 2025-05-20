@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byrl18eulg1aa"]
+
+[ext_resource type="PackedScene" uid="uid://dksqonrjovedo" path="res://Assets/Guns/Scrausa/9mm_pistol.glb" id="1_0odyq"]
+
+[node name="Scrausa" instance=ExtResource("1_0odyq")]
+
+[node name="Cube_005" parent="Sketchfab_model/9mmPistol_fbx/RootNode" index="0"]
+transform = Transform3D(-8.74228e-07, 20, 8.74228e-07, 0, -8.74228e-07, 20, 20, 8.74228e-07, 3.82137e-14, 0, 0, 0)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qja5n7w1ldgc"]
+
+[ext_resource type="PackedScene" uid="uid://bc8lwxps7bskg" path="res://Assets/Guns/P69/tpm_smg.glb" id="1_m63ee"]
+
+[node name="P69" instance=ExtResource("1_m63ee")]
+
+[node name="Object" parent="Sketchfab_model/MP_smg_nine_fbx/RootNode" index="0"]
+transform = Transform3D(-8.74228e-07, 20, 8.74228e-07, 0, -8.74228e-07, 20, 20, 8.74228e-07, 3.82137e-14, 7.30772, 4.97103, -34.3931)

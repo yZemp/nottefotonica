@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bma0c0u3l3ucc"]
+
+[ext_resource type="Script" uid="uid://dgvv4fmehik48" path="res://Scripts/PlayerController.gd" id="1_rd8vp"]
+[ext_resource type="PackedScene" uid="uid://byrl18eulg1aa" path="res://Scenes/scrausa.tscn" id="2_5ur5x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ur5x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dl1v4"]
+
+[node name="PlayerController" type="CharacterBody3D"]
+script = ExtResource("1_rd8vp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5ur5x")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
+mesh = SubResource("CapsuleMesh_dl1v4")
+skeleton = NodePath("../..")
+
+[node name="CameraMount" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 0.999957, -0.00923261, 0, 0.00923261, 0.999957, 0, 0.723756, 0.0920268)
+
+[node name="HandMount" type="Node3D" parent="."]
+
+[node name="Scrausa" parent="HandMount" instance=ExtResource("2_5ur5x")]
+transform = Transform3D(0.0219052, 0, -0.198797, 0, 0.2, 0, 0.198797, 0, 0.0219052, 0.243011, 0.275128, -0.732695)

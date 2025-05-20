@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://bauytk0i4vaka"]
+
+[ext_resource type="PackedScene" uid="uid://b5u5qkfcerdgm" path="res://Scenes/level.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bma0c0u3l3ucc" path="res://Scenes/player_controller.tscn" id="2_wrm1d"]
+
+[sub_resource type="Gradient" id="Gradient_qxrlw"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.666667, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wrm1d"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3dryh"]
+seamless = true
+color_ramp = SubResource("Gradient_qxrlw")
+noise = SubResource("FastNoiseLite_wrm1d")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wowpa"]
+sky_top_color = Color(0.317628, 0.46297, 0.603643, 1)
+sky_horizon_color = Color(0.568404, 0.670566, 0.750724, 1)
+sky_cover = SubResource("NoiseTexture2D_3dryh")
+
+[sub_resource type="Sky" id="Sky_i6g32"]
+sky_material = SubResource("ProceduralSkyMaterial_wowpa")
+
+[sub_resource type="Environment" id="Environment_1l0tm"]
+background_mode = 2
+sky = SubResource("Sky_i6g32")
+ambient_light_source = 3
+ambient_light_color = Color(0.364581, 0.546341, 0.779737, 1)
+
+[node name="Game" type="Node3D"]
+
+[node name="Level" parent="." instance=ExtResource("1_qxrlw")]
+
+[node name="PlayerController" parent="." instance=ExtResource("2_wrm1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70248, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1l0tm")

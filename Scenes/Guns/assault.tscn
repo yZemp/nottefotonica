@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://pey3i0dip5ir"]
+
+[ext_resource type="PackedScene" uid="uid://d3383f03vb51k" path="res://Assets/Guns/Assault/m16_a2_rifle.glb" id="1_wesui"]
+
+[node name="Assault" instance=ExtResource("1_wesui")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="5c1494534a7c438180429aa22bbaa6c4_fbx" parent="Sketchfab_model" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RootNode" parent="Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx" index="0"]
+transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 0.0346236, -0.101595, -0.225547)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bma0c0u3l3ucc"]
+[gd_scene load_steps=5 format=3 uid="uid://bma0c0u3l3ucc"]
 
 [ext_resource type="Script" uid="uid://dgvv4fmehik48" path="res://Scripts/PlayerController.gd" id="1_rd8vp"]
+[ext_resource type="PackedScene" uid="uid://byrl18eulg1aa" path="res://Scenes/scrausa.tscn" id="2_5ur5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ur5x"]
 
@@ -8,6 +9,8 @@
 
 [node name="PlayerController" type="CharacterBody3D"]
 script = ExtResource("1_rd8vp")
+sense_horizontal = null
+sense_vertical = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5ur5x")
@@ -24,4 +27,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 0.999957, -0.00923261, 0, 0.00923261, 0.999957, 0, 0.723756, 0.0920268)
 
 [node name="HandMount" type="Node3D" parent="."]
-transform = Transform3D(0.99837, 0, 0.0570761, 0, 1, 0, -0.0570761, 0, 0.99837, 0.322548, 0.185808, -0.541913)
+
+[node name="Scrausa" parent="HandMount" instance=ExtResource("2_5ur5x")]
+transform = Transform3D(0.0219052, 0, -0.198797, 0, 0.2, 0, 0.198797, 0, 0.0219052, 0.243011, 0.275128, -0.732695)

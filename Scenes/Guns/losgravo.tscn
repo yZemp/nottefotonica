@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8s5uup3qb8s7"]
+
+[ext_resource type="PackedScene" uid="uid://dx8uo4k1x02om" path="res://Assets/Guns/Losgravo/high_caliber_battle_rifle.glb" id="1_kifpy"]
+
+[node name="Losgravo" instance=ExtResource("1_kifpy")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="979a24d3f27e4826bef3b616221ffe68_fbx" parent="Sketchfab_model" index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="RootNode" parent="Sketchfab_model/979a24d3f27e4826bef3b616221ffe68_fbx" index="0"]
+transform = Transform3D(-0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 8.24009, 0, -29.6322)

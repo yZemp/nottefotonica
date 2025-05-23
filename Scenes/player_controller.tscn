@@ -19,9 +19,10 @@ mesh = SubResource("CapsuleMesh_dl1v4")
 skeleton = NodePath("../..")
 
 [node name="CameraMount" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.619917, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 0.999957, -0.00923261, 0, 0.00923261, 0.999957, 0, 0.723756, 0.0920268)
+transform = Transform3D(1, 0, 0, 0, 0.999957, -0.00923261, 0, 0.00923261, 0.999957, 0, 0, 0)
 
-[node name="HandMount" type="Node3D" parent="."]
-transform = Transform3D(0.99837, 0, 0.0570761, 0, 1, 0, -0.0570761, 0, 0.99837, 0.322548, 0.185808, -0.541913)
+[node name="HandMount" type="Node3D" parent="CameraMount/Camera3D"]
+transform = Transform3D(0.99837, 0, 0.0570761, -0.000526962, 0.999957, 0.00921756, -0.0570737, -0.00923261, 0.998327, 0.322548, -0.439094, -0.537882)

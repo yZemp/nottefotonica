@@ -6,7 +6,8 @@ const SMOOTH_SPEED = 10.0
 @export var sense_horizontal = .05
 @export var sense_vertical = .05
 @onready var camera_mount: Node3D = $CameraMount
-@onready var hand_mount: Node3D = $HandMount
+@onready var camera_3d: Camera3D = $CameraMount/Camera3D
+@onready var hand_mount: Node3D = $CameraMount/Camera3D/HandMount
 
 var scrausa = preload("res://Scenes/Guns/scrausa.tscn")
 var p69 = preload("res://Scenes/Guns/p69.tscn")
@@ -15,12 +16,15 @@ var losgravo = preload("res://Scenes/Guns/losgravo.tscn")
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
+
 func _input(event) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(- event.relative.x * sense_horizontal))
-		camera_mount.rotate_x(deg_to_rad(- event.relative.y * sense_vertical))
 		
+		#Rotate camera
+		camera_3d.rotate_x(deg_to_rad(- event.relative.y * sense_vertical))
+		camera_3d.rotation.x = clamp(camera_3d.rotation.x, deg_to_rad(-90), deg_to_rad(40))
+
 func _process(delta):
 	if Input.is_action_just_pressed("slot1"):
 		change_gun(scrausa.instantiate())
@@ -30,7 +34,7 @@ func _process(delta):
 		change_gun(assault.instantiate())
 	if Input.is_action_just_pressed("slot4"):
 		change_gun(losgravo.instantiate())
-		
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -50,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	
 	move_and_slide()
 
 func change_gun(new_gun: Node3D):

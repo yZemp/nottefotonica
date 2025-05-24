@@ -8,6 +8,7 @@ const SMOOTH_SPEED = 10.0
 @onready var camera_mount: Node3D = $CameraMount
 @onready var camera_3d: Camera3D = $CameraMount/Camera3D
 @onready var hand_mount: Node3D = $CameraMount/Camera3D/HandMount
+@onready var movement_state_machine: Node = $MovementStateMachine
 
 var scrausa = preload("res://Scenes/Guns/scrausa.tscn")
 var p69 = preload("res://Scenes/Guns/p69.tscn")
@@ -16,16 +17,17 @@ var losgravo = preload("res://Scenes/Guns/losgravo.tscn")
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	movement_state_machine.init(self)
 
-func _input(event) -> void:
-	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(- event.relative.x * sense_horizontal))
-		
-		#Rotate camera
-		camera_3d.rotate_x(deg_to_rad(- event.relative.y * sense_vertical))
-		camera_3d.rotation.x = clamp(camera_3d.rotation.x, deg_to_rad(-90), deg_to_rad(40))
+func _physics_process(delta: float) -> void:
+	movement_state_machine.process_physics(delta)
+
+func _unhandled_input(event: InputEvent) -> void:
+	movement_state_machine.process_input(event)
 
 func _process(delta):
+	movement_state_machine.process_frame(delta)
+	
 	if Input.is_action_just_pressed("slot1"):
 		change_gun(scrausa.instantiate())
 	if Input.is_action_just_pressed("slot2"):
@@ -34,28 +36,6 @@ func _process(delta):
 		change_gun(assault.instantiate())
 	if Input.is_action_just_pressed("slot4"):
 		change_gun(losgravo.instantiate())
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# input_dir is a Vector2
-	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	var visual_dir = Vector3(input_dir.x, 0, input_dir.y).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
-	move_and_slide()
 
 func change_gun(new_gun: Node3D):
 	if hand_mount.get_child_count() > 0:

@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5u5qkfcerdgm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51e2h"]
-albedo_color = Color(0.258824, 0.188235, 0.176471, 1)
+[ext_resource type="Material" uid="uid://bidbcni7k84qc" path="res://Materials/tmp.tres" id="1_k5f4k"]
 
 [node name="Level" type="Node3D"]
 
@@ -12,40 +11,40 @@ use_collision = true
 transform = Transform3D(-8.94769, 0, 17.8868, 0, 0.5, 0, -17.8868, 0, -8.94769, 34.6728, 0, 15.7801)
 use_collision = true
 size = Vector3(2.26288, 1, 1.03534)
-material = SubResource("StandardMaterial3D_51e2h")
+material = ExtResource("1_k5f4k")
 
 [node name="Floor3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-17.9552, 0, 8.80975, 0, 0.5, 0, -8.80975, 0, -17.9552, 65.2635, 0, 29.6113)
 use_collision = true
 size = Vector3(2.26288, 1, 2.74389)
-material = SubResource("StandardMaterial3D_51e2h")
+material = ExtResource("1_k5f4k")
 
 [node name="Floor4" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-17.9552, 0, 8.80975, 0, 0.5, 0, -8.80975, 0, -17.9552, 94.1664, 0, 1.73985)
 use_collision = true
 size = Vector3(1.45969, 1, 2.74389)
-material = SubResource("StandardMaterial3D_51e2h")
+material = ExtResource("1_k5f4k")
 
 [node name="Floor5" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-10.8664, 0, 16.7905, 0, 0.5, 0, -16.7905, 0, -10.8664, 125.434, 0, -8.75989)
 use_collision = true
 size = Vector3(2.50914, 1, 1.5653)
-material = SubResource("StandardMaterial3D_51e2h")
+material = ExtResource("1_k5f4k")
 
 [node name="Floor7" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-19.9994, 0, -0.160917, 0, 0.5, 0, 0.160917, 0, -19.9994, 113.272, 0, 6.36865)
 use_collision = true
 size = Vector3(1.39442, 1, 0.979095)
-material = SubResource("StandardMaterial3D_51e2h")
+material = ExtResource("1_k5f4k")
 
 [node name="Floor6" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-10.8664, 0, 16.7905, 0, 0.5, 0, -16.7905, 0, -10.8664, 170.894, 0, 7.5716)
 use_collision = true
 size = Vector3(4.21355, 1, 3.5311)
-material = SubResource("StandardMaterial3D_51e2h")
+material = ExtResource("1_k5f4k")
 
 [node name="Floor2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 13.4937, 0, 0)
 use_collision = true
 size = Vector3(2.34937, 1, 1)
-material = SubResource("StandardMaterial3D_51e2h")
+material = ExtResource("1_k5f4k")

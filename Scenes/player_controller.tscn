@@ -14,8 +14,8 @@
 
 [node name="PlayerController" type="CharacterBody3D"]
 script = ExtResource("1_rd8vp")
-sense_horizontal = 0.005
-sense_vertical = 0.005
+sense_horizontal = 0.001
+sense_vertical = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5ur5x")

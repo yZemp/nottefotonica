@@ -84,37 +84,19 @@ walk_state = NodePath("../Walk")
 script = ExtResource("9_1cmmd")
 initial_state = NodePath("Idle_firing")
 
-[node name="Idle_firing" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("firing", "auto_firing", "reloading", "switching")]
+[node name="Idle_firing" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("firing")]
 script = ExtResource("10_4jfj4")
 firing = NodePath("../Firing")
-auto_firing = NodePath("../AutoFiring")
-reloading = NodePath("../Reloading")
-switching = NodePath("../Switching")
 
-[node name="Firing" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("idle_firing", "auto_firing", "reloading", "switching")]
+[node name="Firing" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("idle_firing")]
 script = ExtResource("11_uv5gm")
 idle_firing = NodePath("../Idle_firing")
-auto_firing = NodePath("../AutoFiring")
-reloading = NodePath("../Reloading")
-switching = NodePath("../Switching")
 
-[node name="AutoFiring" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("idle_firing", "firing", "reloading", "switching")]
+[node name="AutoFiring" type="Node" parent="FiringStateMachine"]
 script = ExtResource("12_ighb3")
-idle_firing = NodePath("../Idle_firing")
-firing = NodePath("../Firing")
-reloading = NodePath("../Reloading")
-switching = NodePath("../Switching")
 
-[node name="Reloading" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("idle_firing", "firing", "auto_firing", "switching")]
+[node name="Reloading" type="Node" parent="FiringStateMachine"]
 script = ExtResource("13_aejhh")
-idle_firing = NodePath("../Idle_firing")
-firing = NodePath("../Firing")
-auto_firing = NodePath("../AutoFiring")
-switching = NodePath("../Switching")
 
-[node name="Switching" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("idle_firing", "firing", "reloading", "auto_firing")]
+[node name="Switching" type="Node" parent="FiringStateMachine"]
 script = ExtResource("14_37oox")
-idle_firing = NodePath("../Idle_firing")
-firing = NodePath("../Firing")
-reloading = NodePath("../Reloading")
-auto_firing = NodePath("../AutoFiring")

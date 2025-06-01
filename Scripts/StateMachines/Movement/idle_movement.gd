@@ -1,5 +1,5 @@
 extends MovementState
-class_name Idle
+class_name Idle_movement
 
 @export var fall_state: MovementState
 @export var jump_state: MovementState

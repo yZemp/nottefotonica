@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon_res" load_steps=3 format=3 uid="uid://dtix6tlt2bww4"]
+
+[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_res.gd" id="1_3nb2e"]
+[ext_resource type="PackedScene" uid="uid://qja5n7w1ldgc" path="res://Scenes/Guns/p69.tscn" id="1_mggw5"]
+
+[resource]
+script = ExtResource("1_3nb2e")
+max_ammo = 80
+fire_rate = 256
+reload_time = 1.8
+scene = ExtResource("1_mggw5")
+base_dmg = 12
+spread = 0
+auto = true
+metadata/_custom_type_script = "uid://dtii5yrxat2l"

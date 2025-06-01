@@ -10,12 +10,15 @@ const SMOOTH_SPEED = 10.0
 @onready var hand_mount: Node3D = $CameraMount/Camera3D/HandMount
 @onready var movement_state_machine: Node = $MovementStateMachine
 
-var scrausa = preload("res://Scenes/Guns/scrausa.tscn")
-var p69 = preload("res://Scenes/Guns/p69.tscn")
-var assault = preload("res://Scenes/Guns/assault.tscn")
-var losgravo = preload("res://Scenes/Guns/losgravo.tscn")
+@export var max_health: int = 100
+@export var health: int
+
+@export var weapon: Weapon_res
 
 func _ready() -> void:
+	health = max_health
+	weapon.init()
+	change_gun(weapon.scene.instantiate())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	movement_state_machine.init(self)
 
@@ -27,15 +30,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta):
 	movement_state_machine.process_frame(delta)
-	
-	if Input.is_action_just_pressed("slot1"):
-		change_gun(scrausa.instantiate())
-	if Input.is_action_just_pressed("slot2"):
-		change_gun(p69.instantiate())
-	if Input.is_action_just_pressed("slot3"):
-		change_gun(assault.instantiate())
-	if Input.is_action_just_pressed("slot4"):
-		change_gun(losgravo.instantiate())
+	if Input.is_action_just_pressed("primary_fire"):
+		weapon.fire(self)
 
 func change_gun(new_gun: Node3D):
 	if hand_mount.get_child_count() > 0:

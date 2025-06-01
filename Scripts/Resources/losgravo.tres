@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon_res" load_steps=3 format=3 uid="uid://dvc3b4xfns7gq"]
+
+[ext_resource type="PackedScene" uid="uid://c8s5uup3qb8s7" path="res://Scenes/Guns/losgravo.tscn" id="1_npn52"]
+[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_res.gd" id="1_ucayc"]
+
+[resource]
+script = ExtResource("1_ucayc")
+max_ammo = 42
+fire_rate = 200
+reload_time = 1.1
+scene = ExtResource("1_npn52")
+base_dmg = 51
+spread = 0
+auto = true
+metadata/_custom_type_script = "uid://dtii5yrxat2l"

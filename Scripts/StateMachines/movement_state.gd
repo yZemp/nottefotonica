@@ -35,13 +35,14 @@ func process_physics(_delta: float) -> MovementState:
 
 ## Called by the state machine upon changing the active state.
 func enter() -> void:
-	print("Entering new state:\t", self.statename)
+	#print("Entering new state:\t", self.statename)
+	pass
 
 ## Called by the state machine before changing the active state. Use this function
 ## to clean up the state.
 func exit() -> void:
-	print("Exiting state:\t", self.statename)
-
+	#print("Exiting state:\t", self.statename)
+	pass
 
 
 func get_movement_direction() -> Vector3:

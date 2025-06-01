@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bma0c0u3l3ucc"]
+[gd_scene load_steps=11 format=3 uid="uid://bma0c0u3l3ucc"]
 
 [ext_resource type="Script" uid="uid://dgvv4fmehik48" path="res://Scripts/PlayerController.gd" id="1_rd8vp"]
 [ext_resource type="Script" uid="uid://c84b0cg0c1rf" path="res://Scripts/StateMachines/movement_state_machine.gd" id="2_5ur5x"]
+[ext_resource type="Resource" uid="uid://bxlg1nlmyacms" path="res://Scripts/Resources/scrausa.tres" id="2_iy555"]
 [ext_resource type="Script" uid="uid://funull4sp1p6" path="res://Scripts/StateMachines/idle.gd" id="3_dl1v4"]
 [ext_resource type="Script" uid="uid://dbwadn1is1tvv" path="res://Scripts/StateMachines/walk.gd" id="4_bnokr"]
 [ext_resource type="Script" uid="uid://5pxsprohoj40" path="res://Scripts/StateMachines/jump.gd" id="5_1esxm"]
@@ -16,6 +17,7 @@
 script = ExtResource("1_rd8vp")
 sense_horizontal = 0.001
 sense_vertical = 0.001
+weapon = ExtResource("2_iy555")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5ur5x")

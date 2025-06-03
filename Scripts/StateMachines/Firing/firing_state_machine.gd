@@ -8,18 +8,18 @@ class_name FiringStateMachine
 @onready var current_state: FiringState
 
 var parent: CharacterBody3D
-@onready var timer: Timer = $Timer
+@onready var game_weapon: Node3D = %GameWeapon
+@export var current_weapon: Weapon_resource = null
 
 func init(par: CharacterBody3D) -> void:
 	parent = par
 	for child in get_children():
 		child.parent = par
 	
-	parent.weapon.init()
-	change_gun(parent.weapon.scene.instantiate())
+	change_weapon(current_weapon)
 	change_state(initial_state)
 	
-func change_state(new_state: FiringState) -> void:
+func change_state(new_state: FiringState, param = null) -> void:
 	if current_state:
 		current_state.exit()
 	
@@ -39,9 +39,11 @@ func process_frame(delta: float) -> void:
 	var new_state = current_state.process_frame(delta)
 	if new_state: change_state(new_state)
 
+func change_weapon(new_gun: Weapon_resource):
+	parent.game_weapon.weapon_data = new_gun
+	parent.game_weapon.setup_weapon()
 
-func change_gun(new_gun: Node3D):
-	if parent.hand_mount.get_child_count() > 0:
-		parent.hand_mount.get_child(0).queue_free()
-	new_gun.transform = Transform3D.IDENTITY
-	parent.hand_mount.add_child(new_gun)
+
+func _on_tmp_status_timeout() -> void:
+	print(game_weapon.weapon_data.name)
+	print(game_weapon.get_ammo_status())

@@ -14,7 +14,6 @@ var parent: CharacterBody3D
 
 ## Called by the state machine when receiving unhandled input events.
 func process_input(_event: InputEvent) -> FiringState:
-	
 	return null
 
 ## Called by the state machine on the engine's main loop tick.

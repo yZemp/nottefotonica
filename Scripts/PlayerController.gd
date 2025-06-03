@@ -8,13 +8,12 @@ const SMOOTH_SPEED = 10.0
 @onready var camera_mount: Node3D = $CameraMount
 @onready var camera_3d: Camera3D = $CameraMount/Camera3D
 @onready var hand_mount: Node3D = $CameraMount/Camera3D/HandMount
-@onready var movement_state_machine: Node = $MovementStateMachine
+@onready var game_weapon: Node3D = $CameraMount/Camera3D/HandMount/GameWeapon
+@onready var movement_state_machine: MovementStateMachine = $MovementStateMachine
 @onready var firing_state_machine: FiringStateMachine = $FiringStateMachine
 
 @export var max_health: int = 100
 @export var health: int
-
-@export var weapon: Weapon_res
 
 func _ready() -> void:
 	health = max_health

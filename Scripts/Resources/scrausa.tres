@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="Weapon_res" load_steps=3 format=3 uid="uid://bxlg1nlmyacms"]
+[gd_resource type="Resource" script_class="Weapon_resource" load_steps=3 format=3 uid="uid://bxlg1nlmyacms"]
 
-[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_res.gd" id="1_dycgo"]
+[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_resource.gd" id="1_cnt1a"]
 [ext_resource type="PackedScene" uid="uid://byrl18eulg1aa" path="res://Scenes/Guns/scrausa.tscn" id="1_fw47y"]
 
 [resource]
-script = ExtResource("1_dycgo")
+script = ExtResource("1_cnt1a")
+name = "Scrausa"
 max_ammo = 18
 fire_rate = 77
 reload_time = 2.4
-scene = ExtResource("1_fw47y")
+viewmodel = ExtResource("1_fw47y")
 base_dmg = 27
-spread = 0
+spread = 5
 auto = false
 metadata/_custom_type_script = "uid://dtii5yrxat2l"

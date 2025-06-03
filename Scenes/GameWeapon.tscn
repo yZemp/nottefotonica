@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://66yrtu7bixaj"]
+
+[ext_resource type="Script" uid="uid://cyjv6l7xh54x6" path="res://Scripts/game_weapon.gd" id="1_utci3"]
+
+[node name="GameWeapon" type="Node3D"]
+script = ExtResource("1_utci3")
+
+[node name="meshRoot" type="Node3D" parent="."]
+
+[node name="fire_cooldown" type="Timer" parent="."]
+
+[node name="reload_cooldown" type="Timer" parent="."]

@@ -9,6 +9,7 @@ class_name Firing
 func enter() -> void:
 	statename = "Firing"
 	super()
+	parent.game_weapon.fire()
 
 func process_input(event: InputEvent) -> FiringState:
 	super(event)

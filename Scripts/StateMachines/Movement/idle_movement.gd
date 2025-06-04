@@ -6,9 +6,9 @@ class_name Idle_movement
 @export var walk_state: MovementState
 @export var sprint_state: MovementState
 
-func enter(data: Dictionary = {}) -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Idle"
-	super()
+	super(previous_state, data)
 	parent.velocity.x = 0
 	parent.velocity.z = 0
 
@@ -19,19 +19,17 @@ func process_input(event: InputEvent) -> void:
 		finished.emit(jump_state)
 	
 	var movement = get_movement_direction()
-	print(movement)
 	
 	if movement != Vector3.ZERO:
 		if Input.is_action_pressed("sprint"):
 			finished.emit(sprint_state)
-		finished.emit(walk_state)
-	pass
-	
+		else:
+			finished.emit(walk_state)
+
 func process_physics(delta: float) -> void:
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():
 		finished.emit(fall_state)
-	pass
 	

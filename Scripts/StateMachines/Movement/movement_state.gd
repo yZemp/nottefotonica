@@ -6,11 +6,11 @@ class_name MovementState
 var statename: String = ""
 
 ## Emitted when the state finishes and wants to transition to another state.
-signal finished(next_state_path: String, data: Dictionary)
+signal finished(next_state: String, data: Dictionary)
 
-@export var animation_name: String
-@export var move_speed: float = 2.0
-@export var run_speed_modifier: float = 2.5
+#@export var animation_name: String
+@export var move_speed: float = 3.0
+@export var run_speed_modifier: float = 1.5
 
 var gravity: int = - ProjectSettings.get_setting("physics/3d/default_gravity")
 var parent: CharacterBody3D
@@ -34,7 +34,7 @@ func process_physics(_delta: float) -> void:
 	pass
 
 ## Called by the state machine upon changing the active state.
-func enter(data: Dictionary = {}) -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	#print("Entering new state:\t", self.statename)
 	pass
 
@@ -52,3 +52,7 @@ func get_movement_direction() -> Vector3:
 	var movement := direction.normalized()
 	
 	return movement
+
+func accelerate(final_velocity, delta) -> void:
+	parent.velocity.x = move_toward(parent.velocity.x, final_velocity.x, delta * parent.SMOOTH_SPEED)
+	parent.velocity.z = move_toward(parent.velocity.z, final_velocity.z, delta * parent.SMOOTH_SPEED)

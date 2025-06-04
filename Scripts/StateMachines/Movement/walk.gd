@@ -6,9 +6,9 @@ class_name Walk
 @export var jump_state: MovementState
 @export var sprint_state: MovementState
 
-func enter(data: Dictionary = {}) -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Walk"
-	super()
+	super(previous_state, data)
 
 func process_input(event: InputEvent) -> void:
 	super(event)
@@ -22,9 +22,8 @@ func process_physics(delta: float) -> void:
 	
 	if movement == Vector3.ZERO:
 		finished.emit(idle_state)
-		
-	parent.velocity.x = movement.x
-	parent.velocity.z = movement.z
+	
+	accelerate(movement, delta)
 	parent.move_and_slide()
 	
 	if Input.is_action_pressed("sprint"):

@@ -10,26 +10,25 @@ class_name MovementStateMachine
 var parent: CharacterBody3D
 
 func init(parent: CharacterBody3D) -> void:
-	for child in get_children():
+	for child: MovementState in get_children():
 		child.parent = parent
+		child.finished.connect(change_state)
 	change_state(initial_state)
 	
-func change_state(new_state: MovementState) -> void:
+	
+func change_state(new_state: MovementState, data: Dictionary = {}) -> void:
 	if current_state:
 		current_state.exit()
 	
 	current_state = new_state
-	new_state.enter()
+	new_state.enter(data)
 	
 # Pass through function for the player to call
 func process_physics(delta: float) -> void:
-	var new_state = current_state.process_physics(delta)
-	if new_state: change_state(new_state)
+	current_state.process_physics(delta)
 	
 func process_input(event: InputEvent) -> void:
-	var new_state = current_state.process_input(event)
-	if new_state: change_state(new_state)
+	current_state.process_input(event)
 	
 func process_frame(delta: float) -> void:
-	var new_state = current_state.process_frame(delta)
-	if new_state: change_state(new_state)
+	current_state.process_frame(delta)

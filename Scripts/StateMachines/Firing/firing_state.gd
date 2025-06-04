@@ -5,9 +5,6 @@ class_name FiringState
 
 var statename: String = ""
 
-## Emitted when the state finishes and wants to transition to another state.
-signal finished(next_state_path: String, data: Dictionary)
-
 @export var animation_name: String
 
 var parent: CharacterBody3D
@@ -34,12 +31,3 @@ func enter() -> void:
 func exit() -> void:
 	print("Exiting state:\t", self.statename)
 	pass
-
-
-func get_movement_direction() -> Vector3:
-	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction := parent.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
-	direction.y = 0
-	var movement := direction.normalized()
-	
-	return movement

@@ -5,9 +5,6 @@ class_name MovementState
 
 var statename: String = ""
 
-## Emitted when the state finishes and wants to transition to another state.
-signal finished(next_state_path: String, data: Dictionary)
-
 @export var animation_name: String
 @export var move_speed: float = 2.0
 @export var run_speed_modifier: float = 2.5

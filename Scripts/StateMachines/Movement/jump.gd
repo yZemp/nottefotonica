@@ -8,9 +8,9 @@ class_name Jump
 
 @export var jump_force: float = 4.0
 
-func enter(data: Dictionary = {}) -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Jump"
-	super()
+	super(previous_state, data)
 	parent.velocity.y = jump_force
 
 func process_physics(delta: float) -> void:
@@ -18,8 +18,7 @@ func process_physics(delta: float) -> void:
 	
 	var movement = get_movement_direction()
 	
-	parent.velocity.move_toward(movement * parent.SPEED, parent.AIR_MANOVRABILITY * delta)
-	
+	accelerate(movement, delta)
 	parent.move_and_slide()
 	
 	if parent.velocity.y < 0:

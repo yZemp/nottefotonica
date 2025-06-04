@@ -124,5 +124,6 @@ reloading = NodePath("../Reloading")
 auto_firing = NodePath("../AutoFiring")
 
 [node name="tmp_status" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="tmp_status" to="FiringStateMachine" method="_on_tmp_status_timeout"]

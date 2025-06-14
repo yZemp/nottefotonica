@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c1yy0dj786r7f"]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -111.0
+offset_right = -33.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Ammo" type="Label" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "xx / xx"
+horizontal_alignment = 1

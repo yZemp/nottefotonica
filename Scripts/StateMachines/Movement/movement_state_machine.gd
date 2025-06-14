@@ -9,13 +9,14 @@ class_name MovementStateMachine
 @onready var current_state: MovementState
 
 ## Emitted when any state is changed
-signal state_changed(previous_state: MovementState, current_state: MovementState)
+signal movement_state_changed(previous_state: MovementState, current_state: MovementState)
 
 var parent: CharacterBody3D
 
-func init(parent: CharacterBody3D) -> void:
+func init(par: CharacterBody3D) -> void:
+	parent = par
 	for child: MovementState in get_children():
-		child.parent = parent
+		child.parent = par
 		child.finished.connect(change_state)
 	change_state(initial_state)
 
@@ -26,7 +27,7 @@ func change_state(new_state: MovementState, data: Dictionary = {}) -> void:
 	previous_state = current_state
 	current_state = new_state
 	current_state.enter(previous_state, data)
-	state_changed.emit(previous_state, current_state)
+	movement_state_changed.emit(previous_state, current_state)
 
 # Pass through function for the player to call
 func process_physics(delta: float) -> void:

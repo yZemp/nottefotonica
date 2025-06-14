@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bauytk0i4vaka"]
+[gd_scene load_steps=10 format=3 uid="uid://bauytk0i4vaka"]
 
 [ext_resource type="PackedScene" uid="uid://b5u5qkfcerdgm" path="res://Scenes/level.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bma0c0u3l3ucc" path="res://Scenes/player_controller.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://c1yy0dj786r7f" path="res://Scenes/hud.tscn" id="3_wrm1d"]
 
 [sub_resource type="Gradient" id="Gradient_qxrlw"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.666667, 1)
@@ -28,6 +29,9 @@ ambient_light_source = 3
 ambient_light_color = Color(0.364581, 0.546341, 0.779737, 1)
 
 [node name="Game" type="Node3D"]
+
+[node name="Hud" parent="." instance=ExtResource("3_wrm1d")]
+unique_name_in_owner = true
 
 [node name="Level" parent="." instance=ExtResource("1_qxrlw")]
 

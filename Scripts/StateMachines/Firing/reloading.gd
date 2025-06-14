@@ -6,15 +6,6 @@ class_name Reloading
 @export var auto_firing: FiringState
 @export var switching: FiringState
 
-func enter() -> void:
+func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
 	statename = "Reloading"
-	super()
-
-func process_input(event: InputEvent) -> FiringState:
-	super(event)
-	
-	return null
-	
-func process_physics(delta: float) -> FiringState:
-	return null
-	
+	super(previous_state, data)

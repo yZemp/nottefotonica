@@ -6,15 +6,14 @@ class_name Switching
 @export var reloading: FiringState
 @export var auto_firing: FiringState
 
-func enter() -> void:
+func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
 	statename = "Switching"
-	super()
+	super(previous_state, data)
+	
+	change_weapon(data["new_gun"])
 
-func process_input(event: InputEvent) -> FiringState:
-	super(event)
-	
-	return null
-	
-func process_physics(delta: float) -> FiringState:
-	return null
-	
+func change_weapon(new_gun: Weapon_resource):
+	parent.game_weapon.setup_weapon(new_gun)
+
+func process_input(event: InputEvent) -> void:
+	finished.emit(idle_firing)

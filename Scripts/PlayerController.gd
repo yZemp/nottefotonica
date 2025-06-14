@@ -12,6 +12,7 @@ const AIR_MANOVRABILITY := 1.0
 @onready var game_weapon: Node3D = $CameraMount/Camera3D/HandMount/GameWeapon
 @onready var movement_state_machine: MovementStateMachine = $MovementStateMachine
 @onready var firing_state_machine: FiringStateMachine = $FiringStateMachine
+@onready var hud: CanvasLayer = %Hud
 
 @export var max_health: int = 100
 @export var health: int

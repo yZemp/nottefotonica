@@ -26,11 +26,11 @@ func process_physics(_delta: float) -> void:
 
 ## Called by the state machine upon changing the active state.
 func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
-	print("Entering new state:\t", self.statename)
+	#print("Entering new state:\t", self.statename)
 	pass
 
 ## Called by the state machine before changing the active state. Use this function
 ## to clean up the state.
 func exit() -> void:
-	print("Exiting state:\t", self.statename)
+	#print("Exiting state:\t", self.statename)
 	pass

@@ -7,7 +7,7 @@
 script = ExtResource("1_3nb2e")
 name = "p69"
 max_ammo = 80
-fire_rate = 256
+fire_rate = 800
 reload_time = 1.8
 viewmodel = ExtResource("1_mggw5")
 base_dmg = 12

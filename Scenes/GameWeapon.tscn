@@ -8,5 +8,9 @@ script = ExtResource("1_utci3")
 [node name="meshRoot" type="Node3D" parent="."]
 
 [node name="fire_cooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="reload_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="fire_cooldown" to="." method="_on_fire_cooldown_timeout"]

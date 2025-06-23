@@ -23,24 +23,32 @@ func setup_weapon(new_weapon_data) -> void:
 		return
 	
 	weapon_data = new_weapon_data
-	print(weapon_data.fire_rate)
+	print("DEBUG: fire_rate caricato: ", weapon_data.fire_rate)
 	
 	current_ammo = weapon_data.max_ammo
 	if mesh_root:
 		for child in mesh_root.get_children():
 			child.queue_free()
 	mesh_root.add_child(weapon_data.viewmodel.instantiate())
-	fire_cooldown.wait_time = 1 / (60 * weapon_data.fire_rate)
+	fire_cooldown.wait_time = 60. / weapon_data.fire_rate
+	print("DEBUG: fire_cooldown.wait_time calcolato: ", fire_cooldown.wait_time)
 	reload_cooldown.wait_time = weapon_data.reload_time
 
 func fire() -> void:
-	can_fire = false
-	current_ammo -= 1
-	fire_cooldown.start()
-	await fire_cooldown.timeout
-	fired.emit()
+	print("DEBUG: Tentativo di sparo. can_fire:", can_fire, " is_reloading:", is_reloading)
+	if is_reloading or not can_fire:
+		return
+	
 	if current_ammo == 0:
 		return
+	
+	can_fire = false
+	current_ammo -= 1
+	fired.emit()
+	fire_cooldown.start()
+
+func _on_fire_cooldown_timeout() -> void:
+	print("DEBUG: fire_cooldown scaduto. can_fire impostato a TRUE.")
 	can_fire = true
 
 func get_ammo_status() -> String:

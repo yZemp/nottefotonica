@@ -4,18 +4,19 @@ class_name Fall
 @export var idle_state: MovementState
 @export var walk_state: MovementState
 
-func enter() -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Fall"
-	super()
+	super(previous_state, data)
 
-func process_physics(delta: float) -> MovementState:
+func process_physics(delta: float) -> void:
 	parent.velocity.y += gravity * delta
 	
 	var movement = get_movement_direction()
+	
 	parent.move_and_slide()
 	
 	if parent.is_on_floor():
 		if movement != Vector3.ZERO:
-			return walk_state
-		return idle_state
-	return null
+			finished.emit(walk_state)
+		else:
+			finished.emit(idle_state)

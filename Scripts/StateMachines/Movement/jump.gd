@@ -8,25 +8,28 @@ class_name Jump
 
 @export var jump_force: float = 4.0
 
-func enter() -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Jump"
-	super()
+	super(previous_state, data)
 	parent.velocity.y = jump_force
 
-func process_physics(delta: float) -> MovementState:
+func process_physics(delta: float) -> void:
 	parent.velocity.y += gravity * delta
 	
 	var movement = get_movement_direction()
+	
+	accelerate(movement, delta)
 	parent.move_and_slide()
 	
 	if parent.velocity.y < 0:
-		return fall_state
+		finished.emit(fall_state)
+		return
 	
 	if parent.is_on_floor():
-		if movement == Vector3.ZERO:
+		if movement != Vector3.ZERO:
 			if Input.is_action_pressed("sprint"):
-				return sprint_state
-			return move_state
-		return idle_state
-	return null
-	
+				finished.emit(sprint_state)
+			else:
+				finished.emit(move_state)
+		else:
+			finished.emit(idle_state)

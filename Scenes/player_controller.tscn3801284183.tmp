@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bma0c0u3l3ucc"]
+[gd_scene load_steps=18 format=3 uid="uid://bma0c0u3l3ucc"]
 
 [ext_resource type="Script" uid="uid://dgvv4fmehik48" path="res://Scripts/PlayerController.gd" id="1_rd8vp"]
 [ext_resource type="Script" uid="uid://c84b0cg0c1rf" path="res://Scripts/StateMachines/Movement/movement_state_machine.gd" id="2_5ur5x"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://c172ml16dts4j" path="res://Scripts/StateMachines/Firing/idle_firing.gd" id="10_4jfj4"]
 [ext_resource type="Resource" uid="uid://bxlg1nlmyacms" path="res://Scripts/Resources/scrausa.tres" id="10_raf36"]
 [ext_resource type="Script" uid="uid://cy8h6xubs5u13" path="res://Scripts/StateMachines/Firing/firing.gd" id="11_uv5gm"]
-[ext_resource type="Resource" uid="uid://dtix6tlt2bww4" path="res://Scripts/Resources/p69.tres" id="12_e7xru"]
 [ext_resource type="Script" uid="uid://b2yciarrofmfi" path="res://Scripts/StateMachines/Firing/auto_firing.gd" id="12_ighb3"]
 [ext_resource type="Script" uid="uid://b0fxwotrbe7c5" path="res://Scripts/StateMachines/Firing/reloading.gd" id="13_aejhh"]
 [ext_resource type="Script" uid="uid://bj6bdob25dbf2" path="res://Scripts/StateMachines/Firing/switching.gd" id="14_37oox"]
@@ -64,6 +63,9 @@ idle_state = NodePath("../Idle_movement")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 sprint_state = NodePath("../Sprint")
+animation_name = null
+move_speed = null
+run_speed_modifier = null
 
 [node name="Jump" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "move_state", "sprint_state")]
 script = ExtResource("5_1esxm")
@@ -83,10 +85,13 @@ idle_state = NodePath("../Idle_movement")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 walk_state = NodePath("../Walk")
+animation_name = null
+move_speed = null
+run_speed_modifier = null
 
 [node name="FiringStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("9_1cmmd")
-initial_state = NodePath("Switching")
+initial_state = NodePath("Idle_firing")
 current_weapon = ExtResource("10_raf36")
 
 [node name="Idle_firing" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("firing", "auto_firing", "reloading", "switching")]
@@ -95,7 +100,6 @@ firing = NodePath("../Firing")
 auto_firing = NodePath("../AutoFiring")
 reloading = NodePath("../Reloading")
 switching = NodePath("../Switching")
-w2 = ExtResource("12_e7xru")
 
 [node name="Firing" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("idle_firing", "auto_firing", "reloading", "switching")]
 script = ExtResource("11_uv5gm")
@@ -126,7 +130,6 @@ reloading = NodePath("../Reloading")
 auto_firing = NodePath("../AutoFiring")
 
 [node name="tmp_status" type="Timer" parent="."]
-wait_time = 0.2
 autostart = true
 
 [connection signal="timeout" from="tmp_status" to="FiringStateMachine" method="_on_tmp_status_timeout"]

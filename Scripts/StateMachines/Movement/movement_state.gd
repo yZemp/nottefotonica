@@ -5,33 +5,36 @@ class_name MovementState
 
 var statename: String = ""
 
-@export var animation_name: String
-@export var move_speed: float = 2.0
-@export var run_speed_modifier: float = 2.5
+## Emitted when the state finishes and wants to transition to another state.
+signal finished(next_state: String, data: Dictionary)
+
+#@export var animation_name: String
+@export var move_speed: float = 3.0
+@export var run_speed_modifier: float = 1.5
 
 var gravity: int = - ProjectSettings.get_setting("physics/3d/default_gravity")
 var parent: CharacterBody3D
 
 ## Called by the state machine when receiving unhandled input events.
-func process_input(_event: InputEvent) -> MovementState:
+func process_input(_event: InputEvent) -> void:
 	#Rotating parent and camera
 	if _event is InputEventMouseMotion:
 		var delta = _event.relative
 		parent.rotate_y(-delta.x * parent.sense_horizontal)
 		parent.camera_mount.rotate_x(-delta.y * parent.sense_vertical)
 		parent.camera_mount.rotation.x = clamp(parent.camera_mount.rotation.x, deg_to_rad(-90), deg_to_rad(40))
-	return null
+	pass
 
 ## Called by the state machine on the engine's main loop tick.
-func process_frame(_delta: float) -> MovementState:
-	return null
+func process_frame(_delta: float) -> void:
+	pass
  
 ## Called by the state machine on the engine's physics update tick.
-func process_physics(_delta: float) -> MovementState:
-	return null
+func process_physics(_delta: float) -> void:
+	pass
 
 ## Called by the state machine upon changing the active state.
-func enter() -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	#print("Entering new state:\t", self.statename)
 	pass
 
@@ -49,3 +52,7 @@ func get_movement_direction() -> Vector3:
 	var movement := direction.normalized()
 	
 	return movement
+
+func accelerate(final_velocity, delta) -> void:
+	parent.velocity.x = move_toward(parent.velocity.x, final_velocity.x, delta * parent.SMOOTH_SPEED)
+	parent.velocity.z = move_toward(parent.velocity.z, final_velocity.z, delta * parent.SMOOTH_SPEED)

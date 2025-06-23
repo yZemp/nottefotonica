@@ -10,19 +10,19 @@ var statename: String = ""
 var parent: CharacterBody3D
 
 ## Called by the state machine when receiving unhandled input events.
-func process_input(_event: InputEvent) -> FiringState:
-	return null
+func process_input(_event: InputEvent) -> void:
+	pass
 
 ## Called by the state machine on the engine's main loop tick.
-func process_frame(_delta: float) -> FiringState:
-	return null
+func process_frame(_delta: float) -> void:
+	pass
  
 ## Called by the state machine on the engine's physics update tick.
-func process_physics(_delta: float) -> FiringState:
-	return null
+func process_physics(_delta: float) -> void:
+	pass
 
 ## Called by the state machine upon changing the active state.
-func enter() -> void:
+func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
 	print("Entering new state:\t", self.statename)
 	pass
 

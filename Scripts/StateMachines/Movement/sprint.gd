@@ -6,33 +6,28 @@ class_name Sprint
 @export var jump_state: MovementState
 @export var walk_state: MovementState
 
-func enter() -> void:
+func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Sprint"
-	super()
+	super(previous_state, data)
 
-func process_input(event: InputEvent) -> MovementState:
+func process_input(event: InputEvent) -> void:
 	super(event)
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
-		return jump_state
-	return null
+		finished.emit(jump_state)
 	
-func process_physics(delta: float) -> MovementState:
+func process_physics(delta: float) -> void:
 	parent.velocity.y += gravity * delta
 	
 	var movement = get_movement_direction() * move_speed * run_speed_modifier
 	
 	if movement == Vector3.ZERO:
-		return idle_state
+		finished.emit(idle_state)
 		
-	parent.velocity.x = movement.x
-	parent.velocity.z = movement.z
+	accelerate(movement, delta)
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():
-		return fall_state
+		finished.emit(fall_state)
 	
 	if not Input.is_action_pressed("sprint"):
-		return walk_state
-	
-	return null
-	
+		finished.emit(walk_state)

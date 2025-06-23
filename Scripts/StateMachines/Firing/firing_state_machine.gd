@@ -45,4 +45,6 @@ func process_frame(delta: float) -> void:
 
 func _on_tmp_status_timeout() -> void:
 	#print(game_weapon.weapon_data.name)
-	parent.hud.box_containter.ammo.text =  game_weapon.get_ammo_status()
+	for child in parent.hud.get_children():
+		if child is BoxContainer:
+			child.get_children()[0].text =  game_weapon.get_ammo_status()

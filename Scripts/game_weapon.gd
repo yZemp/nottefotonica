@@ -30,7 +30,7 @@ func setup_weapon(new_weapon_data) -> void:
 		for child in mesh_root.get_children():
 			child.queue_free()
 	mesh_root.add_child(weapon_data.viewmodel.instantiate())
-	fire_cooldown.wait_time = 60 / weapon_data.fire_rate
+	fire_cooldown.wait_time = 1 / (60 * weapon_data.fire_rate)
 	reload_cooldown.wait_time = weapon_data.reload_time
 
 func fire() -> void:

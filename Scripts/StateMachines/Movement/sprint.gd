@@ -16,14 +16,14 @@ func process_input(event: InputEvent) -> void:
 		finished.emit(jump_state)
 	
 func process_physics(delta: float) -> void:
-	parent.velocity.y += gravity * delta
+	apply_gravity(delta)
 	
-	var movement = get_movement_direction() * move_speed * run_speed_modifier
+	var movement = get_movement_direction() * parent.SPEED * parent.SPRINT_MOD
 	
 	if movement == Vector3.ZERO:
 		finished.emit(idle_state)
 		
-	accelerate(movement, delta)
+	accelerate(movement, parent.SPEED * parent.SPRINT_MOD, delta, parent.SMOOTH_SPEED)
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():

@@ -8,10 +8,6 @@ var statename: String = ""
 ## Emitted when the state finishes and wants to transition to another state.
 signal finished(next_state: String, data: Dictionary)
 
-#@export var animation_name: String
-@export var move_speed: float = 3.0
-@export var run_speed_modifier: float = 1.5
-
 var gravity: int = - ProjectSettings.get_setting("physics/3d/default_gravity")
 var parent: CharacterBody3D
 
@@ -53,6 +49,16 @@ func get_movement_direction() -> Vector3:
 	
 	return movement
 
-func accelerate(final_velocity, delta) -> void:
-	parent.velocity.x = move_toward(parent.velocity.x, final_velocity.x, delta * parent.SMOOTH_SPEED)
-	parent.velocity.z = move_toward(parent.velocity.z, final_velocity.z, delta * parent.SMOOTH_SPEED)
+func accelerate(target_direction: Vector3, max_horizontal_speed: float, delta: float, control_factor: float) -> void:
+	# Calcola la velocità orizzontale target basata sulla direzione input e velocità massima
+	var target_horizontal_velocity = target_direction * max_horizontal_speed
+	
+	# Muovi la velocità corrente del player verso la velocità target orizzontale,
+	# usando il 'control_factor' per definire quanto rapidamente.
+	# Questo permette di mantenere lo slancio ma aggiungere controllo.
+	parent.velocity.x = move_toward(parent.velocity.x, target_horizontal_velocity.x, delta * control_factor)
+	parent.velocity.z = move_toward(parent.velocity.z, target_horizontal_velocity.z, delta * control_factor)
+
+func apply_gravity(delta: float) -> void:
+	if not parent.is_on_floor():
+		parent.velocity.y -= gravity * delta

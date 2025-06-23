@@ -16,14 +16,14 @@ func process_input(event: InputEvent) -> void:
 		finished.emit(jump_state)
 	
 func process_physics(delta: float) -> void:
-	parent.velocity.y += gravity * delta
+	apply_gravity(delta)
 	
-	var movement = get_movement_direction() * move_speed
+	var movement = get_movement_direction() * parent.SPEED
 	
 	if movement == Vector3.ZERO:
 		finished.emit(idle_state)
 	
-	accelerate(movement, delta)
+	accelerate(movement, parent.SPEED, delta, parent.SMOOTH_SPEED)
 	parent.move_and_slide()
 	
 	if Input.is_action_pressed("sprint"):

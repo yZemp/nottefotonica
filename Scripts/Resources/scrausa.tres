@@ -7,7 +7,7 @@
 script = ExtResource("1_cnt1a")
 name = "Scrausa"
 max_ammo = 18
-fire_rate = 256
+fire_rate = 144
 reload_time = 2.4
 viewmodel = ExtResource("1_fw47y")
 base_dmg = 27

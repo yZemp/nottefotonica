@@ -1,9 +1,11 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 2.0
+const SPRINT_MOD = 1.2
 const JUMP_VELOCITY = 4.5
 const SMOOTH_SPEED = 10.0
-const AIR_MANOVRABILITY := 1.0
+const AIR_MANOVRABILITY := 10.0
+const AIR_STRAFE := 1.5
 @export var sense_horizontal = .05
 @export var sense_vertical = .05
 @onready var camera_mount: Node3D = $CameraMount

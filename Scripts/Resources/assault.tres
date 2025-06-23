@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon_res" load_steps=3 format=3 uid="uid://ctel44jt3ocd7"]
+[gd_resource type="Resource" script_class="Weapon_resource" load_steps=2 format=3 uid="uid://ctel44jt3ocd7"]
 
-[ext_resource type="PackedScene" uid="uid://pey3i0dip5ir" path="res://Scenes/Guns/assault.tscn" id="1_ferbv"]
 [ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_resource.gd" id="2_7p56l"]
 
 [resource]
 script = ExtResource("2_7p56l")
+name = ""
 max_ammo = 35
-fire_rate = 230
+fire_rate = 709
 reload_time = 2.6
-scene = ExtResource("1_ferbv")
 base_dmg = 26
 spread = 4
 auto = true

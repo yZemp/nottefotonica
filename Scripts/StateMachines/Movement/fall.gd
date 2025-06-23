@@ -9,7 +9,7 @@ func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	super(previous_state, data)
 
 func process_physics(delta: float) -> void:
-	parent.velocity.y += gravity * delta
+	apply_gravity(delta)
 	
 	var movement = get_movement_direction()
 	

@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://o8d0dy8auj6r"]
+[gd_scene load_steps=17 format=3 uid="uid://o8d0dy8auj6r"]
 
 [ext_resource type="Texture2D" uid="uid://blwtjqh21tayv" path="res://Assets/Textures/Ground/packed_albedo_height.png" id="1_7p6j4"]
 [ext_resource type="Texture2D" uid="uid://dgjrbpkx1acto" path="res://Assets/Textures/Ground/packed_normal_roughness.png" id="2_6444e"]
 [ext_resource type="Texture2D" uid="uid://bt5dnlbewa3cl" path="res://Assets/Textures/Mountain/packed_albedo_height.png" id="3_evi0p"]
 [ext_resource type="Texture2D" uid="uid://ds1si4r6da6pr" path="res://Assets/Textures/Mountain/packed_normal_roughness.png" id="4_lsmp6"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/Path/packed_albedo_height.png" id="5_evi0p"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/Path/packed_normal_roughness.png" id="6_lsmp6"]
 
 [sub_resource type="Gradient" id="Gradient_qqy1o"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -35,25 +37,31 @@ _shader_parameters = {
 &"bias_distance": 512.0,
 &"blend_sharpness": 0.87,
 &"depth_blur": 0.0,
+&"dual_scale_far": 170.0,
+&"dual_scale_near": 100.0,
+&"dual_scale_reduction": 0.3,
+&"dual_scale_texture": 0,
 &"enable_macro_variation": true,
 &"enable_projection": true,
 &"height_blending": true,
-&"macro_variation1": Color(1, 1, 1, 1),
-&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation1": Color(0.905882, 1, 0.933333, 1),
+&"macro_variation2": Color(1, 0.952941, 1, 1),
 &"macro_variation_slope": 0.333,
 &"mipmap_bias": 1.0,
-&"noise1_angle": 0.0,
+&"noise1_angle": 1.032,
 &"noise1_offset": Vector2(0.5, 0.5),
-&"noise1_scale": 0.04,
+&"noise1_scale": 0.047,
 &"noise2_scale": 0.076,
 &"noise3_scale": 0.225,
 &"noise_texture": SubResource("NoiseTexture2D_8ffim"),
 &"projection_angular_division": 2.0,
 &"projection_threshold": 0.8,
+&"tri_scale_reduction": 0.3,
 &"world_space_normal_blend": true
 }
 world_background = 0
 auto_shader = true
+dual_scaling = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p6j4"]
 transparency = 4
@@ -84,9 +92,16 @@ id = 1
 albedo_texture = ExtResource("1_7p6j4")
 normal_texture = ExtResource("2_6444e")
 
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_chwpn"]
+name = "Path_sand"
+id = 2
+albedo_texture = ExtResource("5_evi0p")
+normal_texture = ExtResource("6_lsmp6")
+uv_scale = 0.5
+
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_evi0p"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_6444e")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_wrinw"), SubResource("Terrain3DTextureAsset_xrdnt")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_wrinw"), SubResource("Terrain3DTextureAsset_xrdnt"), SubResource("Terrain3DTextureAsset_chwpn")])
 
 [node name="Terrain3D" type="Terrain3D"]
 data_directory = "res://terrain_data"

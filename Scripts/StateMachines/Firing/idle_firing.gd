@@ -6,6 +6,7 @@ class_name Idle_firing
 @export var reloading: FiringState
 @export var switching: FiringState
 
+@export var w1: Weapon_resource
 @export var w2: Weapon_resource
 
 func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
@@ -21,10 +22,3 @@ func process_input(event: InputEvent) -> void:
 			finished.emit(auto_firing)
 		else:
 			finished.emit(firing)
-	
-	if Input.is_action_just_pressed("slot2"):
-		finished.emit(switching, {"new_gun": w2})
-	
-func process_physics(delta: float) -> void:
-	pass
-	

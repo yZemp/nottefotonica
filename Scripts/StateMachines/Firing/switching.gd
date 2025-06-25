@@ -10,10 +10,16 @@ func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
 	statename = "Switching"
 	super(previous_state, data)
 	
-	change_weapon(data["new_gun"])
-
-func change_weapon(new_gun: Weapon_resource):
-	parent.game_weapon.setup_weapon(new_gun)
-
-func process_input(event: InputEvent) -> void:
+	if data.has("new_gun"):
+		var new_gun: Weapon_resource = data["new_gun"]
+		if new_gun:
+			parent.game_weapon.setup_weapon(new_gun)
+			print("Succesfully changed weapon: ", new_gun.name)
+		else:
+			printerr("Switching with invalid weapon resource.")
+	else:
+		printerr("No weapon resource found.")
+	
+	# Qui puoi aggiungere logica per animazioni di cambio arma o un timer
 	finished.emit(idle_firing)
+	

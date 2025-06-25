@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 const SMOOTH_SPEED = 10.0
 const AIR_MANOVRABILITY := 10.0
 const AIR_STRAFE := 1.5
+
 @export var sense_horizontal = .05
 @export var sense_vertical = .05
 @onready var camera_mount: Node3D = $CameraMount
@@ -16,6 +17,9 @@ const AIR_STRAFE := 1.5
 @onready var firing_state_machine: FiringStateMachine = $FiringStateMachine
 @onready var hud: CanvasLayer = %Hud
 
+@export var player_weapon_inventory: Array[Weapon_resource] = []
+var current_weapon_index: int = -1
+
 @export var max_health: int = 100
 @export var health: int
 
@@ -24,15 +28,56 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	movement_state_machine.init(self)
 	firing_state_machine.init(self)
+	
+	if player_weapon_inventory.size() > 0:
+		change_weapon(0)
+	else:
+		printerr("No weapon during init!")
 
 func _physics_process(delta: float) -> void:
 	movement_state_machine.process_physics(delta)
 	firing_state_machine.process_physics(delta)
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Gestione dell'input per il cambio arma qui (indipendente dallo stato di fuoco)
+	if event.is_action_pressed("slot1"):
+		change_weapon(0)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("slot2"):
+		change_weapon(1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("slot3"):
+		change_weapon(2)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("slot4"):
+		change_weapon(3)
+		get_viewport().set_input_as_handled()
+		
 	movement_state_machine.process_input(event)
 	firing_state_machine.process_input(event)
 
 func _process(delta):
 	movement_state_machine.process_frame(delta)
 	firing_state_machine.process_frame(delta)
+
+
+func change_weapon(index: int) -> void:
+	if player_weapon_inventory.is_empty():
+		printerr("No weapon available")
+		return
+		
+	if index < 0 or index >= player_weapon_inventory.size():
+		printerr("Invalid index (for player inventory): ", index)
+		return
+		
+	var new_weapon_resource = player_weapon_inventory[index]
+	if new_weapon_resource == null:
+		printerr("Invalid weapon resource at index: ", index)
+		return
+
+	if current_weapon_index != index:
+		print("Changing weapon from index ", index, "into (", new_weapon_resource.name, ")")
+		current_weapon_index = index
+		firing_state_machine.request_weapon_switch_state(new_weapon_resource)
+	else:
+		print("Weapon already selected (", new_weapon_resource.name, ").")

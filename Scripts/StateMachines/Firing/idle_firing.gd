@@ -17,7 +17,6 @@ func process_input(event: InputEvent) -> void:
 	super(event)
 
 	if Input.is_action_just_pressed("primary_fire") and parent.game_weapon.can_fire:
-		print(parent.game_weapon.weapon_data.auto)
 		if parent.game_weapon.weapon_data.auto:
 			finished.emit(auto_firing)
 		else:

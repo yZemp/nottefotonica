@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ucayc")
-name = ""
+name = "LOSGRAVO"
 max_ammo = 42
 fire_rate = 420
 reload_time = 1.1

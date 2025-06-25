@@ -37,7 +37,6 @@ func change_state(new_state: FiringState, data: Dictionary = {}) -> void:
 	firing_state_changed.emit(previous_state, current_state)
 	
 func request_weapon_switch_state(new_weapon_resource: Weapon_resource) -> void:
-	print(new_weapon_resource.name)
 	if switching_state:
 		change_state(switching_state, {"new_gun": new_weapon_resource})
 	else:

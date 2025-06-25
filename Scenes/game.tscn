@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bauytk0i4vaka"]
 
-[ext_resource type="PackedScene" uid="uid://b5u5qkfcerdgm" path="res://Scenes/level.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bma0c0u3l3ucc" path="res://Scenes/player_controller.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://o8d0dy8auj6r" path="res://Scenes/level_1.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c1yy0dj786r7f" path="res://Scenes/hud.tscn" id="3_wrm1d"]
 
 [sub_resource type="Gradient" id="Gradient_qxrlw"]
@@ -30,13 +30,20 @@ ambient_light_color = Color(0.364581, 0.546341, 0.779737, 1)
 
 [node name="Game" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.793137, -0.206592, 0.572934, 0.350009, 0.615242, 0.706379, -0.498425, 0.760788, -0.415662, 0, 0, -56.817)
+light_color = Color(0.94314, 0.932569, 0.625349, 1)
+shadow_enabled = true
+
 [node name="Hud" parent="." instance=ExtResource("3_wrm1d")]
 unique_name_in_owner = true
 
-[node name="Level" parent="." instance=ExtResource("1_qxrlw")]
-
 [node name="PlayerController" parent="." instance=ExtResource("2_wrm1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1946, 1.49492, 10.8898)
+transform = Transform3D(-0.984084, 0, -0.177703, 0, 1, 0, 0.177703, 0, -0.984084, -21.2678, 12.811, -84.451)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1l0tm")
+
+[node name="LevelContainer" type="Node3D" parent="."]
+
+[node name="Terrain3D" parent="LevelContainer" instance=ExtResource("3_3dryh")]

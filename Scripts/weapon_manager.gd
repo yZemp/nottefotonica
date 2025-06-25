@@ -1,5 +1,4 @@
 extends Node
-class_name GameManager
 
 @export var weapons: Array[Weapon_resource] # Tutte le definizioni delle armi del gioco
 

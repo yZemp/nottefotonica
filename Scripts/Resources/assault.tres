@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_7p56l")
-name = ""
+name = "Assault"
 max_ammo = 35
 fire_rate = 709
 reload_time = 2.6

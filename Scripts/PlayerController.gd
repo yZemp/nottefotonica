@@ -76,7 +76,7 @@ func change_weapon(index: int) -> void:
 		return
 
 	if current_weapon_index != index:
-		print("Changing weapon from index ", index, "into (", new_weapon_resource.name, ")")
+		print("Changing weapon from index ", index, " (", new_weapon_resource.name, ")")
 		current_weapon_index = index
 		firing_state_machine.request_weapon_switch_state(new_weapon_resource)
 	else:

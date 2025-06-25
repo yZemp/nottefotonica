@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 WeaponManager="*res://Scripts/weapon_manager.gd"
 
+[display]
+
+window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [input]
 
 jump={

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 2.0
-const SPRINT_MOD = 1.2
+const SPRINT_MOD = 1.3
 const JUMP_VELOCITY = 4.5
 const SMOOTH_SPEED = 10.0
 const AIR_MANOVRABILITY := 10.0

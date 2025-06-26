@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2gvtlocxa8t2"]
+
+[ext_resource type="PackedScene" uid="uid://2lfelheh48qh" path="res://Scenes/Enemies/basic_bastard.tscn" id="2_kxa56"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l6enn"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_l6enn")
+
+[node name="basic_bastard" parent="." instance=ExtResource("2_kxa56")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 1, -5)
+
+[node name="Camera3D" type="Camera3D" parent="basic_bastard"]
+transform = Transform3D(100, 0, 0, 0, 96.8453, 24.9197, 0, -24.9197, 96.8453, 0, 143.85, 752.144)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13792, -3.55974)
+use_collision = true

@@ -1,0 +1,12 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckqnj0lhy8ium"]
+
+[ext_resource type="Script" uid="uid://rg6r0y07dpmk" path="res://Scripts/weapon_manager.gd" id="1_gijvo"]
+[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_resource.gd" id="2_0e2oj"]
+[ext_resource type="Resource" uid="uid://bxlg1nlmyacms" path="res://Scripts/Resources/scrausa.tres" id="3_n2vik"]
+[ext_resource type="Resource" uid="uid://dtix6tlt2bww4" path="res://Scripts/Resources/p69.tres" id="4_dqlpo"]
+[ext_resource type="Resource" uid="uid://ctel44jt3ocd7" path="res://Scripts/Resources/assault.tres" id="5_54l7m"]
+[ext_resource type="Resource" uid="uid://dvc3b4xfns7gq" path="res://Scripts/Resources/losgravo.tres" id="6_yev7n"]
+
+[node name="WeaponManager" type="Node"]
+script = ExtResource("1_gijvo")
+weapons = Array[ExtResource("2_0e2oj")]([ExtResource("3_n2vik"), ExtResource("4_dqlpo"), ExtResource("5_54l7m"), ExtResource("6_yev7n")])

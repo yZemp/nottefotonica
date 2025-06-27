@@ -52,8 +52,8 @@ func process_input(event: InputEvent) -> void:
 func process_frame(delta: float) -> void:
 	current_state.process_frame(delta)
 
-func _on_gui_update_timeout() -> void:
-	#print(game_weapon.weapon_data.name)
-	for child in parent.hud.get_children():
-		if child is BoxContainer:
-			child.get_children()[0].text =  game_weapon.get_ammo_status()
+#func _on_gui_update_timeout() -> void:
+	##print(game_weapon.weapon_data.name)
+	#for child in parent.hud.get_children():
+		#if child is BoxContainer:
+			#child.get_children()[0].text =  game_weapon.get_ammo_status()

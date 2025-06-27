@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bma0c0u3l3ucc" path="res://Scenes/player_controller.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://o8d0dy8auj6r" path="res://Scenes/level_1.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c1yy0dj786r7f" path="res://Scenes/hud.tscn" id="3_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://2lfelheh48qh" path="res://Scenes/Enemies/basic_bastard.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bnlg554wpsik6" path="res://Scenes/Enemies/BBv2.tscn" id="4_3dryh"]
 
 [sub_resource type="Gradient" id="Gradient_qxrlw"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.666667, 1)
@@ -41,14 +41,15 @@ shadow_enabled = true
 unique_name_in_owner = true
 
 [node name="PlayerController" parent="." instance=ExtResource("2_wrm1d")]
-transform = Transform3D(0.344627, 0, 0.93874, 0, 1, 0, -0.93874, 0, 0.344627, -188.813, 5.25468, -94.9537)
+transform = Transform3D(0.344627, 0, 0.93874, 0, 1, 0, -0.93874, 0, 0.344627, -185.062, 3.7247, -90.6648)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1l0tm")
 
 [node name="LevelContainer" type="Node3D" parent="."]
 
-[node name="Terrain3D" parent="LevelContainer" instance=ExtResource("3_3dryh")]
+[node name="Map" parent="LevelContainer" instance=ExtResource("3_3dryh")]
 
-[node name="basic_bastard" parent="." instance=ExtResource("4_3dryh")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -192.589, 7.66743, -101.33)
+[node name="BBv2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3dryh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.348, 4.40235, -94.7936)
+target = NodePath("../PlayerController")

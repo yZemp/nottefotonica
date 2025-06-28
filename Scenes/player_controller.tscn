@@ -135,4 +135,4 @@ auto_firing = NodePath("../AutoFiring")
 wait_time = 0.05
 autostart = true
 
-[connection signal="timeout" from="GUI_update" to="FiringStateMachine" method="_on_gui_update_timeout"]
+[connection signal="timeout" from="GUI_update" to="." method="_on_gui_update_timeout"]

@@ -81,3 +81,15 @@ func change_weapon(index: int) -> void:
 		firing_state_machine.request_weapon_switch_state(new_weapon_resource)
 	else:
 		print("Weapon already selected (", new_weapon_resource.name, ").")
+
+func take_damage(dmg) -> void:
+	health -= dmg
+	print(health)
+
+func _on_gui_update_timeout() -> void:
+	for child in hud.get_children():
+		if child is BoxContainer and child.name == "Ammo":
+			child.get_children()[0].text = game_weapon.get_ammo_status()
+			
+		if child is BoxContainer and child.name == "Health":
+			child.get_children()[0].text = "%d / %d" % [health, max_health]

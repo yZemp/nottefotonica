@@ -51,5 +51,5 @@ environment = SubResource("Environment_1l0tm")
 [node name="Map" parent="LevelContainer" instance=ExtResource("3_3dryh")]
 
 [node name="BBv2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3dryh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.348, 4.40235, -94.7936)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.686, 9.12726, -94.7936)
 target = NodePath("../PlayerController")

@@ -1,6 +1,6 @@
 extends Node3D
 
-var weapon_data: Weapon_resource
+var weapon_data: WeaponResource
 @onready var mesh_root: Node3D = $meshRoot
 @onready var fire_cooldown: Timer = $fire_cooldown
 @onready var reload_cooldown: Timer = $reload_cooldown
@@ -35,7 +35,7 @@ func setup_weapon(new_weapon_data) -> void:
 	reload_cooldown.wait_time = weapon_data.reload_time
 
 func fire() -> void:
-	print("DEBUG: Try firing. can_fire: ", can_fire, " is_reloading: ", is_reloading)
+	#print("DEBUG: Try firing. can_fire: ", can_fire, " is_reloading: ", is_reloading)
 	if is_reloading or not can_fire:
 		return
 	
@@ -44,11 +44,11 @@ func fire() -> void:
 	
 	can_fire = false
 	current_ammo -= 1
-	fired.emit()
+	fired.emit(weapon_data)
 	fire_cooldown.start()
 
 func _on_fire_cooldown_timeout() -> void:
-	print("DEBUG: fire_cooldown timed out. can_fire set to TRUE.")
+	#print("DEBUG: fire_cooldown timed out. can_fire set to TRUE.")
 	can_fire = true
 
 func get_ammo_status() -> String:

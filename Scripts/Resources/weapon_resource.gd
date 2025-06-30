@@ -1,5 +1,5 @@
 extends Resource
-class_name Weapon_resource
+class_name WeaponResource
 
 @export var name: String
 @export var max_ammo: int

@@ -6,9 +6,6 @@ class_name Idle_firing
 @export var reloading: FiringState
 @export var switching: FiringState
 
-@export var w1: Weapon_resource
-@export var w2: Weapon_resource
-
 func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
 	statename = "Idle"
 	super(previous_state, data)

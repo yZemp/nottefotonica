@@ -13,7 +13,7 @@ func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
 	super(previous_state, data)
 	
 	if parent and parent.game_weapon:
-		parent.game_weapon.fire() # Chiama la funzione di sparo dell'arma
+		parent.game_weapon.fire()
 		
 		# Collega il segnale di timeout del timer dell'arma al metodo locale
 		fire_cooldown_ref = parent.game_weapon.fire_cooldown

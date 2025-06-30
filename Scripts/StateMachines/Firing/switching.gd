@@ -11,7 +11,7 @@ func enter(previous_state: FiringState, data: Dictionary = {}) -> void:
 	super(previous_state, data)
 	
 	if data.has("new_gun"):
-		var new_gun: Weapon_resource = data["new_gun"]
+		var new_gun: WeaponResource = data["new_gun"]
 		if new_gun:
 			parent.game_weapon.setup_weapon(new_gun)
 			print("Succesfully changed weapon: ", new_gun.name)

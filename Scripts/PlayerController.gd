@@ -7,17 +7,21 @@ const SMOOTH_SPEED = 10.0
 const AIR_MANOVRABILITY := 10.0
 const AIR_STRAFE := 1.5
 
+# TODO: Move this
+const HEADSHOT_MOD := 2.5
+
 @export var sense_horizontal = .05
 @export var sense_vertical = .05
 @onready var camera_mount: Node3D = $CameraMount
 @onready var camera_3d: Camera3D = $CameraMount/Camera3D
 @onready var hand_mount: Node3D = $CameraMount/Camera3D/HandMount
 @onready var game_weapon: Node3D = $CameraMount/Camera3D/HandMount/GameWeapon
+@onready var aim_cast: RayCast3D = $CameraMount/Camera3D/AimCast
 @onready var movement_state_machine: MovementStateMachine = $MovementStateMachine
 @onready var firing_state_machine: FiringStateMachine = $FiringStateMachine
-@onready var hud: CanvasLayer = %Hud
+@onready var hud: CanvasLayer = $Hud
 
-@export var player_weapon_inventory: Array[Weapon_resource] = []
+@export var player_weapon_inventory: Array[WeaponResource] = []
 var current_weapon_index: int = -1
 
 @export var max_health: int = 100
@@ -26,8 +30,10 @@ var current_weapon_index: int = -1
 func _ready() -> void:
 	health = max_health
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	camera_3d.current = true
 	movement_state_machine.init(self)
 	firing_state_machine.init(self)
+	game_weapon.fired.connect(_shoot)
 	
 	if player_weapon_inventory.size() > 0:
 		change_weapon(0)
@@ -57,6 +63,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	firing_state_machine.process_input(event)
 
 func _process(delta):
+	if health <= 0:
+		die()
+	
 	movement_state_machine.process_frame(delta)
 	firing_state_machine.process_frame(delta)
 
@@ -82,9 +91,23 @@ func change_weapon(index: int) -> void:
 	else:
 		print("Weapon already selected (", new_weapon_resource.name, ").")
 
+func _shoot(weapon: WeaponResource) -> void:
+	if aim_cast.is_colliding():
+		var target = aim_cast.get_collider()
+		
+		print("Hit enemy")
+		if target.name == "Physical Bone mixamorig1_Head":
+			target.get_owner()._take_dmg(weapon.base_dmg * HEADSHOT_MOD)
+			
+		target.get_owner()._take_dmg(weapon.base_dmg)
+
 func take_damage(dmg) -> void:
 	health -= dmg
 	print(health)
+	
+func die() -> void:
+	#print("EHHEHEHE dead")
+	pass
 
 func _on_gui_update_timeout() -> void:
 	for child in hud.get_children():

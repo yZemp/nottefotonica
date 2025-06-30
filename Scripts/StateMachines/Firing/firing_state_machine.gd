@@ -14,7 +14,7 @@ signal firing_state_changed(previous_state: FiringState, current_state: FiringSt
 
 var parent: CharacterBody3D
 @onready var game_weapon: Node3D = %GameWeapon
-@export var current_weapon: Weapon_resource = null
+@export var current_weapon: WeaponResource = null
 
 func init(par: CharacterBody3D) -> void:
 	parent = par
@@ -36,7 +36,7 @@ func change_state(new_state: FiringState, data: Dictionary = {}) -> void:
 	current_state.enter(previous_state, data)
 	firing_state_changed.emit(previous_state, current_state)
 	
-func request_weapon_switch_state(new_weapon_resource: Weapon_resource) -> void:
+func request_weapon_switch_state(new_weapon_resource: WeaponResource) -> void:
 	if switching_state:
 		change_state(switching_state, {"new_gun": new_weapon_resource})
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bma0c0u3l3ucc"]
+[gd_scene load_steps=22 format=3 uid="uid://bma0c0u3l3ucc"]
 
 [ext_resource type="Script" uid="uid://dgvv4fmehik48" path="res://Scripts/PlayerController.gd" id="1_rd8vp"]
 [ext_resource type="Script" uid="uid://c84b0cg0c1rf" path="res://Scripts/StateMachines/Movement/movement_state_machine.gd" id="2_5ur5x"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://b2yciarrofmfi" path="res://Scripts/StateMachines/Firing/auto_firing.gd" id="12_ighb3"]
 [ext_resource type="Script" uid="uid://b0fxwotrbe7c5" path="res://Scripts/StateMachines/Firing/reloading.gd" id="13_aejhh"]
 [ext_resource type="Script" uid="uid://bj6bdob25dbf2" path="res://Scripts/StateMachines/Firing/switching.gd" id="14_37oox"]
-[ext_resource type="PackedScene" uid="uid://c1yy0dj786r7f" path="res://Scenes/hud.tscn" id="20_msn00"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ur5x"]
 
@@ -45,7 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.619917, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]
 transform = Transform3D(1, 0, 0, 0, 0.999957, -0.00923261, 0, 0.00923261, 0.999957, 0, 0, 0)
-current = true
 
 [node name="HandMount" type="Node3D" parent="CameraMount/Camera3D"]
 transform = Transform3D(0.99837, 0, 0.0570761, -0.000526962, 0.999957, 0.00921756, -0.0570737, -0.00923261, 0.998327, 0.322548, -0.439094, -0.537882)
@@ -55,7 +53,6 @@ unique_name_in_owner = true
 
 [node name="AimCast" type="RayCast3D" parent="CameraMount/Camera3D"]
 target_position = Vector3(0, 0, -1000)
-collision_mask = 2
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_5ur5x")
@@ -138,7 +135,5 @@ auto_firing = NodePath("../AutoFiring")
 [node name="GUI_update" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
-
-[node name="Hud" parent="." instance=ExtResource("20_msn00")]
 
 [connection signal="timeout" from="GUI_update" to="." method="_on_gui_update_timeout"]

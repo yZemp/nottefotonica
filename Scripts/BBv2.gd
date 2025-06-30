@@ -3,33 +3,44 @@ extends CharacterBody3D
 const SPEED := 2.5
 const RANGE := 2.0
 const RANGE_HIT_MOD := 1.2
-const MAX_HEALTH := 50.
 const DMG := 8.
+const MAX_HEALTH := 50.
+var health : float
 var can_punch := true
+var alive := true
 
 @export var target : CharacterBody3D = null
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var despawn_timer: Timer = $DespawnTimer
+@onready var skeleton_3d: Skeleton3D = $Armature/Skeleton3D
 
 func _ready() -> void:
-	pass
+	health = MAX_HEALTH
 	
 func _change_target(trgt : CharacterBody3D) -> void:
 	target = trgt
 	
 func _process(delta: float) -> void:
+	if not alive:
+		return
+		
 	if can_punch:
 		animation_player.play("Run")
 		animation_player.get_animation("Run").loop_mode = (Animation.LOOP_LINEAR)
 	
 func _physics_process(delta: float) -> void:
+		
 	if not target:
 		printerr("Target not set!")
 		
 	if not is_on_floor():
 		velocity.y += ProjectSettings.get_setting("physics/3d/default_gravity") * delta
 	else:
+		if not alive:
+			return
+			
 		if can_punch:
 			nav_agent.set_target_position(target.global_transform.origin)
 			var next_nav_point = nav_agent.get_next_path_position()
@@ -71,5 +82,14 @@ func _hit_damage() -> void:
 		return
 	target.take_damage(DMG)
 
+func _take_dmg(dmg: float) -> void:
+	health -= dmg
+	
+	if health <= 0.0:
+		die()
+
 func _hit_finished() -> void:
 	can_punch = true
+	
+func die():
+	queue_free()

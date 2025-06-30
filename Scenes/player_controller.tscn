@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://b2yciarrofmfi" path="res://Scripts/StateMachines/Firing/auto_firing.gd" id="12_ighb3"]
 [ext_resource type="Script" uid="uid://b0fxwotrbe7c5" path="res://Scripts/StateMachines/Firing/reloading.gd" id="13_aejhh"]
 [ext_resource type="Script" uid="uid://bj6bdob25dbf2" path="res://Scripts/StateMachines/Firing/switching.gd" id="14_37oox"]
-[ext_resource type="PackedScene" uid="uid://c1yy0dj786r7f" path="res://Scenes/hud.tscn" id="20_msn00"]
+[ext_resource type="PackedScene" uid="uid://c1yy0dj786r7f" path="res://Scenes/GUI/hud.tscn" id="20_msn00"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ur5x"]
 

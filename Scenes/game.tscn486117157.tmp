@@ -12,4 +12,4 @@ main_menu = ExtResource("3_wowpa")
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_i6g32")]
 
-[node name="LevelContainer" type="Node" parent="."]
+[node name="ActiveLevel" type="Node" parent="."]

@@ -1,43 +1,50 @@
 extends Node3D
 
 @export var playable_levels: Array[PackedScene]
-@export var menus: Array[PackedScene]
+@export var main_menu: PackedScene
+@onready var pause_menu: CanvasLayer = $PauseMenu
 
-@onready var active_level: Node = $ActiveLevel
-
+@onready var level_container: Node = $LevelContainer
 var current_level: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_menu(menus[0])
+	pause_menu.hide()
+	load_main_menu()
 	
-func load_menu(menu_scene: PackedScene) -> void:
+	pause_menu.back_to_menu.connect(load_main_menu)
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause") and get_tree().paused == false:
+		pause_menu.pause()
+
+func load_main_menu() -> void:
+	print("Loading menu")
+	
 	if current_level:
 		current_level.queue_free()
 		current_level = null
 		
-	var menu_instance = menu_scene.instantiate()
-	active_level.add_child(menu_instance)
+	var menu_instance = main_menu.instantiate()
+	level_container.add_child(menu_instance)
 	current_level = menu_instance
 	
 	# Connetti il segnale start_playing del menu
 	if menu_instance.has_signal("start_playing"):
 		menu_instance.start_playing.connect(on_start_playing)
-
-
+	
 func load_level(level_index: int) -> void:
 	if level_index < 0 or level_index >= playable_levels.size():
-		print("Errore: Indice del livello giocabile non valido.")
+		printerr("Level not found")
 		return
 	
 	if current_level:
 		current_level.queue_free()
 		current_level = null
 	
-	var new_level_packed_scene = playable_levels[level_index]
-	var new_level_instance = new_level_packed_scene.instantiate()
-	active_level.add_child(new_level_instance)
-	current_level = new_level_instance
+	current_level = playable_levels[level_index].instantiate()
+	level_container.add_child(current_level)
+	current_level.init(current_level)
 
 func on_start_playing(lvl_indx: int) -> void:
 	print("Loading level (by index): ", lvl_indx)

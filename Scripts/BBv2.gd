@@ -9,7 +9,7 @@ var health : float
 var can_punch := true
 var alive := true
 
-@export var target : CharacterBody3D = null
+var target : CharacterBody3D = null
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		
 	if not target:
 		printerr("Target not set!")
+		return
 		
 	if not is_on_floor():
 		velocity.y += ProjectSettings.get_setting("physics/3d/default_gravity") * delta
@@ -59,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	#
 	#
 func _is_target_in_range():
+
 	return global_position.distance_to(target.global_position) < RANGE
 
 func _face_player(delta: float, look_direction: Vector3 = Vector3.ZERO) -> void:

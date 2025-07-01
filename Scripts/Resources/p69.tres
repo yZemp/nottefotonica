@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Weapon_resource" load_steps=3 format=3 uid="uid://dtix6tlt2bww4"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://dtix6tlt2bww4"]
 
 [ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_resource.gd" id="1_3nb2e"]
 [ext_resource type="PackedScene" uid="uid://qja5n7w1ldgc" path="res://Scenes/Guns/p69.tscn" id="1_mggw5"]
 
 [resource]
 script = ExtResource("1_3nb2e")
-name = "p69"
+name = "P69"
 max_ammo = 80
 fire_rate = 769
 reload_time = 1.8
@@ -13,4 +13,6 @@ viewmodel = ExtResource("1_mggw5")
 base_dmg = 12
 spread = 2
 auto = true
+scale = 0.0
+position = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/_custom_type_script = "uid://dtii5yrxat2l"

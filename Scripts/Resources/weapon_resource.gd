@@ -9,3 +9,5 @@ class_name WeaponResource
 @export var base_dmg: int
 @export var spread: int
 @export var auto: bool
+
+@export var transform: Transform3D

@@ -26,6 +26,8 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dl1v4"]
 
 [node name="PlayerController" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_rd8vp")
 sense_horizontal = 0.001
 sense_vertical = 0.001
@@ -48,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 0.999957, -0.00923261, 0, 0.00923261, 0.9999
 current = true
 
 [node name="HandMount" type="Node3D" parent="CameraMount/Camera3D"]
-transform = Transform3D(0.99837, 0, 0.0570761, -0.000526962, 0.999957, 0.00921756, -0.0570737, -0.00923261, 0.998327, 0.322548, -0.439094, -0.537882)
+transform = Transform3D(0.99837, 0, 0.0570761, -0.000526962, 0.999957, 0.00921756, -0.0570737, -0.00923261, 0.998327, 0.322548, -0.409289, -0.652498)
 
 [node name="GameWeapon" parent="CameraMount/Camera3D/HandMount" instance=ExtResource("3_raf36")]
 unique_name_in_owner = true

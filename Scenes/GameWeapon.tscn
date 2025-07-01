@@ -1,16 +1,96 @@
-[gd_scene load_steps=2 format=3 uid="uid://66yrtu7bixaj"]
+[gd_scene load_steps=9 format=3 uid="uid://66yrtu7bixaj"]
 
 [ext_resource type="Script" uid="uid://cyjv6l7xh54x6" path="res://Scripts/game_weapon.gd" id="1_utci3"]
+[ext_resource type="PackedScene" uid="uid://byrl18eulg1aa" path="res://Scenes/Guns/scrausa.tscn" id="2_4xn6c"]
+[ext_resource type="PackedScene" uid="uid://qja5n7w1ldgc" path="res://Scenes/Guns/p69.tscn" id="3_8t5lt"]
+[ext_resource type="PackedScene" uid="uid://pey3i0dip5ir" path="res://Scenes/Guns/assault.tscn" id="4_jy4gu"]
+[ext_resource type="PackedScene" uid="uid://c8s5uup3qb8s7" path="res://Scenes/Guns/losgravo.tscn" id="5_r2u21"]
+
+[sub_resource type="Animation" id="Animation_jtno2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("meshRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("meshRoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_utci3"]
+resource_name = "Recoil"
+length = 0.06
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("meshRoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.0526236, 0.059955),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0.3), Vector3(0, 0, -0.005), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("meshRoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.00995855, 0.0544825),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xn6c"]
+_data = {
+&"RESET": SubResource("Animation_jtno2"),
+&"Recoil": SubResource("Animation_utci3")
+}
 
 [node name="GameWeapon" type="Node3D"]
 script = ExtResource("1_utci3")
 
 [node name="meshRoot" type="Node3D" parent="."]
 
+[node name="Scrausa" parent="meshRoot" instance=ExtResource("2_4xn6c")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="P69" parent="meshRoot" instance=ExtResource("3_8t5lt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.1)
+
+[node name="Assault" parent="meshRoot" instance=ExtResource("4_jy4gu")]
+
+[node name="Losgravo" parent="meshRoot" instance=ExtResource("5_r2u21")]
+
 [node name="fire_cooldown" type="Timer" parent="."]
 one_shot = true
 
 [node name="reload_cooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4xn6c")
+}
 
 [connection signal="timeout" from="fire_cooldown" to="." method="_on_fire_cooldown_timeout"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://igy127x8sun5"]
+
+[ext_resource type="PackedScene" uid="uid://dx0uco57noyj2" path="res://Assets/grass1.glb" id="1_k1byg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1byg"]
+albedo_color = Color(0.355733, 0.46, 0.092, 1)
+
+[node name="grass1" instance=ExtResource("1_k1byg")]
+
+[node name="GrassLOD0" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_k1byg")

@@ -18,7 +18,6 @@ func spawn_player(player_parent: Node) -> void:
 		
 	if player_scene: 
 		spawned_player = player_scene.instantiate()
-		bbv2._change_target(spawned_player)
 		
 		# Aggiunge il player come figlio della scena corrente
 		# In Godot 4, di solito si aggiunge alla scena corrente (get_tree().current_scene)

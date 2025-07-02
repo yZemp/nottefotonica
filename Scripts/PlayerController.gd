@@ -103,7 +103,7 @@ func _shoot(weapon: WeaponResource) -> void:
 
 func take_damage(dmg) -> void:
 	health -= dmg
-	print(health)
+	hud.damage_graphics()
 	
 func die() -> void:
 	#print("EHHEHEHE dead")

@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 WeaponManager="*res://Scenes/WeaponManager.tscn"
 
-[display]
-
-window/size/mode=3
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")

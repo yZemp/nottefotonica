@@ -72,6 +72,7 @@ func _process(delta):
 
 func change_weapon(index: int) -> void:
 	if player_weapon_inventory.is_empty():
+		# TODO: Implement this thing
 		printerr("No weapon available")
 		return
 		
@@ -95,7 +96,7 @@ func _shoot(weapon: WeaponResource) -> void:
 	if aim_cast.is_colliding():
 		var target = aim_cast.get_collider()
 		
-		print("Hit enemy")
+		#print("Hit enemy")
 		if target.name == "Physical Bone mixamorig1_Head":
 			target.get_owner()._take_dmg(weapon.base_dmg * HEADSHOT_MOD)
 			

@@ -1,8 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://qja5n7w1ldgc"]
+[gd_scene load_steps=5 format=3 uid="uid://qja5n7w1ldgc"]
 
 [ext_resource type="PackedScene" uid="uid://bc8lwxps7bskg" path="res://Assets/Guns/P69/tpm_smg.glb" id="1_m63ee"]
+
+[sub_resource type="Animation" id="Animation_m63ee"]
+resource_name = "Recoil"
+length = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/MP_smg_nine_fbx/RootNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0091305, 0.0690748),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 3), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/MP_smg_nine_fbx/RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0147495, 0.0564321),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0523599, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3vh7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/MP_smg_nine_fbx/RootNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/MP_smg_nine_fbx/RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vh7x"]
+_data = {
+&"RESET": SubResource("Animation_3vh7x"),
+&"Recoil": SubResource("Animation_m63ee")
+}
 
 [node name="P69" instance=ExtResource("1_m63ee")]
 
 [node name="Object" parent="Sketchfab_model/MP_smg_nine_fbx/RootNode" index="0"]
 transform = Transform3D(-8.74228e-07, 20, 8.74228e-07, 0, -8.74228e-07, 20, 20, 8.74228e-07, 3.82137e-14, 7.30772, 4.97103, -34.3931)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_3vh7x")
+}

@@ -4,7 +4,7 @@ var weapon_data: WeaponResource
 @onready var mesh_root: Node3D = $meshRoot
 @onready var fire_cooldown: Timer = $fire_cooldown
 @onready var reload_cooldown: Timer = $reload_cooldown
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+var animation_player: AnimationPlayer
 
 signal fired
 signal reloaded
@@ -34,11 +34,13 @@ func setup_weapon(new_weapon_data) -> void:
 	# Adding new model and positioning it
 	var new_model = weapon_data.viewmodel.instantiate()
 	mesh_root.add_child(new_model)
-	new_model.transform = new_weapon_data.transform
+	#new_model.transform = new_weapon_data.transform
 	
 	fire_cooldown.wait_time = 60. / weapon_data.fire_rate
 	#print("DEBUG: loaded fire_cooldown.wait_time: ", fire_cooldown.wait_time)
 	reload_cooldown.wait_time = weapon_data.reload_time
+	
+	animation_player = new_model.find_child("AnimationPlayer", false, false)
 
 func fire() -> void:
 	#print("DEBUG: Try firing. can_fire: ", can_fire, " is_reloading: ", is_reloading)
@@ -50,7 +52,8 @@ func fire() -> void:
 	
 	can_fire = false
 	current_ammo -= 1
-	animation_player.play("Recoil")
+	if animation_player:
+		animation_player.play("Recoil")
 	fired.emit(weapon_data)
 	fire_cooldown.start()
 

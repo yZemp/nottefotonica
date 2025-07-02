@@ -1,6 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8s5uup3qb8s7"]
+[gd_scene load_steps=5 format=3 uid="uid://c8s5uup3qb8s7"]
 
 [ext_resource type="PackedScene" uid="uid://dx8uo4k1x02om" path="res://Assets/Guns/Losgravo/high_caliber_battle_rifle.glb" id="1_kifpy"]
+
+[sub_resource type="Animation" id="Animation_kifpy"]
+resource_name = "Recoil"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/979a24d3f27e4826bef3b616221ffe68_fbx/RootNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.00910786, 0.0605743, 0.0996084),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 30), Vector3(0, 0, -5), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/979a24d3f27e4826bef3b616221ffe68_fbx/RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.00670141, 0.0548739, 0.0921671),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(-0.0872665, -3.14159, 0), Vector3(0, -3.14159, 0), Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s8trh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/979a24d3f27e4826bef3b616221ffe68_fbx/RootNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/979a24d3f27e4826bef3b616221ffe68_fbx/RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8trh"]
+_data = {
+&"RESET": SubResource("Animation_s8trh"),
+&"Recoil": SubResource("Animation_kifpy")
+}
 
 [node name="Losgravo" instance=ExtResource("1_kifpy")]
 
@@ -11,4 +72,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 
 [node name="RootNode" parent="Sketchfab_model/979a24d3f27e4826bef3b616221ffe68_fbx" index="0"]
-transform = Transform3D(-0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 8.24009, 0, -29.6322)
+transform = Transform3D(-0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_s8trh")
+}

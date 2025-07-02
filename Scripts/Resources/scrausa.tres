@@ -13,5 +13,5 @@ viewmodel = ExtResource("1_fw47y")
 base_dmg = 27
 spread = 5
 auto = null
-transform = null
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/_custom_type_script = "uid://dtii5yrxat2l"

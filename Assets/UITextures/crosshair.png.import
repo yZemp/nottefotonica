@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2qv4yty84mjk"
-path="res://.godot/imported/damage_vignetting.png-53c5fdfa8247b781b171fff0da7fadbb.ctex"
+uid="uid://csal5fvs643gl"
+path="res://.godot/imported/crosshair.png-aefee4b995c0978ff55a841b5a0b69d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/damage_vignetting.png"
-dest_files=["res://.godot/imported/damage_vignetting.png-53c5fdfa8247b781b171fff0da7fadbb.ctex"]
+source_file="res://Assets/UITextures/crosshair.png"
+dest_files=["res://.godot/imported/crosshair.png-aefee4b995c0978ff55a841b5a0b69d3.ctex"]
 
 [params]
 

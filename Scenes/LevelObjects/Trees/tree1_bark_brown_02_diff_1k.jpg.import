@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ky67pajgcuk"
-path.s3tc="res://.godot/imported/grass.png-bd8693609e2236b94b5eb6d9741bc1d7.s3tc.ctex"
+uid="uid://opvt8g81w3iy"
+path.s3tc="res://.godot/imported/tree1_bark_brown_02_diff_1k.jpg-dbf1d0a6b0722b2992fb4a0a9aae1035.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4132e6483c14ce18a6060657ddda8249"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/grass.png"
-dest_files=["res://.godot/imported/grass.png-bd8693609e2236b94b5eb6d9741bc1d7.s3tc.ctex"]
+source_file="res://Scenes/LevelObjects/Trees/tree1_bark_brown_02_diff_1k.jpg"
+dest_files=["res://.godot/imported/tree1_bark_brown_02_diff_1k.jpg-dbf1d0a6b0722b2992fb4a0a9aae1035.s3tc.ctex"]
 
 [params]
 

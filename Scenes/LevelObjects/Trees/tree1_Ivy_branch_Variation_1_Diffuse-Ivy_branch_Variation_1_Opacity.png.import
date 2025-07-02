@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdanngluwvn1x"
-path.s3tc="res://.godot/imported/tmp.png-82d4b422f3667f5c47d6988a92ccd2a3.s3tc.ctex"
+uid="uid://b1508u5wvx7dn"
+path.s3tc="res://.godot/imported/tree1_Ivy_branch_Variation_1_Diffuse-Ivy_branch_Variation_1_Opacity.png-5c44deb28e5a00c24bde415a6e5cf9f4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "b7f2df455a5d36bccb89363bad98dfda"
+}
 
 [deps]
 
-source_file="res://Assets/tmp.png"
-dest_files=["res://.godot/imported/tmp.png-82d4b422f3667f5c47d6988a92ccd2a3.s3tc.ctex"]
+source_file="res://Scenes/LevelObjects/Trees/tree1_Ivy_branch_Variation_1_Diffuse-Ivy_branch_Variation_1_Opacity.png"
+dest_files=["res://.godot/imported/tree1_Ivy_branch_Variation_1_Diffuse-Ivy_branch_Variation_1_Opacity.png-5c44deb28e5a00c24bde415a6e5cf9f4.s3tc.ctex"]
 
 [params]
 

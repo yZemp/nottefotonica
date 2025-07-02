@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1yy0dj786r7f"]
 
 [ext_resource type="Script" uid="uid://cf4jr5mwvqwwx" path="res://Scripts/hud.gd" id="1_65piv"]
-[ext_resource type="Texture2D" uid="uid://csal5fvs643gl" path="res://Assets/crosshair.png" id="1_pfrcj"]
-[ext_resource type="Texture2D" uid="uid://d2qv4yty84mjk" path="res://Assets/damage_vignetting.png" id="2_ok2ij"]
+[ext_resource type="Texture2D" uid="uid://csal5fvs643gl" path="res://Assets/UITextures/crosshair.png" id="1_pfrcj"]
+[ext_resource type="Texture2D" uid="uid://d2qv4yty84mjk" path="res://Assets/UITextures/damage_vignetting.png" id="2_ok2ij"]
 
 [sub_resource type="Animation" id="Animation_rbehb"]
 length = 0.001

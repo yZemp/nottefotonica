@@ -18,9 +18,13 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 WeaponManager="*res://Scenes/WeaponManager.tscn"
 
+[display]
+
+window/size/mode=3
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [input]
 

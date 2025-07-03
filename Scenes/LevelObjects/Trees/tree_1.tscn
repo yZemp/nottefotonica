@@ -8,6 +8,9 @@ height = 1.0
 
 [node name="tree1" instance=ExtResource("1_gs0t7")]
 
+[node name="Tree-2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]

@@ -29,8 +29,6 @@
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_rd8vp")
-sense_horizontal = 0.001
-sense_vertical = 0.001
 player_weapon_inventory = Array[ExtResource("2_qugqj")]([ExtResource("10_raf36"), ExtResource("12_e7xru"), ExtResource("5_msn00"), ExtResource("6_at6cw")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

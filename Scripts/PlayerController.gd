@@ -4,8 +4,8 @@ const SPEED = 2.0
 const SPRINT_MOD = 1.3
 const JUMP_VELOCITY = 4.5
 const SMOOTH_SPEED = 10.0
-const AIR_MANOVRABILITY := 10.0
-const AIR_STRAFE := 1.5
+const AIR_MANOVRABILITY := 20.0
+const AIR_STRAFE := 2.
 
 # TODO: Move this
 const HEADSHOT_MOD := 2.5
@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 	firing_state_machine.process_physics(delta)
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Gestione dell'input per il cambio arma qui (indipendente dallo stato di fuoco)
 	if event.is_action_pressed("slot1"):
 		change_weapon(0)
 		get_viewport().set_input_as_handled()
@@ -58,7 +57,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("slot4"):
 		change_weapon(3)
 		get_viewport().set_input_as_handled()
-		
+	
+	if event.is_action_pressed("Reload") and game_weapon.current_ammo != game_weapon.weapon_data.max_ammo:
+		firing_state_machine.request_weapon_reload_state()
+	
 	movement_state_machine.process_input(event)
 	firing_state_machine.process_input(event)
 
@@ -69,7 +71,6 @@ func _process(delta):
 	movement_state_machine.process_frame(delta)
 	firing_state_machine.process_frame(delta)
 
-
 func change_weapon(index: int) -> void:
 	if player_weapon_inventory.is_empty():
 		# TODO: Implement this thing
@@ -77,6 +78,7 @@ func change_weapon(index: int) -> void:
 		return
 		
 	if index < 0 or index >= player_weapon_inventory.size():
+		# TODO: Implement this thing
 		printerr("Invalid index (for player inventory): ", index)
 		return
 		

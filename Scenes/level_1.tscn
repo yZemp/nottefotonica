@@ -459,9 +459,9 @@ reference_frame = 2
 script = ExtResource("13_n6kdx")
 stack = Array[ExtResource("14_vty50")]([SubResource("Resource_bvkrs"), SubResource("Resource_qleq8"), SubResource("Resource_j1fw4"), SubResource("Resource_dj4ak")])
 
-[sub_resource type="Curve3D" id="Curve3D_yj11n"]
+[sub_resource type="Curve3D" id="Curve3D_06qqj"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.165894, -9.53674e-07, 12.3357, 0, 0, 0, 0, 0, 0, 0.212296, 9.53674e-07, 9.60596, 0, 0, 0, 0, 0, 0, 2.49147, 0, 5.10958),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.05655, 0, 12.0116, 0, 0, 0, 0, 0, 0, 0.155273, 0, 9.60036, 0, 0, 0, 0, 0, 0, 2.49147, 0, 5.10958),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -470,7 +470,7 @@ point_count = 3
 script = ExtResource("24_8kuxf")
 closed = false
 thickness = 0.0
-curve = SubResource("Curve3D_yj11n")
+curve = SubResource("Curve3D_06qqj")
 
 [sub_resource type="Curve3D" id="Curve3D_al3q1"]
 _data = {
@@ -662,10 +662,10 @@ shape = SubResource("BoxShape3D_yj11n")
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -25.356, 3.08676, -87.618)
 
 [node name="gateL" parent="." instance=ExtResource("26_8kuxf")]
-transform = Transform3D(0.764268, 0, 1.05162, 0, 1.3, 0, -1.05162, 0, 0.764268, -82.6632, 4, -120.967)
+transform = Transform3D(0.764268, 0, 1.05162, 0, 1.3, 0, -1.05162, 0, 0.764268, -82.6632, 3.8336, -120.967)
 
 [node name="gateR" parent="." instance=ExtResource("27_06qqj")]
-transform = Transform3D(0.750418, 0, 1.06154, 0, 1.3, 0, -1.06154, 0, 0.750418, -83.5972, 4, -119.682)
+transform = Transform3D(0.750418, 0, 1.06154, 0, 1.3, 0, -1.06154, 0, 0.750418, -83.5972, 3.8336, -119.682)
 
 [node name="log" parent="." instance=ExtResource("28_06qqj")]
 transform = Transform3D(0.0729322, 0.290971, 0.00406253, -2.14042e-10, 0.00418817, -0.299971, -0.291, 0.0729251, 0.00101818, -25.4578, 3.34625, -85.5485)

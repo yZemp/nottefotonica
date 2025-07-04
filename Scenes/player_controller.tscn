@@ -93,10 +93,11 @@ fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 walk_state = NodePath("../Walk")
 
-[node name="FiringStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "switching_state")]
+[node name="FiringStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "switching_state", "reloading_state")]
 script = ExtResource("9_1cmmd")
 initial_state = NodePath("Idle_firing")
 switching_state = NodePath("Switching")
+reloading_state = NodePath("Reloading")
 current_weapon = ExtResource("10_raf36")
 
 [node name="Idle_firing" type="Node" parent="FiringStateMachine" node_paths=PackedStringArray("firing", "auto_firing", "reloading", "switching")]

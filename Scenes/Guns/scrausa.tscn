@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://byrl18eulg1aa"]
+[gd_scene load_steps=6 format=3 uid="uid://byrl18eulg1aa"]
 
 [ext_resource type="PackedScene" uid="uid://dksqonrjovedo" path="res://Assets/Guns/Scrausa/9mm_pistol.glb" id="1_0odyq"]
 
@@ -31,7 +31,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0odyq"]
 resource_name = "Recoil"
-length = 0.2
+length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,10 +39,10 @@ tracks/0/path = NodePath("Sketchfab_model/9mmPistol_fbx/RootNode:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0246189, 0.151383, 0.2),
+"times": PackedFloat32Array(0, 0.0189383, 0.133333, 0.149626),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 5), Vector3(0, 0, -0.05), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 5), Vector3(0, 0, 1), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -51,22 +51,54 @@ tracks/1/path = NodePath("Sketchfab_model/9mmPistol_fbx/RootNode:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.177144),
+"times": PackedFloat32Array(0, 0.0228553, 0.119289),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.174533, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lkrhi"]
+resource_name = "Reload"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/9mmPistol_fbx/RootNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.5, 1.7, 2.06667, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.68197, -1.84697e-15), Vector3(0, -10, 0), Vector3(0, -10, 0), Vector3(0, -10, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/9mmPistol_fbx/RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.245502, 0.433333, 1.6, 1.8, 1.93805, 2.03333, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0279253, 0.111701, -0.991347), Vector3(-0.0279253, 0.111701, -0.139626), Vector3(0, 0.42586, -0.610865), Vector3(0, 0.42586, -0.610865), Vector3(0.0629291, 0.0292259, -0.147287), Vector3(0.573539, 0.0347265, -0.130277), Vector3(0.573539, 0.0347265, -0.130277), Vector3(0, 0.42586, -0.610865), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_24w10"]
 _data = {
 &"RESET": SubResource("Animation_24w10"),
-&"Recoil": SubResource("Animation_0odyq")
+&"Recoil": SubResource("Animation_0odyq"),
+&"Reload": SubResource("Animation_lkrhi")
 }
 
 [node name="Scrausa" instance=ExtResource("1_0odyq")]
 
+[node name="RootNode" parent="Sketchfab_model/9mmPistol_fbx" index="0"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="Cube_005" parent="Sketchfab_model/9mmPistol_fbx/RootNode" index="0"]
-transform = Transform3D(-8.74228e-07, 20, 8.74228e-07, 0, -8.74228e-07, 20, 20, 8.74228e-07, 3.82137e-14, 0, 0, 0)
+transform = Transform3D(0.184746, 19.9858, 0.730326, -0.274358, -0.727757, 19.9849, 19.9973, -0.194625, 0.267442, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {

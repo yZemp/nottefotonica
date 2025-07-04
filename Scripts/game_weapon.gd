@@ -26,7 +26,9 @@ func setup_weapon(new_weapon_data) -> void:
 	weapon_data = new_weapon_data
 	#print("DEBUG: loaded fire_rate: ", weapon_data.fire_rate)
 	
+	# Setting ammo
 	current_ammo = weapon_data.max_ammo
+	
 	if mesh_root:
 		for child in mesh_root.get_children():
 			child.queue_free()

@@ -18,7 +18,7 @@ func process_input(_event: InputEvent) -> void:
 		var delta = _event.relative
 		parent.rotate_y(-delta.x * parent.sense_horizontal * .0001)
 		parent.camera_mount.rotate_x(-delta.y * parent.sense_vertical * .0001)
-		parent.camera_mount.rotation.x = clamp(parent.camera_mount.rotation.x, deg_to_rad(-90), deg_to_rad(40))
+		parent.camera_mount.rotation.x = clamp(parent.camera_mount.rotation.x, deg_to_rad(-90), deg_to_rad(45))
 	pass
 
 ## Called by the state machine on the engine's main loop tick.

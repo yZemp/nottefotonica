@@ -4,6 +4,7 @@ class_name FiringStateMachine
 ## The initial state of the state machine. If not set, the first child node is used.
 @export var initial_state: FiringState = null
 @export var switching_state: FiringState
+@export var reloading_state: FiringState
 
 ## The current state of the state machine.
 @onready var previous_state: FiringState
@@ -42,7 +43,14 @@ func request_weapon_switch_state(new_weapon_resource: WeaponResource) -> void:
 	else:
 		printerr("This will never happen. I don't really need to describe this error.")
 	
-# Pass through function for the player to call
+
+func request_weapon_reload_state() -> void:
+	if reloading_state:
+		change_state(reloading_state)
+	else:
+		printerr("This will never happen. I don't really need to describe this error.")
+	
+
 func process_physics(delta: float) -> void:
 	current_state.process_physics(delta)
 	

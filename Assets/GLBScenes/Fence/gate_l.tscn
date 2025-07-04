@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dotpo6wa4aamx"]
+
+[ext_resource type="PackedScene" uid="uid://d2n1f4o05r4lh" path="res://Assets/GLBScenes/Fence/gateL.glb" id="1_jvjqb"]
+
+[node name="gateL" instance=ExtResource("1_jvjqb")]
+
+[node name="plank35_style1_door1_0_002" parent="." index="0"]
+transform = Transform3D(-0.00769231, 0, -9.42036e-19, 0, 0.00769231, 0, 9.42036e-19, 0, -0.00769231, 0, 0, 0)

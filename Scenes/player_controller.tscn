@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bma0c0u3l3ucc"]
+[gd_scene load_steps=22 format=3 uid="uid://bma0c0u3l3ucc"]
 
 [ext_resource type="Script" uid="uid://dgvv4fmehik48" path="res://Scripts/PlayerController.gd" id="1_rd8vp"]
 [ext_resource type="Script" uid="uid://c84b0cg0c1rf" path="res://Scripts/StateMachines/Movement/movement_state_machine.gd" id="2_5ur5x"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://5pxsprohoj40" path="res://Scripts/StateMachines/Movement/jump.gd" id="5_1esxm"]
 [ext_resource type="Resource" uid="uid://ctel44jt3ocd7" path="res://Scripts/Resources/assault.tres" id="5_msn00"]
 [ext_resource type="Script" uid="uid://jv2btlkr82s4" path="res://Scripts/StateMachines/Movement/fall.gd" id="6_3b8x7"]
-[ext_resource type="Resource" uid="uid://dvc3b4xfns7gq" path="res://Scripts/Resources/losgravo.tres" id="6_at6cw"]
 [ext_resource type="Script" uid="uid://cstggnhuvwuqd" path="res://Scripts/StateMachines/Movement/sprint.gd" id="7_53kst"]
 [ext_resource type="Script" uid="uid://ywpe3f0kydlm" path="res://Scripts/StateMachines/Firing/firing_state_machine.gd" id="9_1cmmd"]
 [ext_resource type="Script" uid="uid://c172ml16dts4j" path="res://Scripts/StateMachines/Firing/idle_firing.gd" id="10_4jfj4"]
@@ -29,7 +28,7 @@
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_rd8vp")
-player_weapon_inventory = Array[ExtResource("2_qugqj")]([ExtResource("10_raf36"), ExtResource("12_e7xru"), ExtResource("5_msn00"), ExtResource("6_at6cw")])
+player_weapon_inventory = Array[ExtResource("2_qugqj")]([ExtResource("10_raf36"), ExtResource("12_e7xru"), ExtResource("5_msn00")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5ur5x")

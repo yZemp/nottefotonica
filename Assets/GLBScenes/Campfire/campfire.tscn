@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxo7i6j5sbp45"]
+
+[ext_resource type="PackedScene" uid="uid://dq8avw03f0pqv" path="res://Assets/GLBScenes/Campfire/Campfire.glb" id="1_oehkn"]
+[ext_resource type="Texture2D" uid="uid://1qi5d1eouuty" path="res://Assets/GLBScenes/Campfire/800x600-41745734-ash-from-the-fire-texture-background.jpg" id="2_rmfcm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oehkn"]
+radius = 3000.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oehkn"]
+height = 2000.0
+radius = 4500.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5qsf"]
+albedo_texture = ExtResource("2_rmfcm")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oehkn"]
+material = SubResource("StandardMaterial3D_g5qsf")
+top_radius = 3300.0
+bottom_radius = 3300.0
+height = 500.0
+radial_segments = 16
+rings = 2
+
+[node name="Campfire" instance=ExtResource("1_oehkn")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/804b7c00de7044d4b8cdab7d4b298189_fbx/RootNode/Koster_low/Object_4/Koster_low_Koster1_0" index="0"]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/804b7c00de7044d4b8cdab7d4b298189_fbx/RootNode/Koster_low/Object_4/Koster_low_Koster1_0/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3155.59, -722.92, 1128.72)
+shape = SubResource("SphereShape3D_oehkn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Sketchfab_model/804b7c00de7044d4b8cdab7d4b298189_fbx/RootNode/Koster_low/Object_4/Koster_low_Koster1_0/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3099.03, -890.842, 595.874)
+shape = SubResource("CylinderShape3D_oehkn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sketchfab_model/804b7c00de7044d4b8cdab7d4b298189_fbx/RootNode/Koster_low/Object_4/Koster_low_Koster1_0/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37116e-08, -1, 0, 1, -4.37116e-08, -3088.97, -971.997, -72.5257)
+mesh = SubResource("CylinderMesh_oehkn")

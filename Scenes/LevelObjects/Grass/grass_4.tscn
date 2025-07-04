@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvmt7y1fgdae5"]
-
-[ext_resource type="PackedScene" uid="uid://cnmm4uabat8h4" path="res://Scenes/LevelObjects/Grass/grass4.glb" id="1_miekd"]
-
-[node name="grass4" instance=ExtResource("1_miekd")]
-
-[node name="Grass large 2_GrassAtlas_0" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, -3.57628e-07, 1, 0, -1, -3.57628e-07, 0, 0, 0)

@@ -12,6 +12,7 @@ radius = 4500.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5qsf"]
 albedo_texture = ExtResource("2_rmfcm")
+emission_enabled = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_oehkn"]
 material = SubResource("StandardMaterial3D_g5qsf")
@@ -38,3 +39,9 @@ shape = SubResource("CylinderShape3D_oehkn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sketchfab_model/804b7c00de7044d4b8cdab7d4b298189_fbx/RootNode/Koster_low/Object_4/Koster_low_Koster1_0/StaticBody3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, -4.37116e-08, -1, 0, 1, -4.37116e-08, -3088.97, -971.997, -72.5257)
 mesh = SubResource("CylinderMesh_oehkn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_model/804b7c00de7044d4b8cdab7d4b298189_fbx/RootNode/Koster_low/Object_4/Koster_low_Koster1_0/StaticBody3D" index="3"]
+transform = Transform3D(6736.18, 0, 0, 0, 6736.18, 0, 0, 0, 6736.18, -3202.52, -758.147, 469.043)
+light_color = Color(0.83, 0.467843, 0.1909, 1)
+light_energy = 0.5
+light_size = 0.1

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7v88qnknqthv"]
+
+[ext_resource type="PackedScene" uid="uid://dog4pu5e68lij" path="res://Assets/GLBScenes/Log/log.glb" id="1_5t2l3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5t2l3"]
+height = 10.3
+radius = 1.1
+
+[node name="log" instance=ExtResource("1_5t2l3")]
+
+[node name="Cylinder_004" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_004" index="0"]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_004/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.274167, 0)
+shape = SubResource("CylinderShape3D_5t2l3")

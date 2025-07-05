@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://cmp7nard2h51"]
+[gd_scene load_steps=117 format=3 uid="uid://cmp7nard2h51"]
 
 [ext_resource type="Texture2D" uid="uid://blwtjqh21tayv" path="res://Assets/Textures/Ground/packed_albedo_height.png" id="1_7p6j4"]
 [ext_resource type="Script" uid="uid://cb3dv3ta2bwtx" path="res://Scripts/level.gd" id="1_akpl7"]
@@ -27,7 +27,9 @@
 [ext_resource type="Script" uid="uid://b42odfvmhjcd" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="24_8kuxf"]
 [ext_resource type="PackedScene" uid="uid://cxo7i6j5sbp45" path="res://Assets/GLBScenes/Campfire/campfire.tscn" id="25_yj11n"]
 [ext_resource type="PackedScene" uid="uid://dotpo6wa4aamx" path="res://Assets/GLBScenes/Fence/gate_l.tscn" id="26_8kuxf"]
+[ext_resource type="Script" uid="uid://cyp2fb5i41d4e" path="res://addons/proton_scatter/src/modifiers/offset_scale.gd" id="26_u54d8"]
 [ext_resource type="PackedScene" uid="uid://drmkrun1cff68" path="res://Assets/GLBScenes/Fence/gate_r.tscn" id="27_06qqj"]
+[ext_resource type="Script" uid="uid://cocgv0gqu22ul" path="res://addons/proton_scatter/src/modifiers/randomize_rotation.gd" id="27_le8o3"]
 [ext_resource type="PackedScene" uid="uid://b7v88qnknqthv" path="res://Assets/GLBScenes/Log/log.tscn" id="28_06qqj"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_evi0p"]
@@ -36,6 +38,10 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 geometry_collision_mask = 4294967293
 agent_max_slope = 60.0
 region_min_size = 10.0
+
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_al3q1"]
+vertices = PackedVector3Array(-64, 8.85651, -64, -48, 28.2256, -48, -64, 24.4969, -48, -48, 10.9936, -64, -32, 27.3829, -48, -32, 11.8107, -64, -16, 21.7751, -48, -16, 14.044, -64, 0, 21.7751, -48, 0, 14.044, -64, -48, 18.5483, -32, -64, 17.7254, -32, -32, 19.3629, -32, -16, 24.3461, -32, 0, 24.3461, -32, -48, 4.44864, -16, -64, 5.11707, -16, -32, 4.29915, -16, -16, 7.52391, -16, 0, 7.52391, -16, -48, 4.44864, 0, -64, 5.11707, 0, -32, 4.29915, 0, -16, 7.52391, 0, 0, 7.52391, 0, -64, 3.74055, -128, -48, 2.87097, -112, -64, 2.21001, -112, -48, 12.382, -128, -32, 3.52514, -112, -32, 12.2145, -128, -16, 7.20565, -112, -16, 11.5365, -128, 0, 7.20565, -112, 0, 11.5365, -128, -48, 2.91385, -96, -64, 1.98132, -96, -32, 3.07607, -96, -16, 3.1133, -96, 0, 3.1133, -96, -48, 5.12312, -80, -64, 3.20577, -80, -32, 3.10102, -80, -16, 3.10956, -80, 0, 3.10956, -80, -64, 30.1044, -176, -48, 27.8848, -160, -64, 8.20511, -160, -48, 33.1218, -176, -32, 23.3661, -160, -32, 11.4609, -176, -16, 24.4343, -160, -16, 5.41304, -176, 0, 24.4343, -160, 0, 5.41304, -176, -48, 27.161, -144, -64, 8.16283, -144, -32, 26.6012, -144, -16, 23.088, -144, 0, 23.088, -144, -128, 1.41208, -64, -112, 2.31788, -48, -128, 2.45582, -48, -112, 1.49172, -64, -96, 6.21778, -48, -96, 3.73661, -64, -80, 12.3526, -48, -80, 12.1552, -64, -112, 11.2009, -32, -128, 7.16734, -32, -96, 23.4048, -32, -80, 25.6485, -32, -112, 19.358, -16, -128, 20.9158, -16, -96, 20.5988, -16, -80, 13.1302, -16, -112, 19.358, 0, -128, 20.9158, 0, -96, 20.5988, 0, -80, 13.1302, 0, -128, 12.0275, -128, -112, 2.16354, -112, -128, 2.36778, -112, -112, 2.78425, -128, -96, 1.98295, -112, -96, 2.21057, -128, -80, 2.1677, -112, -80, 2.25205, -128, -112, 1.91702, -96, -128, 2.22589, -96, -96, 2.41296, -96, -80, 1.67781, -96, -112, 2.07779, -80, -128, 2.77201, -80, -96, 4.9171, -80, -80, 2.59625, -80, -128, 37.0363, -176, -112, 17.176, -160, -128, 29.4685, -160, -112, 31.6758, -176, -96, 10.9642, -160, -96, 24.0606, -176, -80, 8.20813, -160, -80, 29.3302, -176, -112, 14.5659, -144, -128, 11.7181, -144, -96, 2.71608, -144, -80, 2.99992, -144, -192, -2.25445, -64, -176, 5.49718, -48, -192, 5.58475, -48, -176, 1.93512, -64, -160, 2.11852, -48, -160, 1.83657, -64, -144, 2.17299, -48, -144, 2.07017, -64, -176, 22.1884, -32, -192, 22.1179, -32, -160, 15.0184, -32, -144, 3.27597, -32, -176, 26.0698, -16, -192, 50.8938, -16, -160, 17.8351, -16, -144, 17.4589, -16, -176, 26.0698, 0, -192, 50.8938, 0, -160, 17.8351, 0, -144, 17.4589, 0, -192, 2.48312, -128, -176, 2.49771, -112, -192, 2.40906, -112, -176, 12.2143, -128, -160, 11.6468, -112, -160, 24.1454, -128, -144, 12.7175, -112, -144, 15.527, -128, -176, 1.93299, -96, -192, -0.234177, -96, -160, 5.11465, -96, -144, 14.6212, -96, -176, 1.62632, -80, -192, -2.78005, -80, -160, 2.34712, -80, -144, 7.17342, -80, -192, 23.0601, -176, -176, 37.9448, -160, -192, 15.8952, -160, -176, 32.0571, -176, -160, 43.3995, -160, -160, 46.1865, -176, -144, 34.3503, -160, -144, 42.5277, -176, -176, 50.0406, -144, -192, 13.2036, -144, -160, 45.0069, -144, -144, 17.817, -144, -256, -4.74503, -64, -240, -4.04338, -48, -256, -3.24483, -48, -240, -4.79602, -64, -224, -4.00709, -48, -224, -4.69896, -64, -208, -0.57777, -48, -208, -4.32903, -64, -240, 0.392122, -32, -256, 3.22706, -32, -224, 4.00187, -32, -208, 14.867, -32, -240, 16.9438, -16, -256, 17.1696, -16, -224, 16.6884, -16, -208, 43.6563, -16, -240, 16.9438, 0, -256, 17.1696, 0, -224, 16.6884, 0, -208, 43.6563, 0, -256, 1.46951, -128, -240, 3.042, -112, -256, 2.73469, -112, -240, 1.56008, -128, -224, 1.38445, -112, -224, 2.0186, -128, -208, 1.51839, -112, -208, 2.09634, -128, -240, -2.15115, -96, -256, 0.69804, -96, -224, -2.77762, -96, -208, -2.58969, -96, -240, -4.8011, -80, -256, -4.72622, -80, -224, -4.6725, -80, -208, -4.45785, -80, -256, 16.7208, -176, -240, 1.998, -160, -256, 5.52665, -160, -240, 14.8678, -176, -224, 1.72443, -160, -224, 31.0769, -176, -208, 7.41459, -160, -208, 29.3278, -176, -240, 1.65621, -144, -256, 2.35803, -144, -224, 1.42003, -144, -208, 3.12882, -144, -304, 14.0498, -64, -288, 5.91593, -48, -304, 13.7982, -48, -288, 5.52708, -64, -272, 0.846819, -48, -272, -2.90942, -64, -288, 9.61855, -32, -304, 21.9711, -32, -272, 5.75856, -32, -288, 35.9278, -16, -304, 43.8057, -16, -272, 24.1098, -16, -288, 35.9278, 0, -304, 43.8057, 0, -272, 24.1098, 0, -304, 16.8573, -128, -288, 2.48825, -112, -304, 9.76678, -112, -288, 2.24357, -128, -272, 2.30788, -112, -272, 2.05754, -128, -288, 8.33861, -96, -304, 9.59172, -96, -272, 4.6532, -96, -288, 3.97541, -80, -304, 13.3349, -80, -272, -2.93103, -80, -304, 30.9287, -176, -288, 5.50499, -160, -304, 24.3979, -160, -288, 16.011, -176, -272, 5.61804, -160, -272, 17.0532, -176, -288, 5.00273, -144, -304, 16.0703, -144, -272, 2.7952, -144)
+indices = PackedInt32Array(0, 1, 2, 2, 1, 10, 0, 3, 1, 67, 0, 2, 3, 4, 1, 41, 3, 0, 1, 4, 12, 1, 12, 10, 3, 5, 4, 95, 0, 67, 95, 41, 0, 41, 40, 3, 40, 5, 3, 91, 41, 95, 36, 40, 41, 91, 36, 41, 36, 35, 40, 40, 42, 5, 35, 42, 40, 42, 7, 5, 27, 35, 36, 86, 36, 91, 86, 27, 36, 84, 86, 91, 27, 26, 35, 35, 37, 42, 26, 37, 35, 37, 43, 42, 42, 43, 7, 43, 9, 7, 7, 9, 8, 43, 44, 9, 7, 8, 6, 5, 7, 6, 6, 8, 14, 5, 6, 4, 38, 44, 43, 37, 38, 43, 38, 39, 44, 4, 6, 13, 6, 14, 13, 4, 13, 12, 13, 14, 19, 13, 19, 18, 12, 13, 18, 18, 19, 24, 18, 24, 23, 12, 18, 17, 17, 18, 23, 10, 12, 17, 17, 23, 22, 15, 17, 22, 10, 17, 15, 15, 22, 20, 11, 10, 15, 2, 10, 11, 16, 15, 20, 11, 15, 16, 16, 20, 21, 66, 2, 11, 67, 2, 66, 71, 11, 16, 66, 11, 71, 75, 16, 21, 71, 16, 75, 75, 21, 79, 74, 75, 79, 74, 79, 78, 70, 71, 75, 70, 75, 74, 64, 66, 71, 64, 71, 70, 65, 66, 64, 65, 67, 66, 72, 74, 78, 72, 78, 76, 68, 70, 74, 68, 74, 72, 61, 64, 70, 61, 70, 68, 63, 65, 64, 63, 64, 61, 73, 72, 76, 73, 76, 77, 69, 68, 72, 69, 72, 73, 62, 61, 68, 62, 68, 69, 60, 63, 61, 60, 61, 62, 123, 73, 77, 123, 77, 127, 119, 69, 73, 119, 73, 123, 114, 62, 69, 114, 69, 119, 115, 60, 62, 115, 62, 114, 122, 123, 127, 122, 127, 126, 118, 119, 123, 118, 123, 122, 112, 114, 119, 112, 119, 118, 113, 115, 114, 113, 114, 112, 120, 122, 126, 120, 126, 124, 116, 118, 122, 116, 122, 120, 109, 112, 118, 109, 118, 116, 111, 113, 112, 111, 112, 109, 121, 120, 124, 121, 124, 125, 117, 116, 120, 117, 120, 121, 110, 109, 116, 110, 116, 117, 108, 111, 109, 108, 109, 110, 171, 121, 125, 171, 125, 175, 167, 117, 121, 167, 121, 171, 162, 110, 117, 162, 117, 167, 163, 108, 110, 163, 110, 162, 170, 171, 175, 170, 175, 174, 166, 167, 171, 166, 171, 170, 160, 162, 167, 160, 167, 166, 161, 163, 162, 161, 162, 160, 168, 170, 174, 168, 174, 172, 164, 166, 170, 164, 170, 168, 157, 160, 166, 157, 166, 164, 159, 161, 160, 159, 160, 157, 169, 168, 172, 169, 172, 173, 165, 164, 168, 165, 168, 169, 158, 157, 164, 158, 164, 165, 156, 159, 157, 156, 157, 158, 215, 169, 173, 215, 173, 218, 212, 165, 169, 212, 169, 215, 208, 158, 165, 208, 165, 212, 209, 156, 158, 209, 158, 208, 213, 215, 218, 213, 218, 216, 214, 213, 216, 214, 216, 217, 211, 213, 214, 210, 215, 213, 211, 210, 213, 210, 212, 215, 206, 210, 211, 205, 212, 210, 206, 205, 210, 205, 208, 212, 204, 205, 206, 207, 208, 205, 204, 207, 205, 207, 209, 208, 229, 207, 204, 229, 228, 207, 228, 209, 207, 226, 228, 229, 228, 230, 209, 226, 225, 228, 225, 230, 228, 221, 225, 226, 230, 156, 209, 221, 220, 225, 219, 220, 221, 225, 227, 230, 220, 227, 225, 230, 189, 156, 227, 189, 230, 189, 159, 156, 219, 222, 220, 238, 222, 219, 220, 223, 227, 222, 223, 220, 227, 185, 189, 223, 185, 227, 189, 188, 159, 185, 188, 189, 188, 161, 159, 238, 237, 222, 233, 237, 238, 222, 224, 223, 237, 224, 222, 223, 178, 185, 224, 178, 223, 185, 184, 188, 178, 184, 185, 188, 190, 161, 184, 190, 188, 190, 163, 161, 190, 191, 163, 191, 108, 163, 184, 186, 190, 186, 191, 190, 178, 177, 184, 177, 186, 184, 176, 177, 178, 224, 176, 178, 191, 141, 108, 141, 111, 108, 186, 187, 191, 187, 141, 191, 177, 180, 186, 180, 187, 186, 176, 179, 177, 179, 180, 177, 141, 140, 111, 140, 113, 111, 187, 137, 141, 137, 140, 141, 180, 182, 187, 182, 137, 187, 179, 181, 180, 181, 182, 180, 140, 142, 113, 142, 115, 113, 137, 136, 140, 136, 142, 140, 182, 130, 137, 130, 136, 137, 181, 183, 182, 183, 130, 182, 142, 143, 115, 143, 60, 115, 136, 138, 142, 138, 143, 142, 130, 129, 136, 129, 138, 136, 183, 128, 130, 128, 129, 130, 143, 93, 60, 93, 63, 60, 138, 139, 143, 139, 93, 143, 129, 132, 138, 132, 139, 138, 128, 131, 129, 131, 132, 129, 93, 92, 63, 92, 65, 63, 139, 89, 93, 89, 92, 93, 132, 134, 139, 134, 89, 139, 131, 133, 132, 133, 134, 132, 92, 94, 65, 94, 67, 65, 94, 95, 67, 88, 94, 92, 89, 88, 92, 90, 95, 94, 88, 90, 94, 90, 91, 95, 84, 91, 90, 81, 90, 88, 81, 84, 90, 82, 88, 89, 82, 81, 88, 134, 82, 89, 135, 82, 134, 133, 135, 134, 80, 81, 82, 135, 80, 82, 83, 84, 81, 80, 83, 81, 83, 85, 84, 85, 86, 84, 105, 83, 80, 85, 87, 86, 87, 27, 86, 104, 85, 83, 105, 104, 83, 106, 87, 85, 104, 106, 85, 87, 25, 27, 25, 26, 27, 106, 107, 87, 107, 25, 87, 97, 106, 104, 100, 107, 106, 97, 100, 106, 99, 100, 97, 99, 101, 100, 96, 99, 97, 101, 102, 100, 100, 102, 107, 101, 103, 102, 98, 97, 104, 96, 97, 98, 98, 104, 105, 151, 96, 98, 151, 98, 150, 150, 98, 105, 149, 151, 150, 150, 105, 155, 155, 105, 80, 155, 80, 135, 149, 150, 148, 148, 150, 155, 147, 149, 148, 154, 155, 135, 148, 155, 154, 154, 135, 133, 147, 148, 145, 145, 148, 154, 144, 147, 145, 152, 154, 133, 145, 154, 152, 152, 133, 131, 144, 145, 146, 146, 145, 152, 199, 144, 146, 153, 152, 131, 146, 152, 153, 153, 131, 128, 199, 146, 198, 198, 146, 153, 197, 199, 198, 203, 153, 128, 198, 153, 203, 203, 128, 183, 197, 198, 196, 196, 198, 203, 195, 197, 196, 202, 203, 183, 196, 203, 202, 202, 183, 181, 195, 196, 193, 193, 196, 202, 192, 195, 193, 200, 202, 181, 193, 202, 200, 200, 181, 179, 192, 193, 194, 194, 193, 200, 236, 192, 194, 201, 200, 179, 194, 200, 201, 201, 179, 176, 236, 194, 235, 235, 194, 201, 234, 236, 235, 239, 201, 176, 235, 201, 239, 239, 176, 224, 237, 239, 224, 232, 235, 239, 232, 239, 237, 234, 235, 232, 233, 232, 237, 231, 234, 232, 231, 232, 233, 25, 28, 26, 28, 29, 26, 26, 29, 37, 29, 38, 37, 56, 28, 25, 107, 56, 25, 102, 56, 107, 29, 31, 38, 31, 39, 38, 31, 33, 39, 30, 31, 29, 28, 30, 29, 32, 33, 31, 30, 32, 31, 32, 34, 33, 55, 30, 28, 56, 55, 28, 57, 32, 30, 55, 57, 30, 58, 34, 32, 57, 58, 32, 58, 59, 34, 102, 47, 56, 47, 55, 56, 103, 47, 102, 103, 45, 47, 47, 46, 55, 45, 46, 47, 46, 57, 55, 45, 48, 46, 46, 49, 57, 48, 49, 46, 49, 58, 57, 48, 50, 49, 49, 51, 58, 50, 51, 49, 51, 59, 58, 50, 52, 51, 51, 53, 59, 52, 53, 51, 52, 54, 53)
 
 [sub_resource type="Gradient" id="Gradient_qqy1o"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -157,7 +163,7 @@ sky = SubResource("Sky_i6g32")
 ambient_light_source = 3
 ambient_light_color = Color(0.364581, 0.546341, 0.779737, 1)
 
-[sub_resource type="Resource" id="Resource_al3q1"]
+[sub_resource type="Resource" id="Resource_le8o3"]
 script = ExtResource("15_7u0mb")
 amount = 40
 enabled = true
@@ -166,7 +172,7 @@ custom_seed = 7
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_u54d8"]
+[sub_resource type="Resource" id="Resource_dva0y"]
 script = ExtResource("17_fwilu")
 iterations = 3
 offset_step = 0.2
@@ -178,7 +184,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_le8o3"]
+[sub_resource type="Resource" id="Resource_uu08p"]
 script = ExtResource("18_qkon5")
 terrain_node = NodePath("../../NavigationRegion3D/Terrain3D")
 align_with_collision_normal = false
@@ -189,7 +195,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_dva0y"]
+[sub_resource type="Resource" id="Resource_jhv27"]
 script = ExtResource("23_fwilu")
 operation = 0
 position = Vector3(0, 1, 0)
@@ -199,11 +205,11 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_uu08p"]
+[sub_resource type="Resource" id="Resource_rkahp"]
 script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_al3q1"), SubResource("Resource_u54d8"), SubResource("Resource_le8o3"), SubResource("Resource_dva0y")])
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_le8o3"), SubResource("Resource_dva0y"), SubResource("Resource_uu08p"), SubResource("Resource_jhv27")])
 
-[sub_resource type="Resource" id="Resource_jhv27"]
+[sub_resource type="Resource" id="Resource_b3xwg"]
 script = ExtResource("16_al3q1")
 radius = 17.3968
 
@@ -212,7 +218,7 @@ script = ExtResource("16_al3q1")
 radius = 10.0
 metadata/_custom_type_script = "uid://cgy486tlfonqx"
 
-[sub_resource type="Resource" id="Resource_rkahp"]
+[sub_resource type="Resource" id="Resource_baca3"]
 script = ExtResource("15_7u0mb")
 amount = 30
 enabled = true
@@ -221,7 +227,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_b3xwg"]
+[sub_resource type="Resource" id="Resource_326pf"]
 script = ExtResource("16_yj11n")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 360, 0)
@@ -232,7 +238,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_baca3"]
+[sub_resource type="Resource" id="Resource_4ifen"]
 script = ExtResource("17_fwilu")
 iterations = 3
 offset_step = 0.2
@@ -244,7 +250,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_326pf"]
+[sub_resource type="Resource" id="Resource_gc3k7"]
 script = ExtResource("18_qkon5")
 terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
 align_with_collision_normal = false
@@ -255,9 +261,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4ifen"]
+[sub_resource type="Resource" id="Resource_mvdfa"]
 script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_rkahp"), SubResource("Resource_b3xwg"), SubResource("Resource_baca3"), SubResource("Resource_326pf")])
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_baca3"), SubResource("Resource_326pf"), SubResource("Resource_4ifen"), SubResource("Resource_gc3k7")])
 
 [sub_resource type="Resource" id="Resource_0vche"]
 script = ExtResource("21_u54d8")
@@ -269,7 +275,7 @@ script = ExtResource("21_u54d8")
 size = Vector3(23.9275, 1, 20.0815)
 metadata/_custom_type_script = "uid://cpbfcqul5j8l5"
 
-[sub_resource type="Resource" id="Resource_gc3k7"]
+[sub_resource type="Resource" id="Resource_dtfje"]
 script = ExtResource("15_7u0mb")
 amount = 20
 enabled = true
@@ -278,7 +284,7 @@ custom_seed = 2
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_mvdfa"]
+[sub_resource type="Resource" id="Resource_ww1bt"]
 script = ExtResource("16_yj11n")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 360, 0)
@@ -289,7 +295,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_dtfje"]
+[sub_resource type="Resource" id="Resource_d1n4i"]
 script = ExtResource("17_fwilu")
 iterations = 3
 offset_step = 0.2
@@ -301,7 +307,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ww1bt"]
+[sub_resource type="Resource" id="Resource_atmdf"]
 script = ExtResource("18_qkon5")
 terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
 align_with_collision_normal = false
@@ -312,15 +318,15 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_d1n4i"]
+[sub_resource type="Resource" id="Resource_0iu3r"]
 script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_gc3k7"), SubResource("Resource_mvdfa"), SubResource("Resource_dtfje"), SubResource("Resource_ww1bt")])
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_dtfje"), SubResource("Resource_ww1bt"), SubResource("Resource_d1n4i"), SubResource("Resource_atmdf")])
 
 [sub_resource type="Resource" id="Resource_6rghy"]
 script = ExtResource("21_u54d8")
 size = Vector3(30, 0, 70)
 
-[sub_resource type="Resource" id="Resource_atmdf"]
+[sub_resource type="Resource" id="Resource_ceuot"]
 script = ExtResource("15_7u0mb")
 amount = 30
 enabled = true
@@ -329,7 +335,7 @@ custom_seed = 1
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_0iu3r"]
+[sub_resource type="Resource" id="Resource_8wlb5"]
 script = ExtResource("16_yj11n")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 360, 0)
@@ -340,7 +346,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ceuot"]
+[sub_resource type="Resource" id="Resource_ewtky"]
 script = ExtResource("17_fwilu")
 iterations = 3
 offset_step = 0.2
@@ -352,7 +358,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_8wlb5"]
+[sub_resource type="Resource" id="Resource_fdbj4"]
 script = ExtResource("18_qkon5")
 terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
 align_with_collision_normal = false
@@ -363,15 +369,15 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ewtky"]
+[sub_resource type="Resource" id="Resource_q3luj"]
 script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_atmdf"), SubResource("Resource_0iu3r"), SubResource("Resource_ceuot"), SubResource("Resource_8wlb5")])
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_ceuot"), SubResource("Resource_8wlb5"), SubResource("Resource_ewtky"), SubResource("Resource_fdbj4")])
 
 [sub_resource type="Resource" id="Resource_oont1"]
 script = ExtResource("21_u54d8")
 size = Vector3(30, 0, 64.0942)
 
-[sub_resource type="Resource" id="Resource_fdbj4"]
+[sub_resource type="Resource" id="Resource_kd73b"]
 script = ExtResource("15_7u0mb")
 amount = 25
 enabled = true
@@ -380,7 +386,7 @@ custom_seed = 2
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_q3luj"]
+[sub_resource type="Resource" id="Resource_bvkrs"]
 script = ExtResource("16_yj11n")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 360, 0)
@@ -391,7 +397,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_kd73b"]
+[sub_resource type="Resource" id="Resource_qleq8"]
 script = ExtResource("17_fwilu")
 iterations = 3
 offset_step = 0.2
@@ -403,7 +409,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_bvkrs"]
+[sub_resource type="Resource" id="Resource_j1fw4"]
 script = ExtResource("18_qkon5")
 terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
 align_with_collision_normal = false
@@ -414,15 +420,15 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_qleq8"]
+[sub_resource type="Resource" id="Resource_dj4ak"]
 script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_fdbj4"), SubResource("Resource_q3luj"), SubResource("Resource_kd73b"), SubResource("Resource_bvkrs")])
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_kd73b"), SubResource("Resource_bvkrs"), SubResource("Resource_qleq8"), SubResource("Resource_j1fw4")])
 
 [sub_resource type="Resource" id="Resource_3wqco"]
 script = ExtResource("21_u54d8")
 size = Vector3(30, 0, 62.7764)
 
-[sub_resource type="Resource" id="Resource_j1fw4"]
+[sub_resource type="Resource" id="Resource_i0mm6"]
 script = ExtResource("15_7u0mb")
 amount = 10
 enabled = true
@@ -431,7 +437,7 @@ custom_seed = 2
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_dj4ak"]
+[sub_resource type="Resource" id="Resource_1yvr7"]
 script = ExtResource("16_yj11n")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 360, 0)
@@ -442,7 +448,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_i0mm6"]
+[sub_resource type="Resource" id="Resource_py8fd"]
 script = ExtResource("17_fwilu")
 iterations = 3
 offset_step = 0.2
@@ -454,7 +460,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_1yvr7"]
+[sub_resource type="Resource" id="Resource_3rc18"]
 script = ExtResource("18_qkon5")
 terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
 align_with_collision_normal = false
@@ -465,15 +471,15 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_py8fd"]
+[sub_resource type="Resource" id="Resource_uuyb2"]
 script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_j1fw4"), SubResource("Resource_dj4ak"), SubResource("Resource_i0mm6"), SubResource("Resource_1yvr7")])
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_i0mm6"), SubResource("Resource_1yvr7"), SubResource("Resource_py8fd"), SubResource("Resource_3rc18")])
 
 [sub_resource type="Resource" id="Resource_aab4k"]
 script = ExtResource("21_u54d8")
 size = Vector3(16.1141, 0, 18.328)
 
-[sub_resource type="Resource" id="Resource_3rc18"]
+[sub_resource type="Resource" id="Resource_bkmeg"]
 script = ExtResource("21_7u0mb")
 spacing = 2.7
 offset = 0.0
@@ -485,7 +491,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_uuyb2"]
+[sub_resource type="Resource" id="Resource_x16f0"]
 script = ExtResource("18_qkon5")
 terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
 align_with_collision_normal = false
@@ -496,7 +502,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_bkmeg"]
+[sub_resource type="Resource" id="Resource_f4qsp"]
 script = ExtResource("22_yj11n")
 operation = 0
 rotation = Vector3(0, 90, 0)
@@ -506,7 +512,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_x16f0"]
+[sub_resource type="Resource" id="Resource_2p3k8"]
 script = ExtResource("23_fwilu")
 operation = 0
 position = Vector3(0, 0.8, 0)
@@ -516,9 +522,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_f4qsp"]
+[sub_resource type="Resource" id="Resource_ix11i"]
 script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_3rc18"), SubResource("Resource_uuyb2"), SubResource("Resource_bkmeg"), SubResource("Resource_x16f0")])
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_bkmeg"), SubResource("Resource_x16f0"), SubResource("Resource_f4qsp"), SubResource("Resource_2p3k8")])
 
 [sub_resource type="Curve3D" id="Curve3D_al3q1"]
 _data = {
@@ -552,12 +558,178 @@ size = Vector3(22.185, 0.78241, 13.638)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yj11n"]
 size = Vector3(38.813, 1.18652, 24.6019)
 
+[sub_resource type="Resource" id="Resource_pq2xb"]
+script = ExtResource("15_7u0mb")
+amount = 700
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_idkhw"]
+script = ExtResource("17_fwilu")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_7va3h"]
+script = ExtResource("18_qkon5")
+terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
+align_with_collision_normal = true
+max_slope = 10.0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_tvfyx"]
+script = ExtResource("22_yj11n")
+operation = 0
+rotation = Vector3(-90, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_w8svh"]
+script = ExtResource("26_u54d8")
+operation = 1
+scale = Vector3(1.3, 1.3, 1.3)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_pwjlq"]
+script = ExtResource("27_le8o3")
+rotation = Vector3(0, 0, 180)
+snap_angle = Vector3(0, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_2rim7"]
+script = ExtResource("16_yj11n")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_fr4xr"]
+script = ExtResource("13_n6kdx")
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_pq2xb"), SubResource("Resource_idkhw"), SubResource("Resource_7va3h"), SubResource("Resource_tvfyx"), SubResource("Resource_w8svh"), SubResource("Resource_pwjlq"), SubResource("Resource_2rim7")])
+
+[sub_resource type="Resource" id="Resource_yb2sl"]
+script = ExtResource("16_al3q1")
+radius = 15.0
+metadata/_custom_type_script = "uid://cgy486tlfonqx"
+
+[sub_resource type="Resource" id="Resource_3cw72"]
+script = ExtResource("15_7u0mb")
+amount = 700
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_aapot"]
+script = ExtResource("17_fwilu")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_hh1k0"]
+script = ExtResource("18_qkon5")
+terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
+align_with_collision_normal = true
+max_slope = 10.0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_q1x02"]
+script = ExtResource("22_yj11n")
+operation = 0
+rotation = Vector3(-90, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_baega"]
+script = ExtResource("26_u54d8")
+operation = 1
+scale = Vector3(1.3, 1.3, 1.3)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_28geg"]
+script = ExtResource("27_le8o3")
+rotation = Vector3(0, 0, 180)
+snap_angle = Vector3(0, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_xverm"]
+script = ExtResource("16_yj11n")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_if6eg"]
+script = ExtResource("13_n6kdx")
+stack = Array[ExtResource("14_vty50")]([SubResource("Resource_3cw72"), SubResource("Resource_aapot"), SubResource("Resource_hh1k0"), SubResource("Resource_q1x02"), SubResource("Resource_baega"), SubResource("Resource_28geg"), SubResource("Resource_xverm")])
+
+[sub_resource type="Resource" id="Resource_egr83"]
+script = ExtResource("16_al3q1")
+radius = 15.0
+
 [node name="Level_1" type="Node"]
 script = ExtResource("1_akpl7")
 player_scene = ExtResource("2_aur7v")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_evi0p")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="NavigationRegion3D"]
+occluder = SubResource("ArrayOccluder3D_al3q1")
 
 [node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D"]
 data_directory = "res://terrain_data"
@@ -587,12 +759,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6634, -4.43702, -5.11776)
 
 [node name="ProtonScatter" parent="TriggerAndSpawner" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.786423, 0, 0.792877)
-modifier_stack = SubResource("Resource_uu08p")
+modifier_stack = SubResource("Resource_rkahp")
 
 [node name="ScatterShape" parent="TriggerAndSpawner/ProtonScatter" index="1"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -22.953, -2.78937, -9.38949)
 visible = false
-shape = SubResource("Resource_jhv27")
+shape = SubResource("Resource_b3xwg")
 
 [node name="ScatterShape2" type="Node3D" parent="TriggerAndSpawner/ProtonScatter" index="2"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -13.3239, -0.303008, 11.5073)
@@ -600,26 +772,26 @@ visible = false
 script = ExtResource("20_al3q1")
 shape = SubResource("Resource_8huyn")
 
-[node name="Trees" type="Node3D" parent="."]
+[node name="Trees1" type="Node3D" parent="."]
 script = ExtResource("12_qkon5")
 render_mode = 1
-modifier_stack = SubResource("Resource_4ifen")
+modifier_stack = SubResource("Resource_mvdfa")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://d0e2hclejp0te"
 
-[node name="ScatterItem" type="Node3D" parent="Trees"]
+[node name="ScatterItem" type="Node3D" parent="Trees1"]
 script = ExtResource("19_06qqj")
 source_scale_multiplier = 0.5
 path = "uid://h10jient7ms0"
 
-[node name="ScatterShape" type="Node3D" parent="Trees"]
+[node name="ScatterShape" type="Node3D" parent="Trees1"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -51.8045, 3.94834, -83.2824)
 visible = false
 script = ExtResource("20_al3q1")
 shape = SubResource("Resource_0vche")
 
-[node name="ScatterShape2" type="Node3D" parent="Trees"]
+[node name="ScatterShape2" type="Node3D" parent="Trees1"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -70.2102, 3.94834, -95.9716)
 visible = false
 script = ExtResource("20_al3q1")
@@ -628,7 +800,7 @@ shape = SubResource("Resource_rwh6l")
 [node name="Trees2" type="Node3D" parent="."]
 script = ExtResource("12_qkon5")
 render_mode = 1
-modifier_stack = SubResource("Resource_d1n4i")
+modifier_stack = SubResource("Resource_0iu3r")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://d0e2hclejp0te"
@@ -647,7 +819,7 @@ shape = SubResource("Resource_6rghy")
 [node name="Trees3" type="Node3D" parent="."]
 script = ExtResource("12_qkon5")
 render_mode = 1
-modifier_stack = SubResource("Resource_ewtky")
+modifier_stack = SubResource("Resource_q3luj")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://d0e2hclejp0te"
@@ -666,7 +838,7 @@ shape = SubResource("Resource_oont1")
 [node name="Trees4" type="Node3D" parent="."]
 script = ExtResource("12_qkon5")
 render_mode = 1
-modifier_stack = SubResource("Resource_qleq8")
+modifier_stack = SubResource("Resource_dj4ak")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://d0e2hclejp0te"
@@ -685,7 +857,7 @@ shape = SubResource("Resource_3wqco")
 [node name="Trees5" type="Node3D" parent="."]
 script = ExtResource("12_qkon5")
 render_mode = 1
-modifier_stack = SubResource("Resource_py8fd")
+modifier_stack = SubResource("Resource_uuyb2")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://d0e2hclejp0te"
@@ -705,7 +877,7 @@ shape = SubResource("Resource_aab4k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.7615, -5.72205e-06, -134.681)
 script = ExtResource("12_qkon5")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_f4qsp")
+modifier_stack = SubResource("Resource_ix11i")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://d0e2hclejp0te"
@@ -736,6 +908,40 @@ shape = SubResource("BoxShape3D_8kuxf")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Separator"]
 transform = Transform3D(0.65474, 0.755854, -3.30394e-08, -2.25505e-16, -4.37114e-08, -1, -0.755854, 0.65474, -2.86197e-08, 14.1152, 9.30551, -12.8272)
 shape = SubResource("BoxShape3D_yj11n")
+
+[node name="Grass1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.087, 3.26285, -89.1673)
+script = ExtResource("12_qkon5")
+modifier_stack = SubResource("Resource_fr4xr")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://d0e2hclejp0te"
+
+[node name="ScatterItem" type="Node3D" parent="Grass1"]
+script = ExtResource("19_06qqj")
+path = "uid://dvmt7y1fgdae5"
+
+[node name="ScatterShape" type="Node3D" parent="Grass1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -2.73134, 2.20439, -2.54636)
+script = ExtResource("20_al3q1")
+shape = SubResource("Resource_yb2sl")
+
+[node name="Grass2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.887, 3.26285, -117.659)
+script = ExtResource("12_qkon5")
+modifier_stack = SubResource("Resource_if6eg")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://d0e2hclejp0te"
+
+[node name="ScatterItem" type="Node3D" parent="Grass2"]
+script = ExtResource("19_06qqj")
+path = "uid://dvmt7y1fgdae5"
+
+[node name="ScatterShape" type="Node3D" parent="Grass2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -2.73134, 2.20439, -2.54636)
+script = ExtResource("20_al3q1")
+shape = SubResource("Resource_egr83")
 
 [node name="Campfire" parent="." instance=ExtResource("25_yj11n")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -25.356, 3.08676, -87.618)

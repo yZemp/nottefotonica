@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds0bxbqj3bl4i"]
+
+[ext_resource type="Script" uid="uid://ciu5nrsu2i88h" path="res://Scripts/Enemies/enemy_class.gd" id="1_wodk5"]
+
+[node name="EnemyClass" type="Node3D"]
+script = ExtResource("1_wodk5")
+
+[node name="CharacterBodyContainer" type="Node3D" parent="."]
+
+[node name="ApproximateCollisionShapeContainer" type="Node3D" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

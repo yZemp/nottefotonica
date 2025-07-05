@@ -16,12 +16,6 @@ func spawn_player(player_parent: Node) -> void:
 		
 	if player_scene: 
 		spawned_player = player_scene.instantiate()
-		
-		# Aggiunge il player come figlio della scena corrente
-		# In Godot 4, di solito si aggiunge alla scena corrente (get_tree().current_scene)
-		# Se vuoi un nodo specifico come genitore, dovresti passarlo come parametro 
-		# e usarlo qui al posto di get_tree().current_scene
-		#get_tree().current_scene.add_child(spawned_player)
 		player_parent.add_child(spawned_player)
 		
 		if spawned_player is Node3D:
@@ -38,4 +32,4 @@ func _spawn_enemy(spawn_location: Node3D, enemy_scene: PackedScene) -> void:
 	add_child(new_enemy)
 	new_enemy.global_transform  = spawn_location.global_transform
 	new_enemy._change_target(spawned_player)
-	print("Spawned enemy at:", new_enemy.global_position)
+	#print("Spawned enemy at:", new_enemy.global_position)

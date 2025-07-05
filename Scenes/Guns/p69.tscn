@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qja5n7w1ldgc"]
+[gd_scene load_steps=6 format=3 uid="uid://qja5n7w1ldgc"]
 
 [ext_resource type="PackedScene" uid="uid://bc8lwxps7bskg" path="res://Assets/Guns/P69/tpm_smg.glb" id="1_m63ee"]
 
@@ -57,13 +57,45 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0.0523599, 0, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_dg62g"]
+resource_name = "Reload"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/MP_smg_nine_fbx/RootNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.189825, 0.496776, 0.833333, 1.03333, 1.5, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-10.1663, 0, 0), Vector3(2.42615, 3.02073, -6.70736e-16), Vector3(2.42615, 3.02073, -6.70736e-16), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/MP_smg_nine_fbx/RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 0.86431, 1, 1.39744, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.79126, 0.284268, -0.352234), Vector3(0.79126, 0.284268, -0.352234), Vector3(0.941178, -0.0325966, -0.183367), Vector3(0.79126, 0.284268, -0.352234), Vector3(-0.00277205, 0.579483, -0.111059), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vh7x"]
 _data = {
 &"RESET": SubResource("Animation_3vh7x"),
-&"Recoil": SubResource("Animation_m63ee")
+&"Recoil": SubResource("Animation_m63ee"),
+&"Reload": SubResource("Animation_dg62g")
 }
 
 [node name="P69" instance=ExtResource("1_m63ee")]
+
+[node name="RootNode" parent="Sketchfab_model/MP_smg_nine_fbx" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Object" parent="Sketchfab_model/MP_smg_nine_fbx/RootNode" index="0"]
 transform = Transform3D(-9.61651e-07, 22, 9.61651e-07, 0, -9.61651e-07, 22, 22, 9.61651e-07, 4.20351e-14, 4.63247, 4.97103, -30.6057)

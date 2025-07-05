@@ -9,8 +9,8 @@ class_name Idle_movement
 func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Idle"
 	super(previous_state, data)
-	parent.velocity.x = 0
-	parent.velocity.z = 0
+	#parent.velocity.x = 0
+	#parent.velocity.z = 0
 
 func process_input(event: InputEvent) -> void:
 	super(event)
@@ -28,6 +28,9 @@ func process_input(event: InputEvent) -> void:
 
 func process_physics(delta: float) -> void:
 	apply_gravity(delta)
+	
+	accelerate(Vector3.ZERO, parent.SPEED, delta, parent.SMOOTH_SPEED)
+	
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():

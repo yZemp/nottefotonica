@@ -23,7 +23,10 @@ func process_physics(delta: float) -> void:
 	if movement == Vector3.ZERO:
 		finished.emit(idle_state)
 	
-	accelerate(movement, parent.SPEED, delta, parent.SMOOTH_SPEED)
+	if parent.movement_state_machine.previous_state == self:
+		accelerate(movement, parent.SPEED, delta, parent.SMOOTH_SPEED * 50)
+	else:
+		accelerate(movement, parent.SPEED, delta, parent.SMOOTH_SPEED)
 	parent.move_and_slide()
 	
 	if Input.is_action_pressed("sprint"):

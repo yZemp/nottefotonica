@@ -1,6 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://pey3i0dip5ir"]
+[gd_scene load_steps=6 format=3 uid="uid://pey3i0dip5ir"]
 
 [ext_resource type="PackedScene" uid="uid://d3383f03vb51k" path="res://Assets/Guns/Assault/m16_a2_rifle.glb" id="1_wesui"]
+
+[sub_resource type="Animation" id="Animation_cbg5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx/RootNode:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx/RootNode:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wesui"]
 resource_name = "Recoil"
@@ -30,37 +57,39 @@ tracks/1/keys = {
 "values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0.0174533), Vector3(0, 1.5708, -0.00872665), Vector3(0, 1.5708, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_cbg5h"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ruwr0"]
+resource_name = "Reload"
+length = 2.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx/RootNode:rotation")
+tracks/0/path = NodePath("Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx/RootNode:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.333333, 0.566667, 0.820195, 0.966667, 1.33333, 1.80938, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1.5708, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.17339, 0.140458, 0), Vector3(-0.17339, 0.140458, 0), Vector3(-0.17339, 0.0993031, 0), Vector3(-0.17339, 0.0993031, 0), Vector3(-0.17339, 0.140458, 0), Vector3(-0.114054, 0.068509, 0), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx/RootNode:position")
+tracks/1/path = NodePath("Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx/RootNode:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.366667, 0.466667, 0.820195, 0.966667, 1.33333, 1.80938, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 1.5708, 0), Vector3(0.305431, 1.5708, 0.446823), Vector3(0.305431, 1.5708, 0.446823), Vector3(0.291748, 1.47908, 0.137331), Vector3(0.291748, 1.47908, 0.137331), Vector3(0.305431, 1.5708, 0.446823), Vector3(-0.194795, 1.5816, 0.177287), Vector3(0, 1.5708, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cbg5h"]
 _data = {
 &"RESET": SubResource("Animation_cbg5h"),
-&"Recoil": SubResource("Animation_wesui")
+&"Recoil": SubResource("Animation_wesui"),
+&"Reload": SubResource("Animation_ruwr0")
 }
 
 [node name="Assault" instance=ExtResource("1_wesui")]
@@ -72,7 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="RootNode" parent="Sketchfab_model/5c1494534a7c438180429aa22bbaa6c4_fbx" index="0"]
-transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 0, 0, 0)
+transform = Transform3D(-7.23998e-08, 0, 0.02, 0, 0.02, 0, -0.02, 0, -7.23998e-08, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {

@@ -14,7 +14,7 @@
 height = 10.0
 radius = 20.0
 
-[sub_resource type="Resource" id="Resource_l6cr3"]
+[sub_resource type="Resource" id="Resource_i7oj2"]
 script = ExtResource("5_k5kp0")
 amount = 75
 enabled = true
@@ -23,7 +23,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_0y43x"]
+[sub_resource type="Resource" id="Resource_vmmmv"]
 script = ExtResource("7_0608d")
 iterations = 3
 offset_step = 0.2
@@ -35,7 +35,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_okbgh"]
+[sub_resource type="Resource" id="Resource_0y43x"]
 script = ExtResource("7_l6cr3")
 terrain_node = NodePath("")
 align_with_collision_normal = false
@@ -46,9 +46,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_00obd"]
+[sub_resource type="Resource" id="Resource_w755k"]
 script = ExtResource("3_okbgh")
-stack = Array[ExtResource("4_00obd")]([SubResource("Resource_l6cr3"), SubResource("Resource_0y43x"), SubResource("Resource_okbgh")])
+stack = Array[ExtResource("4_00obd")]([SubResource("Resource_i7oj2"), SubResource("Resource_vmmmv"), SubResource("Resource_0y43x")])
 
 [node name="TriggerAndSpawner" type="Node3D"]
 script = ExtResource("1_u4bw0")
@@ -63,7 +63,7 @@ debug_color = Color(0.5878, 0.548768, 0, 0.42)
 
 [node name="ProtonScatter" type="Node3D" parent="."]
 script = ExtResource("2_0y43x")
-modifier_stack = SubResource("Resource_00obd")
+modifier_stack = SubResource("Resource_w755k")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://d0e2hclejp0te"

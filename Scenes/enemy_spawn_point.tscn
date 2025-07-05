@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://louaf45h4lry"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d6hdc"]
+radial_segments = 8
+rings = 8
+
+[node name="EnemySpawnPoint" type="Marker3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_d6hdc")

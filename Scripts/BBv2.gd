@@ -5,19 +5,21 @@ const RANGE := 2.0
 const RANGE_HIT_MOD := 1.2
 const DMG := 8.
 const MAX_HEALTH := 50.
+const TARGETING_DISTANCE := 30.
 var health : float
 var can_punch := true
 var alive := true
+#var animation_offset := 0.
 
 var target : CharacterBody3D = null
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var despawn_timer: Timer = $DespawnTimer
 @onready var skeleton_3d: Skeleton3D = $Armature/Skeleton3D
 
 func _ready() -> void:
 	health = MAX_HEALTH
+	#animation_offset = randf()
 	
 func _change_target(trgt : CharacterBody3D) -> void:
 	target = trgt
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
 	if not alive:
 		return
 		
-	if can_punch:
+	if can_punch and global_position.distance_to(target.global_position) < TARGETING_DISTANCE:
 		animation_player.play("Run")
 		animation_player.get_animation("Run").loop_mode = (Animation.LOOP_LINEAR)
 	
@@ -42,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		if not alive:
 			return
 			
-		if can_punch:
+		if can_punch and global_position.distance_to(target.global_position) < TARGETING_DISTANCE:
 			nav_agent.set_target_position(target.global_transform.origin)
 			var next_nav_point = nav_agent.get_next_path_position()
 			velocity = (next_nav_point - global_transform.origin).normalized() * SPEED

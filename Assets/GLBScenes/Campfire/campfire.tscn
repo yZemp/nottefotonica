@@ -41,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37116e-08, -1, 0, 1, -4.37116e-08, -3088.
 mesh = SubResource("CylinderMesh_oehkn")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_model/804b7c00de7044d4b8cdab7d4b298189_fbx/RootNode/Koster_low/Object_4/Koster_low_Koster1_0/StaticBody3D" index="3"]
-transform = Transform3D(6736.18, 0, 0, 0, 6736.18, 0, 0, 0, 6736.18, -3202.52, -758.147, 469.043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3202.52, -758.147, 469.043)
 light_color = Color(0.83, 0.467843, 0.1909, 1)
 light_energy = 0.5
 light_size = 0.1

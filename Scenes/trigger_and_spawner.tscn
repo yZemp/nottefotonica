@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://caerdvc8mp1hx"]
+[gd_scene load_steps=16 format=3 uid="uid://caerdvc8mp1hx"]
 
 [ext_resource type="Script" uid="uid://cm3fd3wjjikak" path="res://Scripts/trigger_and_spawner.gd" id="1_u4bw0"]
 [ext_resource type="Script" uid="uid://d0e2hclejp0te" path="res://addons/proton_scatter/src/scatter.gd" id="2_0y43x"]
+[ext_resource type="PackedScene" uid="uid://pq8qqpaoxokr" path="res://Scenes/Enemies/BBv2.tscn" id="2_okbgh"]
 [ext_resource type="Script" uid="uid://ihuwlklr6gh5" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="3_okbgh"]
 [ext_resource type="Script" uid="uid://bkegweemtvw3q" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="4_00obd"]
 [ext_resource type="Script" uid="uid://bs4cy80nbg051" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="5_k5kp0"]
@@ -52,6 +53,7 @@ stack = Array[ExtResource("4_00obd")]([SubResource("Resource_l6cr3"), SubResourc
 
 [node name="TriggerAndSpawner" type="Node3D"]
 script = ExtResource("1_u4bw0")
+enemy_scene = ExtResource("2_okbgh")
 
 [node name="Trigger" type="Area3D" parent="."]
 collision_layer = 0

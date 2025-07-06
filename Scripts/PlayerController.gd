@@ -96,13 +96,21 @@ func change_weapon(index: int) -> void:
 
 func _shoot(weapon: WeaponResource) -> void:
 	if aim_cast.is_colliding():
-		var target = aim_cast.get_collider()
+		var bone = aim_cast.get_collider()
 		
-		#print("Hit enemy")
-		if target.name == "Physical Bone mixamorig1_Head":
-			target.get_owner()._take_dmg(weapon.base_dmg * HEADSHOT_MOD)
-			
-		target.get_owner()._take_dmg(weapon.base_dmg)
+		if not bone is PhysicalBone3D:
+			printerr("Did not shoot a bone. Object shot is:\n", bone, bone.get_class())
+		
+		var dmg = weapon.base_dmg
+		
+		if bone.name == "Physical Bone mixamorig1_Head":
+			dmg = weapon.base_dmg * HEADSHOT_MOD
+		
+		var shot_enemy = _get_enemy_from_bone(bone)
+		if not shot_enemy is CharacterBody3D:
+			printerr("Error in finding target")
+		else:
+			shot_enemy._take_dmg(dmg)
 
 func take_damage(dmg) -> void:
 	health -= dmg
@@ -119,3 +127,15 @@ func _on_gui_update_timeout() -> void:
 			
 		if child is BoxContainer and child.name == "Health":
 			child.get_children()[0].text = "%d / %d" % [health, max_health]
+	
+	
+func _get_enemy_from_bone(bone: PhysicalBone3D):
+	var enemy_nodes = get_tree().get_nodes_in_group("Enemies")
+	
+	# Going up in hierarchy until in Enemies
+	var current_node = bone
+	while current_node != null:
+		if current_node in enemy_nodes:
+			return current_node
+		current_node = current_node.get_parent()
+	return null

@@ -8,7 +8,7 @@ var animation_player: AnimationPlayer
 
 signal fired
 signal reloaded
-signal out_of_ammo
+#signal out_of_ammo
 
 # Internal state
 var current_ammo: int

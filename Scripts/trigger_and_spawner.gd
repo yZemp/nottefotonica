@@ -1,6 +1,6 @@
 extends Node
 
-@export var enemy: PackedScene
+@export var enemy_scene: PackedScene
 @onready var trigger: Area3D = $Trigger
 @onready var proton_scatter: Node3D = $ProtonScatter
 
@@ -11,11 +11,11 @@ signal spawn_enemy(spawn_location: Node3D, enemy_scene: PackedScene)
 func _ready() -> void:
 	proton_scatter.visible = false
 
-func _on_trigger_body_entered(body: Node3D) -> void:
+func _on_trigger_body_entered(_body: Node3D) -> void:
 	if not triggerable:
 		return
 	
-	#print("Triggered")
+	print("Triggered")
 	
 	# THERE MUST EXIST A BETTER WAY!
 	for i in get_children():
@@ -25,7 +25,7 @@ func _on_trigger_body_entered(body: Node3D) -> void:
 					for k in j.get_children():
 						for spawner in k.get_children():
 							#print("Emitting pos:\t", spawner.PackedVector3Array[0])
-							spawn_enemy.emit(spawner, enemy)
+							spawn_enemy.emit(spawner, enemy_scene)
 	
 	#triggered_spawner.emit()
 	triggerable = false

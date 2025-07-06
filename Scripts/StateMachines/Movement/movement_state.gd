@@ -30,7 +30,7 @@ func process_physics(_delta: float) -> void:
 	pass
 
 ## Called by the state machine upon changing the active state.
-func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
+func enter(previous_state: MovementState, _data: Dictionary = {}) -> void:
 	#print("Entering new state:\t", self.statename)
 	pass
 

@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	pause_menu.back_to_menu.connect(load_main_menu)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and get_tree().paused == false:
 		pause_menu.pause()
 	

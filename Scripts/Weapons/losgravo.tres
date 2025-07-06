@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://dvc3b4xfns7gq"]
 
-[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_resource.gd" id="1_ucayc"]
+[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Weapons/weapon_resource.gd" id="1_ucayc"]
 [ext_resource type="PackedScene" uid="uid://c8s5uup3qb8s7" path="res://Scenes/Guns/losgravo.tscn" id="2_npn52"]
 
 [resource]

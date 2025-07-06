@@ -59,10 +59,9 @@ func _physics_process(delta: float) -> void:
 		punch()
 			
 	move_and_slide()
-	#
-	#
+	
+	
 func _is_target_in_range():
-
 	return global_position.distance_to(target.global_position) < RANGE
 
 func _face_player(delta: float, look_direction: Vector3 = Vector3.ZERO) -> void:

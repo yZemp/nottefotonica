@@ -1,26 +1,26 @@
 extends CharacterBody3D
 class_name Enemy
 
-@export var WALK_SPEED : float
-@export var MAX_HEALTH : float
-@export var BASE_DMG : float
-
 var health : float
-var alive := true
+var alive : bool = true
 
-var target : CharacterBody3D = null
+@export var enemy_data : EnemyResource
+
+@export_category("References")
+@export var target : CharacterBody3D = null
 
 @export var nav_agent: NavigationAgent3D
 @export var animation_player: AnimationPlayer
-@export var skeleton_3d: Skeleton3D
+var skeleton_3d: Skeleton3D
 
 func _ready() -> void:
-	health = MAX_HEALTH
+	health = enemy_data.MAX_HEALTH
+	skeleton_3d = get_node("Armature/Skeleton3D")
 	
 func _change_target(trgt : CharacterBody3D) -> void:
 	target = trgt
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not alive:
 		return
 	
@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if not alive:
 			return
+			
 	move_and_slide()
 
 func _face_player(delta: float, look_direction: Vector3 = Vector3.ZERO) -> void:

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PunchyEnemyResource" load_steps=2 format=3 uid="uid://bbwnh0pfp0lc2"]
+
+[ext_resource type="Script" uid="uid://ddbp6dgj2jogp" path="res://Scripts/Enemies/punchy_enemy_resource.gd" id="1_lujek"]
+
+[resource]
+script = ExtResource("1_lujek")
+RANGE = 2.0
+RANGE_HIT_MOD = 1.3
+TARGETING_DISTANCE = 30.0
+WALK_SPEED = 2.5
+MAX_HEALTH = 50.0
+BASE_DMG = 8.0
+metadata/_custom_type_script = "uid://ddbp6dgj2jogp"

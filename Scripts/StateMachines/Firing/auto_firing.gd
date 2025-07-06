@@ -23,7 +23,7 @@ func process_input(event: InputEvent) -> void:
 	if Input.is_action_just_released("primary_fire"):
 		finished.emit(idle_firing)
 	
-func process_physics(delta: float) -> void:
+func process_physics(_delta: float) -> void:
 	pass
 	
 func exit():

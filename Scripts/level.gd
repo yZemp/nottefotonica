@@ -29,7 +29,7 @@ func _spawn_enemy(spawn_location: Node3D, enemy_scene: PackedScene) -> void:
 	''' 
 
 	var new_enemy = enemy_scene.instantiate()
-	add_child(new_enemy)
-	new_enemy.global_transform  = spawn_location.global_transform
 	new_enemy._change_target(spawned_player)
-	#print("Spawned enemy at:", new_enemy.global_position)
+	add_child(new_enemy)
+	new_enemy.global_transform = spawn_location.global_transform
+	#print("Spawned enemy with data:", new_enemy.enemy_data)

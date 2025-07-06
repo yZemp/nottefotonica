@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://ctel44jt3ocd7"]
 
-[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_resource.gd" id="2_7p56l"]
+[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Weapons/weapon_resource.gd" id="2_7p56l"]
 [ext_resource type="PackedScene" uid="uid://pey3i0dip5ir" path="res://Scenes/Guns/assault.tscn" id="2_ferbv"]
 
 [resource]

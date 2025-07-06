@@ -26,6 +26,10 @@ window/size/mode=3
 
 enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
+[global_group]
+
+Enemies="Scenes inherited from PunchyEnemy or ShootyEnemy"
+
 [input]
 
 jump={

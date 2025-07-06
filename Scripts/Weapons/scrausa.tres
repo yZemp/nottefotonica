@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://bxlg1nlmyacms"]
 
-[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Resources/weapon_resource.gd" id="1_cnt1a"]
+[ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Weapons/weapon_resource.gd" id="1_cnt1a"]
 [ext_resource type="PackedScene" uid="uid://byrl18eulg1aa" path="res://Scenes/Guns/scrausa.tscn" id="1_fw47y"]
 
 [resource]

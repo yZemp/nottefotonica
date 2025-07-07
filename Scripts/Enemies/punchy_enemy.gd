@@ -21,18 +21,10 @@ func _process(delta: float) -> void:
 		animation_player.get_animation("Run").loop_mode = (Animation.LOOP_LINEAR)
 
 func _physics_process(delta: float) -> void:
-	# Overwritten entirely
-		
-	if not target:
-		printerr("Target not set!")
-		return
-		
-	if not is_on_floor():
-		velocity.y += ProjectSettings.get_setting("physics/3d/default_gravity") * delta
-	else:
-		if not alive:
-			return
-			
+	
+	super(delta)
+	
+	if is_on_floor():
 		if can_hit and global_position.distance_to(target.global_position) < enemy_data.TARGETING_DISTANCE:
 			nav_agent.set_target_position(target.global_transform.origin)
 			var next_nav_point = nav_agent.get_next_path_position()

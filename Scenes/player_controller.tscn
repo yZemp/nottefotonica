@@ -25,8 +25,8 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dl1v4"]
 
 [node name="PlayerController" type="CharacterBody3D"]
-collision_layer = 4
-collision_mask = 7
+collision_layer = 2
+collision_mask = 21
 script = ExtResource("1_rd8vp")
 player_weapon_inventory = Array[ExtResource("2_qugqj")]([ExtResource("10_raf36"), ExtResource("12_e7xru"), ExtResource("5_msn00")])
 
@@ -54,7 +54,7 @@ unique_name_in_owner = true
 
 [node name="AimCast" type="RayCast3D" parent="CameraMount/Camera3D"]
 target_position = Vector3(0, 0, -1000)
-collision_mask = 2
+collision_mask = 4
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_5ur5x")

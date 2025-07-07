@@ -8,7 +8,7 @@ var statename: String = ""
 ## Emitted when the state finishes and wants to transition to another state.
 signal finished(next_state: String, data: Dictionary)
 
-var gravity: int = - ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: int = ProjectSettings.get_setting("physics/3d/default_gravity")
 var parent: CharacterBody3D
 
 ## Called by the state machine when receiving unhandled input events.

@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpldrl2nlskna"]
+
+[ext_resource type="Script" uid="uid://dxe6fvy76ln73" path="res://Scripts/Drops/drop.gd" id="1_w8hce"]
+[ext_resource type="Material" uid="uid://bolovntxtjdgl" path="res://Scenes/Drops/drop_mat.tres" id="2_qyrgv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qyrgv"]
+material = ExtResource("2_qyrgv")
+
+[sub_resource type="Animation" id="Animation_qyrgv"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.785398, 0, 0), Vector3(0.785398, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_np4ux"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.785398, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.80689, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjgap"]
+_data = {
+&"Idle": SubResource("Animation_qyrgv"),
+&"RESET": SubResource("Animation_np4ux")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qyrgv"]
+radius = 0.145704
+height = 0.491269
+
+[node name="Drop" type="RigidBody3D"]
+collision_layer = 16
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_w8hce")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.141421, -0.141421, 0, 0.141421, 0.141421, 0, 1.80689, 0)
+mesh = SubResource("BoxMesh_qyrgv")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bjgap")
+}
+autoplay = "Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0889767, 0)
+shape = SubResource("CapsuleShape3D_qyrgv")

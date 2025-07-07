@@ -737,7 +737,6 @@ occluder = SubResource("ArrayOccluder3D_le8o3")
 data_directory = "res://terrain_data"
 material = SubResource("Terrain3DMaterial_xfk5q")
 assets = SubResource("Terrain3DAssets_evi0p")
-collision_mask = 22
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -775,6 +774,7 @@ script = ExtResource("20_al3q1")
 shape = SubResource("Resource_8huyn")
 
 [node name="Trees1" type="Node3D" parent="."]
+visible = false
 script = ExtResource("12_qkon5")
 render_mode = 1
 modifier_stack = SubResource("Resource_mvdfa")
@@ -800,6 +800,7 @@ script = ExtResource("20_al3q1")
 shape = SubResource("Resource_rwh6l")
 
 [node name="Trees2" type="Node3D" parent="."]
+visible = false
 script = ExtResource("12_qkon5")
 render_mode = 1
 modifier_stack = SubResource("Resource_0iu3r")
@@ -819,6 +820,7 @@ script = ExtResource("20_al3q1")
 shape = SubResource("Resource_6rghy")
 
 [node name="Trees3" type="Node3D" parent="."]
+visible = false
 script = ExtResource("12_qkon5")
 render_mode = 1
 modifier_stack = SubResource("Resource_q3luj")
@@ -838,6 +840,7 @@ script = ExtResource("20_al3q1")
 shape = SubResource("Resource_oont1")
 
 [node name="Trees4" type="Node3D" parent="."]
+visible = false
 script = ExtResource("12_qkon5")
 render_mode = 1
 modifier_stack = SubResource("Resource_dj4ak")
@@ -857,6 +860,7 @@ script = ExtResource("20_al3q1")
 shape = SubResource("Resource_3wqco")
 
 [node name="Trees5" type="Node3D" parent="."]
+visible = false
 script = ExtResource("12_qkon5")
 render_mode = 1
 modifier_stack = SubResource("Resource_uuyb2")
@@ -913,6 +917,7 @@ shape = SubResource("BoxShape3D_yj11n")
 
 [node name="Grass1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.087, 3.26285, -89.1673)
+visible = false
 script = ExtResource("12_qkon5")
 modifier_stack = SubResource("Resource_fr4xr")
 Performance/use_chunks = true
@@ -931,6 +936,7 @@ shape = SubResource("Resource_yb2sl")
 
 [node name="Grass2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.887, 3.26285, -117.659)
+visible = false
 script = ExtResource("12_qkon5")
 modifier_stack = SubResource("Resource_if6eg")
 Performance/use_chunks = true
@@ -960,6 +966,6 @@ transform = Transform3D(0.750418, 0, 1.06154, 0, 1.3, 0, -1.06154, 0, 0.750418, 
 transform = Transform3D(0.0729322, 0.290971, 0.00406253, -2.14042e-10, 0.00418817, -0.299971, -0.291, 0.0729251, 0.00101818, -25.4578, 3.34625, -85.5485)
 
 [node name="Drop" parent="." instance=ExtResource("18_le8o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9875, 4.99028, -86.0148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2437, 5.99338, -89.2243)
 
 [editable path="TriggerAndSpawner"]

@@ -1,5 +1,5 @@
 extends RigidBody3D
-class_name drop
+class_name Drop
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 

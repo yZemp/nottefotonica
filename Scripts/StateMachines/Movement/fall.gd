@@ -13,9 +13,9 @@ func process_physics(delta: float) -> void:
 	
 	var movement = get_movement_direction()
 	
-	var air_speed : float = parent.SPEED * parent.AIR_STRAFE
+	var air_speed : float = parent.SPEED * parent.AIR_SPEED_MOD
 	if Input.is_action_pressed("sprint"):
-		air_speed = parent.SPEED * parent.SPRINT_MOD * parent.AIR_STRAFE
+		air_speed = parent.SPEED * parent.SPRINT_MOD * parent.AIR_SPEED_MOD
 	
 	parent.velocity.x += movement.x * parent.AIR_MANOVRABILITY * delta
 	parent.velocity.z += movement.z * parent.AIR_MANOVRABILITY * delta	

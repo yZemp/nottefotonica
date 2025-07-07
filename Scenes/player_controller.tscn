@@ -54,7 +54,7 @@ unique_name_in_owner = true
 
 [node name="AimCast" type="RayCast3D" parent="CameraMount/Camera3D"]
 target_position = Vector3(0, 0, -1000)
-collision_mask = 4
+collision_mask = 8
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_5ur5x")

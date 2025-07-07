@@ -1,19 +1,24 @@
 extends CharacterBody3D
 class_name Enemy
 
+var target : CharacterBody3D = null
 var health : float
 var alive : bool = true
 
 @export var enemy_data : EnemyResource
 
-@export_category("References")
-@export var target : CharacterBody3D = null
+signal killed
 
+@export_category("References")
 @export var nav_agent: NavigationAgent3D
 @export var animation_player: AnimationPlayer
 var skeleton_3d: Skeleton3D
 
+@export_category("Drops")
+@export var drops_config : Array[DropsWithRate]
+
 func _ready() -> void:
+	seed(0)
 	health = enemy_data.MAX_HEALTH
 	skeleton_3d = get_node("Armature/Skeleton3D")
 	
@@ -56,4 +61,15 @@ func _take_dmg(dmg: float) -> void:
 		die()
 
 func die():
+	for elem in drops_config:
+		if randf() <= elem.rate:
+			var new_drop = elem.drop.instantiate()
+			get_parent().add_child(new_drop)
+			var spawn_transform = global_transform
+			spawn_transform.origin += Vector3(0, 1.5, 0)
+			new_drop.global_transform = spawn_transform
+			new_drop.apply_central_force(Vector3(0, 200, 0))
+	
+	killed.emit()
+	
 	queue_free()

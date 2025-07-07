@@ -2,10 +2,10 @@ extends CharacterBody3D
 
 const SPEED = 2.0
 const SPRINT_MOD = 1.3
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 3.8
 const SMOOTH_SPEED = 50.0
 const AIR_MANOVRABILITY := 20.0
-const AIR_STRAFE := 2.
+const AIR_SPEED_MOD := 2.
 
 # TODO: Move this
 const HEADSHOT_MOD := 2.5
@@ -97,6 +97,7 @@ func change_weapon(index: int) -> void:
 func _shoot(weapon: WeaponResource) -> void:
 	if aim_cast.is_colliding():
 		var bone = aim_cast.get_collider()
+		#print("Collided with: ", bone)
 		
 		if not bone is PhysicalBone3D:
 			printerr("Did not shoot a bone. Object shot is:\n", bone, bone.get_class())

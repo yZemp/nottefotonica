@@ -6,21 +6,19 @@ class_name Jump
 @export var move_state: MovementState
 @export var sprint_state: MovementState
 
-@export var jump_force: float = 4.0
-
 func enter(previous_state: MovementState, data: Dictionary = {}) -> void:
 	statename = "Jump"
 	super(previous_state, data)
-	parent.velocity.y = jump_force
+	parent.velocity.y = parent.JUMP_VELOCITY
 
 func process_physics(delta: float) -> void:
 	apply_gravity(delta)
 	
 	var movement = get_movement_direction()
 	
-	var air_speed : float = parent.SPEED * parent.AIR_STRAFE
+	var air_speed : float = parent.SPEED * parent.AIR_SPEED_MOD
 	if Input.is_action_pressed("sprint"):
-		air_speed = parent.SPEED * parent.SPRINT_MOD * parent.AIR_STRAFE
+		air_speed = parent.SPEED * parent.SPRINT_MOD * parent.AIR_SPEED_MOD
 	
 	parent.velocity.x += movement.x * parent.AIR_MANOVRABILITY * delta
 	parent.velocity.z += movement.z * parent.AIR_MANOVRABILITY * delta	

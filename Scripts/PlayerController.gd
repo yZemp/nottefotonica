@@ -23,6 +23,7 @@ const HEADSHOT_MOD := 2.5
 
 @export var player_weapon_inventory: Array[WeaponResource] = []
 var current_weapon_index: int = -1
+@export var inventory: Array[String]
 
 @export var max_health: int = 100
 @export var health: int

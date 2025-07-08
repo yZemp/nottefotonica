@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpldrl2nlskna"]
+[gd_scene load_steps=9 format=3 uid="uid://bpldrl2nlskna"]
 
 [ext_resource type="Script" uid="uid://dxe6fvy76ln73" path="res://Scripts/Drops/drop.gd" id="1_w8hce"]
 [ext_resource type="Material" uid="uid://bolovntxtjdgl" path="res://Scenes/Drops/drop_mat.tres" id="2_qyrgv"]
@@ -70,6 +70,10 @@ _data = {
 radius = 0.145704
 height = 0.491269
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_np4ux"]
+radius = 0.25
+height = 0.65
+
 [node name="Drop" type="RigidBody3D"]
 collision_layer = 16
 collision_mask = 7
@@ -92,3 +96,19 @@ autoplay = "Idle"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0889767, 0)
 shape = SubResource("CapsuleShape3D_qyrgv")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0940082, 0)
+shape = SubResource("CapsuleShape3D_np4ux")
+
+[node name="Despawn" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]

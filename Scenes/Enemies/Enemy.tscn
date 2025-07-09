@@ -1467,7 +1467,7 @@ height = 1.7
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 19
+collision_mask = 3
 script = ExtResource("1_ucmt6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

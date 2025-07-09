@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dpt3ryrvr84v0"]
+[gd_scene load_steps=37 format=3 uid="uid://dpt3ryrvr84v0"]
 
 [ext_resource type="Script" uid="uid://d0e2hclejp0te" path="res://addons/proton_scatter/src/scatter.gd" id="5_i38sg"]
 [ext_resource type="Script" uid="uid://ihuwlklr6gh5" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="6_ouokb"]
@@ -10,12 +10,9 @@
 [ext_resource type="Script" uid="uid://bt6f77133iyp4" path="res://addons/proton_scatter/src/scatter_item.gd" id="12_bm2wl"]
 [ext_resource type="Script" uid="uid://b4qclbyxuyaw1" path="res://addons/proton_scatter/src/modifiers/project_on_terrain3d.gd" id="12_f88yb"]
 [ext_resource type="Script" uid="uid://c6qsq5ujkvuvj" path="res://addons/proton_scatter/src/scatter_shape.gd" id="13_sxtbg"]
-[ext_resource type="Script" uid="uid://cmkyhtcudy2my" path="res://addons/proton_scatter/src/modifiers/create_along_edge_even.gd" id="14_khsom"]
 [ext_resource type="Script" uid="uid://b42odfvmhjcd" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="14_xxv3f"]
-[ext_resource type="Script" uid="uid://c4ruchm0ptiy3" path="res://addons/proton_scatter/src/modifiers/offset_rotation.gd" id="15_8pkmr"]
 [ext_resource type="PackedScene" uid="uid://bma0c0u3l3ucc" path="res://Scenes/player_controller.tscn" id="15_ouokb"]
 [ext_resource type="Script" uid="uid://cgy486tlfonqx" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="16_khsom"]
-[ext_resource type="Script" uid="uid://2dj7stofykrm" path="res://addons/proton_scatter/src/modifiers/offset_position.gd" id="16_txuut"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ouokb"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -215,67 +212,6 @@ script = ExtResource("16_khsom")
 radius = 20.0
 metadata/_custom_type_script = "uid://cgy486tlfonqx"
 
-[sub_resource type="Resource" id="Resource_bve3y"]
-script = ExtResource("14_khsom")
-spacing = 2.7
-offset = 0.0
-align_to_path = true
-align_up_axis = Vector3(0, 1, 0)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_4ot34"]
-script = ExtResource("12_f88yb")
-terrain_node = NodePath("../Terrain3D")
-align_with_collision_normal = false
-max_slope = 90.0
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_e52uh"]
-script = ExtResource("15_8pkmr")
-operation = 0
-rotation = Vector3(0, 90, 0)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_3ib8x"]
-script = ExtResource("16_txuut")
-operation = 0
-position = Vector3(0, 0.7, 0)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_fhu8h"]
-script = ExtResource("6_ouokb")
-stack = Array[ExtResource("7_khsom")]([SubResource("Resource_bve3y"), SubResource("Resource_4ot34"), SubResource("Resource_e52uh"), SubResource("Resource_3ib8x")])
-
-[sub_resource type="Curve3D" id="Curve3D_khsom"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.08573, 7.15256e-07, 28.0392, 0, 0, 0, 0, 0, 0, 3.45646, 7.15256e-07, 24.5507, 0, 0, 0, 0, 0, 0, 5.42038, 7.15256e-07, 19.9512, 0, 0, 0, 0, 0, 0, 6.73828, 7.15256e-07, 14.5574, 0, 0, 0, 0, 0, 0, 6.10922, 7.15256e-07, 10.1198, 0, 0, 0, 0, 0, 0, 5.79353, 7.15256e-07, 5.12676, 0, 0, 0, 0, 0, 0, 6.40859, 7.15256e-07, -0.792314, 0, 0, 0, 0, 0, 0, 8.15368, 7.15256e-07, -7.06064),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 8
-
-[sub_resource type="Resource" id="Resource_17vyh"]
-script = ExtResource("14_xxv3f")
-closed = false
-thickness = 0.0
-curve = SubResource("Curve3D_khsom")
-metadata/_custom_type_script = "uid://b42odfvmhjcd"
-
 [node name="Tmp" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -300,6 +236,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64317, 6.2466, 7.24628)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5531, 4.30431, 0)
 script = ExtResource("5_i38sg")
 render_mode = 1
+force_rebuild_on_load = false
 modifier_stack = SubResource("Resource_v8ext")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
@@ -317,6 +254,7 @@ shape = SubResource("Resource_eotk3")
 
 [node name="ProtonScatter2" type="Node3D" parent="."]
 script = ExtResource("5_i38sg")
+force_rebuild_on_load = false
 modifier_stack = SubResource("Resource_kw5mq")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
@@ -332,21 +270,3 @@ path = "uid://ckv4jg8s4pado"
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 12.4755, -19.9416)
 script = ExtResource("13_sxtbg")
 shape = SubResource("Resource_cvfyk")
-
-[node name="ProtonScatter3" type="Node3D" parent="."]
-script = ExtResource("5_i38sg")
-keep_static_colliders = true
-modifier_stack = SubResource("Resource_fhu8h")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-metadata/_custom_type_script = "uid://d0e2hclejp0te"
-
-[node name="ScatterItem" type="Node3D" parent="ProtonScatter3"]
-script = ExtResource("12_bm2wl")
-source_scale_multiplier = 0.01
-path = "uid://bni2eiad0uhrw"
-
-[node name="ScatterShape" type="Node3D" parent="ProtonScatter3"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.57067, 2.37968, 11.0828)
-script = ExtResource("13_sxtbg")
-shape = SubResource("Resource_17vyh")

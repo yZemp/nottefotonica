@@ -11,7 +11,7 @@ var spawned_player: Node = null
 
 func init(player_parent: Node) -> void:
 	spawn_player(player_parent)
-	trigger_and_spawner.spawn_enemy.connect(_spawn_enemy)
+	trigger_and_spawner.init(spawned_player, self)
 
 func spawn_player(player_parent: Node) -> void:
 	if spawned_player:
@@ -26,7 +26,7 @@ func spawn_player(player_parent: Node) -> void:
 	else:
 		print("Error: No scene found to be spawned")
 
-func _spawn_enemy(spawn_location: Node3D, enemy_scene: PackedScene) -> void:
+func _spawn_enemy(spawn_location: Transform3D, enemy_scene: PackedScene) -> void:
 	'''
 	Spawn one instance of a specific enemy at a specified position
 	''' 
@@ -35,7 +35,7 @@ func _spawn_enemy(spawn_location: Node3D, enemy_scene: PackedScene) -> void:
 	new_enemy.killed.connect(open_gate)
 	new_enemy._change_target(spawned_player)
 	add_child(new_enemy)
-	new_enemy.global_transform = spawn_location.global_transform
+	new_enemy.global_transform = spawn_location
 	#print("Spawned enemy with data:", new_enemy.enemy_data)
 
 func open_gate() -> void:

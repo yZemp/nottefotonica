@@ -2,18 +2,18 @@ extends Node3D
 
 @export var playable_levels: Array[PackedScene]
 @export var main_menu: PackedScene
+@export var loading_screen: PackedScene
 @onready var pause_menu: CanvasLayer = $PauseMenu
 
 @onready var level_container: Node = $LevelContainer
 var current_level: Node = null
 
-var fullscreen : bool
+@export var fullscreen : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pause_menu.hide()
 	load_main_menu()
-	fullscreen = true
 	set_fullscreen(fullscreen)
 	
 	pause_menu.back_to_menu.connect(load_main_menu)
@@ -50,9 +50,17 @@ func load_level(level_index: int) -> void:
 		current_level.queue_free()
 		current_level = null
 	
-	current_level = playable_levels[level_index].instantiate()
-	level_container.add_child(current_level)
-	current_level.init(current_level)
+	var loading_screen_instance = loading_screen.instantiate()
+	level_container.add_child(loading_screen_instance)
+	
+	loading_screen_instance.start_loading_level(playable_levels[level_index])
+	if loading_screen_instance.has_signal("level_loaded"):
+		loading_screen_instance.level_loaded.connect(on_level_loaded)
+
+func on_level_loaded(loaded_level: Node) -> void:
+	print("Level loaded and ready!")
+	current_level = loaded_level
+	current_level.init(self)
 
 func on_start_playing(lvl_indx: int) -> void:
 	print("Loading level (by index): ", lvl_indx)

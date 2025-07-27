@@ -10,8 +10,8 @@ const AIR_SPEED_MOD := 2.
 # TODO: Move this
 const HEADSHOT_MOD := 2.5
 
-@export var sense_horizontal : float = 10.
-@export var sense_vertical : float = 10.
+@export var sense_horizontal : float = 5.
+@export var sense_vertical : float = 5.
 @onready var camera_mount: Node3D = $CameraMount
 @onready var camera_3d: Camera3D = $CameraMount/Camera3D
 @onready var hand_mount: Node3D = $CameraMount/Camera3D/HandMount

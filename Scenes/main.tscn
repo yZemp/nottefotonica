@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bauytk0i4vaka"]
 
 [ext_resource type="Script" uid="uid://dor5vu0rn4e0q" path="res://Scripts/main.gd" id="1_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://bo2iliyeinuu8" path="res://Scenes/Level_1.tscn" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dpf868j0aixt1" path="res://Scenes/GUI/main_menu.tscn" id="3_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bogpcni32mtcc" path="res://Scenes/Levels/level_1.tscn" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cx6j5us2pjd03" path="res://Scenes/GUI/pause_menu.tscn" id="4_6bp64"]
 [ext_resource type="PackedScene" uid="uid://ymnkufv3pqm5" path="res://Scenes/GUI/loading_screen.tscn" id="4_kry3j"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jjvhh")
-playable_levels = Array[PackedScene]([ExtResource("2_kry3j")])
+playable_levels = Array[PackedScene]([ExtResource("3_21xkr"), ExtResource("3_kry3j")])
 main_menu = ExtResource("3_21xkr")
 loading_screen = ExtResource("4_kry3j")
 

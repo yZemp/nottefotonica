@@ -10,14 +10,20 @@ var current_level: Node = null
 
 @export var fullscreen : bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	'''
+	Init main game object:
+		-Hide pause menu
+		-Connect signals from pause menu
+		-Set fullscreen (on by def)
+		-Load main menu level
+	'''
 	pause_menu.hide()
-	load_main_menu()
+	pause_menu.back_to_menu.connect(load_level.bind(0))
 	set_fullscreen(fullscreen)
-	
-	pause_menu.back_to_menu.connect(load_main_menu)
-	
+	load_level(0)
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and get_tree().paused == false:
 		pause_menu.pause()
@@ -26,21 +32,7 @@ func _process(_delta: float) -> void:
 		fullscreen = !fullscreen
 		set_fullscreen(fullscreen)
 
-func load_main_menu() -> void:
-	print("Loading menu")
-	
-	if current_level:
-		current_level.queue_free()
-		current_level = null
-		
-	var menu_instance = main_menu.instantiate()
-	level_container.add_child(menu_instance)
-	current_level = menu_instance
-	
-	# Connetti il segnale start_playing del menu
-	if menu_instance.has_signal("start_playing"):
-		menu_instance.start_playing.connect(on_start_playing)
-	
+
 func load_level(level_index: int) -> void:
 	if level_index < 0 or level_index >= playable_levels.size():
 		printerr("Level not found")
@@ -57,15 +49,19 @@ func load_level(level_index: int) -> void:
 	if loading_screen_instance.has_signal("level_loaded"):
 		loading_screen_instance.level_loaded.connect(on_level_loaded)
 
+
 func on_level_loaded(loaded_level: Node) -> void:
 	print("Level loaded and ready!")
 	current_level = loaded_level
-	current_level.init(self)
+	if "init" in current_level:
+		current_level.init(self)
+
 
 func on_start_playing(lvl_indx: int) -> void:
 	print("Loading level (by index): ", lvl_indx)
 	load_level(lvl_indx)
-	
+
+
 func set_fullscreen(condition: bool):
 	if condition:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

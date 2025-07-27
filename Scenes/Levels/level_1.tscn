@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bogpcni32mtcc"]
+
+[ext_resource type="Script" uid="uid://bplwjip6uxn8s" path="res://Scenes/Levels/level_1.gd" id="1_4dpyx"]
+[ext_resource type="PackedScene" uid="uid://bo2iliyeinuu8" path="res://Scenes/map_1.tscn" id="1_tlcug"]
+[ext_resource type="PackedScene" uid="uid://dsfe4yb2brq86" path="res://Scenes/wave_manager.tscn" id="3_3mqfk"]
+
+[node name="Level_1" type="Node3D"]
+script = ExtResource("1_4dpyx")
+
+[node name="MapContainer" type="Node3D" parent="."]
+
+[node name="Map_1" parent="MapContainer" instance=ExtResource("1_tlcug")]
+
+[node name="WaveManager" parent="." instance=ExtResource("3_3mqfk")]

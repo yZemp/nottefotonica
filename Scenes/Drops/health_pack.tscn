@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://chqwy43obegic"]
+
+[ext_resource type="PackedScene" uid="uid://bpldrl2nlskna" path="res://Scenes/Drops/drop.tscn" id="1_5vkuk"]
+[ext_resource type="Script" uid="uid://cun78byqgg880" path="res://Scripts/Drops/health_pack.gd" id="2_nyegd"]
+
+[node name="HealthPack" instance=ExtResource("1_5vkuk")]
+script = ExtResource("2_nyegd")
+heal_amount = 20.0

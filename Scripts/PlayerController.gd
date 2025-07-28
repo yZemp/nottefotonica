@@ -23,7 +23,7 @@ const HEADSHOT_MOD := 2.5
 
 @export var player_weapon_inventory: Array[WeaponResource] = []
 var current_weapon_index: int = -1
-@export var inventory: Array[String]
+@export var player_mods: Array[String]
 
 @export var max_health: int = 100
 @export var health: int
@@ -117,7 +117,14 @@ func _shoot(weapon: WeaponResource) -> void:
 func take_damage(dmg) -> void:
 	health -= dmg
 	hud.damage_graphics()
-	
+
+
+func take_healing(heal) -> void:
+	health += heal
+	if health > 100:
+		health = 100
+
+
 func die() -> void:
 	#print("EHHEHEHE dead")
 	pass

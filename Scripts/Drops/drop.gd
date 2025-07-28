@@ -9,8 +9,12 @@ func _ready() -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	#Add drop to player inventory
+	custom_function(body)
 	queue_free()
 
 func _on_despawn_timeout() -> void:
 	queue_free()
+
+func custom_function(body: Node3D) -> void:
+#	Do a specific effect
+	pass

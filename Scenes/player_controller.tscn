@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c84b0cg0c1rf" path="res://Scripts/StateMachines/Movement/movement_state_machine.gd" id="2_5ur5x"]
 [ext_resource type="Script" uid="uid://dtii5yrxat2l" path="res://Scripts/Weapons/weapon_resource.gd" id="2_qugqj"]
 [ext_resource type="Script" uid="uid://funull4sp1p6" path="res://Scripts/StateMachines/Movement/idle_movement.gd" id="3_dl1v4"]
-[ext_resource type="PackedScene" uid="uid://66yrtu7bixaj" path="res://Scenes/GameWeapon.tscn" id="3_raf36"]
+[ext_resource type="PackedScene" uid="uid://66yrtu7bixaj" path="res://Scenes/game_weapon.tscn" id="3_raf36"]
 [ext_resource type="Script" uid="uid://dbwadn1is1tvv" path="res://Scripts/StateMachines/Movement/walk.gd" id="4_bnokr"]
 [ext_resource type="Script" uid="uid://5pxsprohoj40" path="res://Scripts/StateMachines/Movement/jump.gd" id="5_1esxm"]
 [ext_resource type="Resource" uid="uid://ctel44jt3ocd7" path="res://Scripts/Weapons/assault.tres" id="5_msn00"]

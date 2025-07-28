@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
-WeaponManager="*res://Scenes/WeaponManager.tscn"
+WeaponManager="*res://Scenes/weapon_manager.tscn"
 
 [display]
 

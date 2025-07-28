@@ -62,12 +62,11 @@ func _on_enemy_killed_internal(wave_id: String) -> void:
 
 func _on_all_enemies_defeated(wave_id: String) -> void:
 	print("All enemies for wave '" + wave_id + "' have been killed. Ending wave.")
-	# Here you can activate map effects based on the wave ID
-	# For example, if wave_id is "wave_1_east_gate"
-	if wave_id == "wave_1": # Example: handle gate opening for a specific wave
+	# Handle wave ending effect
+	if wave_id == "wave_1":
 		open_gate()
-	# else if wave_id == "another_wave":
-	#     open_another_gate()
+	if wave_id == "wave_2":
+		print("Finished wave 2")
 
 
 func open_gate() -> void:

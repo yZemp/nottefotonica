@@ -8,7 +8,7 @@ extends Node3D
 @onready var level_container: Node = $LevelContainer
 var current_level: Node = null
 
-@export var fullscreen : bool = false
+@export var fullscreen : bool = true
 
 func _ready() -> void:
 	'''

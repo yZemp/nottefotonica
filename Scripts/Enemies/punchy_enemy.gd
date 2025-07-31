@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	
 	if is_on_floor():
+		#print("Enemy on floor, processing physics")
 		if can_hit and global_position.distance_to(target.global_position) < enemy_data.TARGETING_DISTANCE:
 			nav_agent.set_target_position(target.global_transform.origin)
 			var next_nav_point = nav_agent.get_next_path_position()

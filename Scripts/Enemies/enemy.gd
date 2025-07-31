@@ -10,9 +10,13 @@ class_name Enemy
 signal killed
 
 @export_category("References")
-@export var nav_agent: NavigationAgent3D
-@export var animation_player: AnimationPlayer
-@export var skeleton_3d: Skeleton3D
+#@export var nav_agent: NavigationAgent3D
+#@export var animation_player: AnimationPlayer
+#@export var skeleton_3d: Skeleton3D
+@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
+@onready var skeleton: Skeleton3D = %GeneralSkeleton
+
 
 @export_category("Drops")
 @export var drops_config : Array[DropsWithRate]

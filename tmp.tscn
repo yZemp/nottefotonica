@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bt6f77133iyp4" path="res://addons/proton_scatter/src/scatter_item.gd" id="12_bm2wl"]
 [ext_resource type="Script" uid="uid://b4qclbyxuyaw1" path="res://addons/proton_scatter/src/modifiers/project_on_terrain3d.gd" id="12_f88yb"]
 [ext_resource type="Script" uid="uid://c6qsq5ujkvuvj" path="res://addons/proton_scatter/src/scatter_shape.gd" id="13_sxtbg"]
-[ext_resource type="PackedScene" uid="uid://bhocearp06n3j" path="res://Scenes/Enemies/BBv3.tscn" id="14_i38sg"]
+[ext_resource type="PackedScene" uid="uid://krajtve2tudw" path="res://Scenes/Enemies/BBv4.tscn" id="14_i38sg"]
 [ext_resource type="Script" uid="uid://b42odfvmhjcd" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="14_xxv3f"]
 [ext_resource type="PackedScene" uid="uid://bma0c0u3l3ucc" path="res://Scenes/player_controller.tscn" id="15_ouokb"]
 [ext_resource type="Script" uid="uid://cgy486tlfonqx" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="16_khsom"]
@@ -272,6 +272,6 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 12.47
 script = ExtResource("13_sxtbg")
 shape = SubResource("Resource_cvfyk")
 
-[node name="BBv3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_i38sg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7517, 6.06606, 4.14716)
+[node name="Test" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_i38sg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9487, 5.27429, 5.68239)
 target = NodePath("../PlayerController")

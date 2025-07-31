@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://bo2iliyeinuu8"]
+[gd_scene load_steps=114 format=3 uid="uid://bo2iliyeinuu8"]
 
 [ext_resource type="Texture2D" uid="uid://blwtjqh21tayv" path="res://Assets/Textures/Ground/packed_albedo_height.png" id="1_7p6j4"]
 [ext_resource type="Script" uid="uid://cb3dv3ta2bwtx" path="res://Scripts/map_1.gd" id="1_akpl7"]
@@ -20,19 +20,18 @@
 [ext_resource type="Script" uid="uid://bt6f77133iyp4" path="res://addons/proton_scatter/src/scatter_item.gd" id="19_06qqj"]
 [ext_resource type="PackedScene" uid="uid://h10jient7ms0" path="res://Assets/GLBScenes/Trees/tree_1.tscn" id="19_u54d8"]
 [ext_resource type="Script" uid="uid://c6qsq5ujkvuvj" path="res://addons/proton_scatter/src/scatter_shape.gd" id="20_al3q1"]
-[ext_resource type="Script" uid="uid://cmkyhtcudy2my" path="res://addons/proton_scatter/src/modifiers/create_along_edge_even.gd" id="21_7u0mb"]
 [ext_resource type="Script" uid="uid://cpbfcqul5j8l5" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="21_u54d8"]
 [ext_resource type="PackedScene" uid="uid://dr1guk8gbsqam" path="res://Assets/GLBScenes/Towers/tower.tscn" id="22_5q0ay"]
 [ext_resource type="Script" uid="uid://c4ruchm0ptiy3" path="res://addons/proton_scatter/src/modifiers/offset_rotation.gd" id="22_yj11n"]
 [ext_resource type="PackedScene" uid="uid://louaf45h4lry" path="res://Scenes/enemy_spawn_point.tscn" id="23_baca3"]
 [ext_resource type="PackedScene" uid="uid://dbef5mepv1rnt" path="res://Assets/GLBScenes/Wall/wall.tscn" id="23_e7hni"]
 [ext_resource type="Script" uid="uid://2dj7stofykrm" path="res://addons/proton_scatter/src/modifiers/offset_position.gd" id="23_fwilu"]
-[ext_resource type="Script" uid="uid://b42odfvmhjcd" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="24_8kuxf"]
 [ext_resource type="PackedScene" uid="uid://cxo7i6j5sbp45" path="res://Assets/GLBScenes/Campfire/campfire.tscn" id="25_yj11n"]
 [ext_resource type="Script" uid="uid://cyp2fb5i41d4e" path="res://addons/proton_scatter/src/modifiers/offset_scale.gd" id="26_u54d8"]
 [ext_resource type="Script" uid="uid://cocgv0gqu22ul" path="res://addons/proton_scatter/src/modifiers/randomize_rotation.gd" id="27_le8o3"]
 [ext_resource type="PackedScene" uid="uid://b7v88qnknqthv" path="res://Assets/GLBScenes/Log/log.tscn" id="28_06qqj"]
 [ext_resource type="PackedScene" uid="uid://bylcvy0yrbj7j" path="res://Scenes/gate.tscn" id="29_al3q1"]
+[ext_resource type="PackedScene" uid="uid://cwjdqij6uk772" path="res://Assets/GLBScenes/Fence/fence.tscn" id="29_csfc1"]
 [ext_resource type="PackedScene" uid="uid://bhocearp06n3j" path="res://Scenes/Enemies/BBv3.tscn" id="33_v6t7w"]
 [ext_resource type="PackedScene" uid="uid://dhlb625v3l704" path="res://Scenes/Enemies/EB.tscn" id="34_mpvjg"]
 
@@ -500,79 +499,6 @@ ambient_light_color = Color(0.364581, 0.546341, 0.779737, 1)
 glow_enabled = true
 glow_blend_mode = 1
 
-[sub_resource type="Resource" id="Resource_tylbk"]
-script = ExtResource("21_7u0mb")
-spacing = 2.7
-offset = 0.0
-align_to_path = true
-align_up_axis = Vector3(0, 1, 0)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_s12ma"]
-script = ExtResource("18_qkon5")
-terrain_node = NodePath("../NavigationRegion3D/Terrain3D")
-align_with_collision_normal = false
-max_slope = 90.0
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_70151"]
-script = ExtResource("22_yj11n")
-operation = 0
-rotation = Vector3(0, 90, 0)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_8lhtg"]
-script = ExtResource("23_fwilu")
-operation = 0
-position = Vector3(0, 0.8, 0)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_0d8ds"]
-script = ExtResource("13_n6kdx")
-stack = Array[ExtResource("14_vty50")]([SubResource("Resource_tylbk"), SubResource("Resource_s12ma"), SubResource("Resource_70151"), SubResource("Resource_8lhtg")])
-
-[sub_resource type="Curve3D" id="Curve3D_al3q1"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.28016, 0, 13.5629, 0, 0, 0, 0, 0, 0, -0.169106, 0, 9.51325, 0, 0, 0, 0, 0, 0, 2.6194, 0, 5.29404),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
-[sub_resource type="Resource" id="Resource_uavm5"]
-script = ExtResource("24_8kuxf")
-closed = false
-thickness = 0.0
-curve = SubResource("Curve3D_al3q1")
-
-[sub_resource type="Curve3D" id="Curve3D_u54d8"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.89892, 0, -4.85094, 0, 0, 0, 0, 0, 0, 7.26806, 0, -1.23992, 0, 0, 0, 0, 0, 0, 4.38856, 0, 3.06658),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
-[sub_resource type="Resource" id="Resource_5miit"]
-script = ExtResource("24_8kuxf")
-closed = false
-thickness = 0.0
-curve = SubResource("Curve3D_u54d8")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kuxf"]
 size = Vector3(22.185, 0.78241, 13.638)
 
@@ -771,6 +697,7 @@ metadata/_edit_lock_ = true
 script = ExtResource("12_qkon5")
 show_output_in_tree = true
 render_mode = 1
+keep_static_colliders = true
 force_rebuild_on_load = false
 modifier_stack = SubResource("Resource_4w1ui")
 Performance/use_chunks = true
@@ -1112,6 +1039,32 @@ transform = Transform3D(0.0729322, 0.290971, 0.00406253, -2.14042e-10, 0.0041881
 [node name="tower" parent="NavigationRegion3D" instance=ExtResource("22_5q0ay")]
 transform = Transform3D(-0.0157369, 0, -0.249504, 0, 0.25, 0, 0.249504, 0, -0.0157369, -143.748, 10.2826, -80.1727)
 
+[node name="Fence" type="Node" parent="NavigationRegion3D"]
+
+[node name="Node3D" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(-0.669759, 0, -0.995702, 0, 1.2, 0, 0.995702, 0, -0.669759, -78.7822, 3.64125, -124.198)
+
+[node name="Node3D2" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(-0.691974, -8.24898e-07, -0.980394, -1.43051e-06, 1.2, 0, 0.980394, 1.16872e-06, -0.691974, -75.9215, 3.62453, -128.298)
+
+[node name="Node3D3" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(0.502359, 5.98859e-07, 1.08979, -1.43051e-06, 1.2, 1.36424e-13, -1.08979, -1.29913e-06, 0.502359, -87.1597, 3.71761, -111.01)
+
+[node name="Node3D4" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(0.50236, 0, 1.08979, 0, 1.2, 0, -1.08979, 0, 0.50236, -86.1131, 3.60688, -113.281)
+
+[node name="Node3D5" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(0.656723, 0, 1.00435, 0, 1.2, 0, -1.00435, 0, 0.656723, -83.5521, 3.58695, -117.562)
+
+[node name="Node3D6" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(0.656726, 7.82879e-07, 1.00435, -1.43051e-06, 1.2, 0, -1.00435, -1.19728e-06, 0.656726, -84.9203, 3.60151, -115.47)
+
+[node name="Node3D7" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(-0.691974, 0, -0.980394, 0, 1.2, 0, 0.980394, 0, -0.691974, -77.3631, 3.63048, -126.256)
+
+[node name="Node3D8" type="StaticBody3D" parent="NavigationRegion3D/Fence" instance=ExtResource("29_csfc1")]
+transform = Transform3D(-0.669758, 0, -0.995703, 0, 1.2, 0, 0.995703, 0, -0.669758, -80.1775, 3.64635, -122.123)
+
 [node name="Walls" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(-0.0282693, 0, -0.095921, 0, 0.1, 0, 0.095921, 0, -0.0282693, -150.904, 2.25202, -49.9134)
 
@@ -1135,29 +1088,6 @@ environment = SubResource("Environment_pawq8")
 
 [node name="PlayerSpawner" type="Marker3D" parent="."]
 transform = Transform3D(-0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808, -24.0647, 3.78325, -90.4718)
-
-[node name="Fence" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.7615, 0.0741673, -134.681)
-script = ExtResource("12_qkon5")
-modifier_stack = SubResource("Resource_0d8ds")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-metadata/_custom_type_script = "uid://d0e2hclejp0te"
-
-[node name="ScatterItem" type="Node3D" parent="Fence"]
-script = ExtResource("19_06qqj")
-source_scale_multiplier = 0.01
-path = "uid://emq0c7bmpi4o"
-
-[node name="ScatterShape" type="Node3D" parent="Fence"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.38829, 3.03829, 10.649)
-script = ExtResource("20_al3q1")
-shape = SubResource("Resource_uavm5")
-
-[node name="ScatterShape2" type="Node3D" parent="Fence"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.38829, 3.03829, 10.649)
-script = ExtResource("20_al3q1")
-shape = SubResource("Resource_5miit")
 
 [node name="Separator" type="StaticBody3D" parent="."]
 transform = Transform3D(0.9968, 0, 0.079938, 0, 1, 0, -0.079938, 0, 0.9968, -83.6562, 4.65188, -122.053)

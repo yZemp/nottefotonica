@@ -29,6 +29,8 @@ func _physics_process(delta: float) -> void:
 			velocity = (next_nav_point - global_transform.origin).normalized() * enemy_data.WALK_SPEED
 			_face_player(delta)
 		else:
+			nav_agent.set_target_position(global_transform.origin)
+			animation_player.play("punchy_anim_lib/Idle")
 			velocity.x = 0.0
 			velocity.z = 0.0
 			_face_player(delta, (target.global_transform.origin - global_transform.origin).normalized())

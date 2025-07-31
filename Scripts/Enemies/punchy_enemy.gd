@@ -3,13 +3,12 @@ class_name PunchyEnemy
 
 var can_hit := true
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	# Overwritten entirely
 	#print("Processing: ", alive, "\n", enemy_data.TARGETING_DISTANCE)
 	
@@ -17,11 +16,10 @@ func _process(delta: float) -> void:
 		return
 	
 	if can_hit and global_position.distance_to(target.global_position) < enemy_data.TARGETING_DISTANCE:
-		animation_player.play("Run")
-		animation_player.get_animation("Run").loop_mode = (Animation.LOOP_LINEAR)
+		animation_player.play("punchy_anim_lib/Run")
+
 
 func _physics_process(delta: float) -> void:
-	
 	super(delta)
 	
 	if is_on_floor():
@@ -52,7 +50,12 @@ func _is_target_in_range():
 
 func punch() -> void:
 	can_hit = false
-	animation_player.play("Punch")
+	animation_player.play("punchy_anim_lib/Punch1")
 	
+	await get_tree().create_timer(enemy_data.TIME_TO_DAMAGE).timeout
+	_deal_damage()
+	await animation_player.animation_finished
+	_hit_finished()
+
 func _hit_finished() -> void:
 	can_hit = true

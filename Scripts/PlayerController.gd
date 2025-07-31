@@ -98,14 +98,14 @@ func change_weapon(index: int) -> void:
 func _shoot(weapon: WeaponResource) -> void:
 	if aim_cast.is_colliding():
 		var bone = aim_cast.get_collider()
-		#print("Collided with: ", bone)
+		print("Collided with: ", bone)
 		
 		if not bone is PhysicalBone3D:
 			printerr("Did not shoot a bone. Object shot is:\n", bone, bone.get_class())
 		
 		var dmg = weapon.base_dmg
 		
-		if bone.name == "Physical Bone mixamorig1_Head":
+		if bone.name == "Physical Bone Head":
 			dmg = weapon.base_dmg * HEADSHOT_MOD
 		
 		var shot_enemy = _get_enemy_from_bone(bone)

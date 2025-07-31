@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PunchyEnemyResource" load_steps=2 format=3 uid="uid://b2g0eomotc38v"]
+
+[ext_resource type="Script" uid="uid://ddbp6dgj2jogp" path="res://Scripts/Enemies/punchy_enemy_resource.gd" id="1_ngec5"]
+
+[resource]
+script = ExtResource("1_ngec5")
+RANGE = 2.0
+RANGE_HIT_MOD = 1.5
+TARGETING_DISTANCE = 20.0
+TIME_TO_DAMAGE = 0.6
+WALK_SPEED = 3.0
+MAX_HEALTH = 70.0
+BASE_DMG = 12.0
+metadata/_custom_type_script = "uid://ddbp6dgj2jogp"

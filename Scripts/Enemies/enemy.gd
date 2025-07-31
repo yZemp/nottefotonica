@@ -1,9 +1,9 @@
 extends CharacterBody3D
 class_name Enemy
 
-var target : CharacterBody3D = null
-var health : float
-var alive : bool = true
+@export var target : CharacterBody3D = null
+@export var health : float
+@export var alive : bool = true
 
 @export var enemy_data : EnemyResource
 
@@ -12,16 +12,18 @@ signal killed
 @export_category("References")
 @export var nav_agent: NavigationAgent3D
 @export var animation_player: AnimationPlayer
-var skeleton_3d: Skeleton3D
+@export var skeleton_3d: Skeleton3D
 
 @export_category("Drops")
 @export var drops_config : Array[DropsWithRate]
 
 func _ready() -> void:
-	seed(0)
+	#print("Enemy ready")
 	health = enemy_data.MAX_HEALTH
-	skeleton_3d = get_node("Armature/Skeleton3D")
 	
+	animation_player.play("punchy_anim_lib/Idle")
+
+
 func _change_target(trgt : CharacterBody3D) -> void:
 	target = trgt
 	
@@ -31,7 +33,7 @@ func _process(_delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	if not target:
-		#printerr("Target not set!")
+		printerr("Target not set!")
 		return
 		
 	if not is_on_floor():
@@ -55,6 +57,7 @@ func _face_player(delta: float, look_direction: Vector3 = Vector3.ZERO) -> void:
 	rotation.y = lerp_angle(rotation.y, atan2(-target_direction.x, -target_direction.z), delta * 10.0)
 
 func _take_dmg(dmg: float) -> void:
+	print("Taking damage (%d)" % dmg)
 	health -= dmg
 	
 	if health <= 0.0:

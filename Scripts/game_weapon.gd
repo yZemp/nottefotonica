@@ -7,7 +7,7 @@ var weapon_data: WeaponResource
 var animation_player: AnimationPlayer
 
 signal fired
-signal reloaded
+#signal reloaded
 #signal out_of_ammo
 
 # Internal state

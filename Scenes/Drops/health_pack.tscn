@@ -6,3 +6,13 @@
 [node name="HealthPack" instance=ExtResource("1_5vkuk")]
 script = ExtResource("2_nyegd")
 heal_amount = 20.0
+
+[node name="Cube2" parent="." index="4"]
+transform = Transform3D(-0.000369413, -0.141351, -0.14149, 0.000153071, 0.141491, -0.141351, 0.2, -0.000369375, -0.000153158, 0, 0, 0)
+
+[node name="Despawn" type="Timer" parent="." index="5"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]

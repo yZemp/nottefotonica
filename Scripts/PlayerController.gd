@@ -148,3 +148,7 @@ func _get_enemy_from_bone(bone: PhysicalBone3D):
 			return current_node
 		current_node = current_node.get_parent()
 	return null
+
+func _add_weapon_to_inventory(new_weapon: WeaponResource):
+	player_weapon_inventory.append(new_weapon)
+	print("Weapon equipped:\t", new_weapon.name)

@@ -5,3 +5,6 @@ extends "res://Scripts/Drops/drop.gd"
 func custom_function(body: Node3D):
 	if "take_healing" in body:
 		body.take_healing(heal_amount)
+
+func _on_despawn_timeout() -> void:
+	queue_free()

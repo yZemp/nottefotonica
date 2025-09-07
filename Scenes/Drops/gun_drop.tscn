@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c76rxgve4mtk8"]
+
+[ext_resource type="PackedScene" uid="uid://bpldrl2nlskna" path="res://Scenes/Drops/drop.tscn" id="1_jbc4x"]
+[ext_resource type="Script" uid="uid://werurx3pauvu" path="res://Scripts/Drops/gun_drop.gd" id="2_cqhat"]
+
+[node name="GunDrop" instance=ExtResource("1_jbc4x")]
+script = ExtResource("2_cqhat")
+weapon_drop = null
+
+[node name="Cube2" parent="." index="5"]
+transform = Transform3D(0.00378553, 0.141586, 0.141206, 0.000266409, 0.141228, -0.141614, -0.199964, 0.00286853, 0.0024845, 0, 0, 0)
